@@ -31,7 +31,7 @@ final class Response extends Stream
 
     final public function __construct() {
         $this->setType(self::TYPE_RESPONSE);
-        $this->setHttpVersion('1.0');
+        $this->setHttpVersion(self::HTTP_VERSION);
     }
 
     final public function setStatus(string $status): self

@@ -11,11 +11,12 @@ final class Request extends Stream
           METHOD_DELETE = 'DELETE';
 
     private $method;
-    private $uri, $uriParams = array();
+    private $uri;
+    private $uriParams = array();
 
     final public function __construct() {
         $this->setType(self::TYPE_REQUEST);
-        $this->setHttpVersion('1.0');
+        $this->setHttpVersion(self::HTTP_VERSION);
     }
 
     final public function setMethod(string $method): self
