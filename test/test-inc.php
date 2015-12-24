@@ -3,7 +3,8 @@ header('content-type: text/plain; charset=utf-8');
 
 // dump functions
 function pre($input, $exit = false){
-    printf("%s\n", print_r($input, true));
+    printf("%s\n", preg_replace(
+        '~\[(.+):(?:.*?):(private)\]~', '[\\1:\\2]', print_r($input, true)));
     if ($exit) {
         exit;
     }
