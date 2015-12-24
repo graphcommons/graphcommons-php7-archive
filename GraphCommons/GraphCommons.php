@@ -8,10 +8,8 @@ final class GraphCommons
     private $client;
     private $apiKey;
 
-    final public function __construct(Client $client = null, string $apiKey = '') {
-        if ($client == null) {
-            $client = new Client();
-        }
+    final public function __construct(string $apiKey = '', array $config = []) {
+        $client = new Client();
         $this->setClient($client);
         $this->setApiKey($apiKey);
     }

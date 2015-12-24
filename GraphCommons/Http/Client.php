@@ -9,9 +9,16 @@ final class Client
     private $request;
     private $response;
 
-    final public function __construct() {
+    private $config = array(
+        'blocking' => true,
+        'timeout_read' => 5,
+        'timeout_connection' => 5,
+    );
+
+    final public function __construct(array $config = []) {
         $this->request = new Request();
         $this->response = new Response();
+        $this->config = array_merge($this->config, $config);
     }
 
     final public function getRequest(): Request
