@@ -1,9 +1,9 @@
 <?php
-namespace Graphcommons\Http;
+namespace GraphCommons\Http;
 
 final class Response extends Stream
 {
-    const STATUS = array(
+    const STATUSES = array(
         400 => 'Bad Request',
         401 => 'Unauthorized',
         403 => 'Forbidden',
@@ -15,16 +15,16 @@ final class Response extends Stream
         500 => 'Internal Server Error',
         503 => 'Service Unavailable',
     );
-    const BAD_REQUEST = 400,
-          UNAUTHORIZED = 401,
-          FORBIDDEN = 403,
-          NOT_FOUND = 404,
-          METHOD_NOT_ALLOWED = 405,
-          NOT_ACCEPTABLE = 406,
-          GONE = 410,
-          TOO_MANY_REQUESTS = 429,
-          INTERNAL_SERVER_ERROR = 500,
-          SERVICE_UNAVAILABLE = 503;
+    const STATUS_BAD_REQUEST = 400,
+          STATUS_UNAUTHORIZED = 401,
+          STATUS_FORBIDDEN = 403,
+          STATUS_NOT_FOUND = 404,
+          STATUS_METHOD_NOT_ALLOWED = 405,
+          STATUS_NOT_ACCEPTABLE = 406,
+          STATUS_GONE = 410,
+          STATUS_TOO_MANY_REQUESTS = 429,
+          STATUS_INTERNAL_SERVER_ERROR = 500,
+          STATUS_SERVICE_UNAVAILABLE = 503;
     private $status;
     private $statusCode;
     private $statusText;

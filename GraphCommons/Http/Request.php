@@ -1,12 +1,12 @@
 <?php
-namespace Graphcommons\Http;
+namespace GraphCommons\Http;
 
 final class Request extends Stream
 {
     const METHOD_GET    = 'GET',
           METHOD_POST   = 'POST',
           METHOD_PUT    = 'PUT',
-          // these methods are not supported yet by Graphcommons
+          // these methods are not supported yet by GraphCommons
           METHOD_HEAD   = 'HEAD',
           METHOD_DELETE = 'DELETE';
 

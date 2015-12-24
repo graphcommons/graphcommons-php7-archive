@@ -1,5 +1,5 @@
 <?php
-namespace Graphcommons\Http;
+namespace GraphCommons\Http;
 
 abstract class Stream
 {
