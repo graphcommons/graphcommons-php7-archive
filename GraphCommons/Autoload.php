@@ -16,7 +16,7 @@ final class Autoload
         return self::$instance;
     }
 
-    final public function register(): self
+    final public function register()
     {
         spl_autoload_register(function($name) {
             // fix root
@@ -35,8 +35,6 @@ final class Autoload
 
             require($file);
         });
-
-        return self::$instance;
     }
 }
 
