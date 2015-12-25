@@ -13,6 +13,7 @@ final class Node extends GraphEntity
     private $image;
     private $reference;
     private $properties;
+    private $posX, $posY;
 
     final public function setId(string $id): self
     {
@@ -54,6 +55,16 @@ final class Node extends GraphEntity
         $this->properties = $properties;
         return $this;
     }
+    final public function setPosX(float $posX): self
+    {
+        $this->posX = $posX;
+        return $this;
+    }
+    final public function setPosY(float $posY): self
+    {
+        $this->posY = $posY;
+        return $this;
+    }
 
     final public function getId(): string
     {
@@ -86,5 +97,13 @@ final class Node extends GraphEntity
     final public function getProperties(): array
     {
         return $this->properties;
+    }
+    final public function getPosX(): float
+    {
+        return $this->posX;
+    }
+    final public function getPosY(): float
+    {
+        return $this->posY;
     }
 }
