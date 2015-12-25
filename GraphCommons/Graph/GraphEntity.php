@@ -1,7 +1,7 @@
 <?php
 namespace GraphCommons\Graph;
 
-final class GraphEntity
+abstract class GraphEntity
 {
     protected $graph;
 
