@@ -108,7 +108,6 @@ final class GraphCommonsApi
                 if ($id != '') {
                     $node = (new GraphNode($graph))
                         ->setId($id)
-                        ->setType($_->type)
                         ->setTypeId($_->type_id)
                         ->setName($_->name)
                         ->setDescription($_->description)
@@ -177,12 +176,26 @@ final class GraphCommonsApi
             }
         }
 
-        // set each entity's from node & to node
+        // set/update each entity's original object
+        if (isset($graph->nodes)) foreach ($graph->nodes as $id => $node) {
+            // set/update node type
+            $nodeType = $graph->nodeTypes->get($node->typeId);
+            if (!empty($nodeType)) {
+                $node->setType($nodeType);
+            }
+        }
         if (isset($graph->edges)) foreach ($graph->edges as $id => $edge) {
+            // set/update edge type
+            $user = $graph->users->get($edge->userId);
+            if (!empty($user)) {
+                $edge->setUser($user);
+            }
+            // set/update from node
             $fromNode = $graph->nodes->get($edge->from);
             if (!empty($fromNode)) {
                 $edge->setFromNode($fromNode);
             }
+            // set/update to node
             $toNode = $graph->nodes->get($edge->to);
             if (!empty($toNode)) {
                 $edge->setToNode($toNode);
