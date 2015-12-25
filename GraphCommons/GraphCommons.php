@@ -1,6 +1,7 @@
 <?php
 namespace GraphCommons;
 
+use GraphCommons\Util\Util;
 use GraphCommons\Http\Client;
 
 final class GraphCommons
@@ -12,7 +13,14 @@ final class GraphCommons
     private $client;
 
     final public function __construct(string $apiKey, array $config = []) {
-        $this->client = new Client();
+        if (isset($config['api_url'])) {
+            $this->apiUrl = Util::arrayPop($config, 'api_url');
+        }
+        if (isset($config['api_version'])) {
+            $this->apiVersion = Util::arrayPop($config, 'api_version');
+        }
+
+        $this->client = new Client($config);
         $this->apiKey = trim($apiKey);
         // set authentication header
         $this->client->request->setHeader('Authentication', $apiKey);
