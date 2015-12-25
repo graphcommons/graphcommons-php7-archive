@@ -6,13 +6,13 @@ abstract class Stream
     const HTTP_VERSION = '1.0';
     const TYPE_REQUEST = 1,
           TYPE_RESPONSE = 2;
-    private $type;
-    private $httpVersion;
-    private $headers = array();
-    private $body = '';
-    private $bodyData = array();
-    private $failCode = 0;
-    private $failText = '';
+    protected $type;
+    protected $httpVersion;
+    protected $headers = array();
+    protected $body = '';
+    protected $bodyData = array();
+    protected $failCode = 0;
+    protected $failText = '';
 
     final public function __toString(): string
     {
