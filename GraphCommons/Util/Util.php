@@ -1,6 +1,9 @@
 <?php
 namespace GraphCommons\Util;
 
+use GraphCommons\GraphCommonsApiException;
+use GraphCommons\Http\Response;
+
 abstract class Util
 {
     final public static function arrayDig(array $array, $key, $value = null)
@@ -38,5 +41,20 @@ abstract class Util
             }
         }
         return $return;
+    }
+
+    final public static function getResponseException(Response $response): array
+    {
+        $responseData = $response->getBodyData();
+        if (isset($responseData['msg'])) {
+            return array(
+                $response->getStatusCode(),
+                $responseData['msg'],
+            );
+        }
+        return array(
+            GraphCommonsApiException::UNKNOWN_ERROR_CODE,
+            GraphCommonsApiException::UNKNOWN_ERROR_MESSAGE,
+        );
     }
 }
