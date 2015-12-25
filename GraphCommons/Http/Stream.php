@@ -52,7 +52,7 @@ abstract class Stream
         $bodyDataType = gettype($bodyData);
         if ($bodyDataType != 'NULL'
             && ($bodyDataType == 'array' || $bodyDataType == 'object')) {
-            $this->bodyData = Util::toObject($bodyData);
+            $this->bodyData = Util::toObject((array) $bodyData);
         }
         return $this;
     }
