@@ -186,6 +186,12 @@ final class GraphCommonsApi
         }
         if (isset($graph->edges)) foreach ($graph->edges as $id => $edge) {
             // set/update edge type
+            $edgeType = $graph->edgeTypes->get($edge->typeId);
+            if (!empty($edgeType)) {
+                $edge->setType($edgeType);
+            }
+
+            // set/update edge type
             $user = $graph->users->get($edge->userId);
             if (!empty($user)) {
                 $edge->setUser($user);
