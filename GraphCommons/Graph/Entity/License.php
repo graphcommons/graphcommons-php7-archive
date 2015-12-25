@@ -11,29 +11,29 @@ final class License extends GraphEntity
     private $ccNd;
     private $ccNc;
 
-    final public function setType(string $type): self
+    final public function setType(string $type = null): self
     {
-        $this->type = $type;
+        $this->type = (string) $type;
         return $this;
     }
-    final public function setCcBy(bool $ccBy): self
+    final public function setCcBy(bool $ccBy = null): self
     {
-        $this->ccBy = $ccBy;
+        $this->ccBy = (bool) $ccBy;
         return $this;
     }
-    final public function setCcSa(bool $ccSa): self
+    final public function setCcSa(bool $ccSa = null): self
     {
-        $this->ccSa = $ccSa;
+        $this->ccSa = (bool) $ccSa;
         return $this;
     }
-    final public function setCcNd(bool $ccNd): self
+    final public function setCcNd(bool $ccNd = null): self
     {
-        $this->ccNd = $ccNd;
+        $this->ccNd = (bool) $ccNd;
         return $this;
     }
-    final public function setCcNc(bool $ccNc): self
+    final public function setCcNc(bool $ccNc = null): self
     {
-        $this->ccNc = $ccNc;
+        $this->ccNc = (bool) $ccNc;
         return $this;
     }
 
