@@ -21,7 +21,7 @@ final class GraphCommons
 
     final public function __construct(string $apiKey, array $config = [])
     {
-        $this->api = new GraphCommonsApi();
+        $this->api = new GraphCommonsApi($this);
 
         if (isset($config['api_url'])) {
             $this->apiUrl = Util::arrayPop($config, 'api_url');
