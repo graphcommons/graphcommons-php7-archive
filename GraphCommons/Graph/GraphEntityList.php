@@ -15,11 +15,9 @@ abstract class GraphEntityList
         unset($list[$id]);
     }
 
-    final public function set(GraphEntity $entity)
+    final public function set($id, GraphEntity $entity)
     {
-        if ($id = $entity->getId()) {
-            $this->list[$id] = $entity;
-        }
+        $this->list[$id] = $entity;
     }
     final public function get(string $id)
     {
