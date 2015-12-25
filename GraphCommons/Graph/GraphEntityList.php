@@ -6,9 +6,9 @@ use GraphCommons\Graph\GraphEntity;
 
 class GraphEntityList extends Collection
 {
-    final public function add(GraphEntity $graphEntity): self
+    final public function add(string $id, GraphEntity $graphEntity): self
     {
-        parent::set($key, $value);
+        parent::set($id, $graphEntity);
 
         return $this;
     }
