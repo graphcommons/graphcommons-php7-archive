@@ -105,4 +105,10 @@ final class Client
     final public function put($uri, array $uriParams = null, $body = null, array $headers = null) {
         return $this->request(Request::METHOD_PUT .' /'. $uri, $uriParams, $body, $headers);
     }
+    final public function head($uri, array $uriParams = null, array $headers = null) {
+        throw new \Exception('HEAD method not implemented yet on API side!');
+    }
+    final public function delete($uri, array $uriParams = null, array $headers = null) {
+        throw new \Exception('DELETE method not implemented yet on API side!');
+    }
 }
