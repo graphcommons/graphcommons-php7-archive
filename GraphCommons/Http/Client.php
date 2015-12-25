@@ -96,19 +96,24 @@ final class Client
         return $this->response;
     }
 
-    final public function get($uri, array $uriParams = null, array $headers = null) {
+    final public function get($uri, array $uriParams = null, array $headers = null): Response
+    {
         return $this->request(Request::METHOD_GET .' /'. $uri, $uriParams, null, $headers);
     }
-    final public function post($uri, array $uriParams = null, $body = null, array $headers = null) {
+    final public function post($uri, array $uriParams = null, $body = null, array $headers = null): Response
+    {
         return $this->request(Request::METHOD_POST .' /'. $uri, $uriParams, $body, $headers);
     }
-    final public function put($uri, array $uriParams = null, $body = null, array $headers = null) {
+    final public function put($uri, array $uriParams = null, $body = null, array $headers = null): Response
+    {
         return $this->request(Request::METHOD_PUT .' /'. $uri, $uriParams, $body, $headers);
     }
-    final public function head($uri, array $uriParams = null, array $headers = null) {
+    final public function head($uri, array $uriParams = null, array $headers = null): Response
+    {
         throw new \Exception('HEAD method not implemented yet on API side!');
     }
-    final public function delete($uri, array $uriParams = null, array $headers = null) {
+    final public function delete($uri, array $uriParams = null, array $headers = null): Response
+    {
         throw new \Exception('DELETE method not implemented yet on API side!');
     }
 }
