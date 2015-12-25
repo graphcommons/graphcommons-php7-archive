@@ -1,6 +1,7 @@
 <?php
 namespace GraphCommons\Http;
 
+use GraphCommons\GraphCommons;
 use GraphCommons\Util\Property;
 use GraphCommons\Http\Request;
 use GraphCommons\Http\Response;
@@ -9,6 +10,7 @@ final class Client
 {
     use Property;
 
+    private $graphCommons;
     private $request;
     private $response;
 
@@ -18,7 +20,8 @@ final class Client
         'timeout_connection' => 5,
     );
 
-    final public function __construct(array $config = []) {
+    final public function __construct(GraphCommons $graphCommons, array $config = []) {
+        $this->graphCommons = $graphCommons;
         $this->request = new Request();
         $this->response = new Response();
         $this->config = array_merge($this->config, $config);

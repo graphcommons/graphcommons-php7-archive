@@ -21,7 +21,7 @@ final class GraphCommons
             $this->apiVersion = Util::arrayPop($config, 'api_version');
         }
 
-        $this->client = new Client($config);
+        $this->client = new Client($this, $config);
         $this->apiKey = trim($apiKey);
 
         // set authentication header
