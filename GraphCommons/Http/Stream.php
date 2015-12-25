@@ -50,8 +50,7 @@ abstract class Stream
     final public function setBodyData($bodyData = null): self
     {
         $bodyDataType = gettype($bodyData);
-        if ($bodyDataType != 'NULL'
-            && ($bodyDataType == 'array' || $bodyDataType == 'object')) {
+        if ($bodyDataType == 'array' || $bodyDataType == 'object') {
             $this->bodyData = Util::toObject((array) $bodyData);
         }
         return $this;
