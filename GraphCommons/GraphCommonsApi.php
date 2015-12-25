@@ -52,13 +52,14 @@ final class GraphCommonsApi
 
         if (!empty($responseData)) {
             $g =& $responseData->graph;
-            $graph->setId($g->id);
-            $graph->setName($g->name);
-            $graph->setSubtitle($g->subtitle);
-            $graph->setDescription($g->description);
-            $graph->setCreatedAt($g->created_at);
-            $graph->setUpdatedAt($g->updated_at);
-            $graph->setStatus($g->status);
+            $graph->setId($g->id)
+                ->setName($g->name)
+                ->setSubtitle($g->subtitle)
+                ->setDescription($g->description)
+                ->setCreatedAt($g->created_at)
+                ->setUpdatedAt($g->updated_at)
+                ->setStatus($g->status)
+            ;
 
             $image = (new GraphImage($graph))
                 ->setPath($g->image->path)
