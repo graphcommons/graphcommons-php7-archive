@@ -30,34 +30,34 @@ class Graph
         $this->id = $id;
         return $this;
     }
-    final public function setName(string $name): self
+    final public function setName(string $name = null): self
     {
-        $this->name = $name;
+        $this->name = (string) $name;
         return $this;
     }
-    final public function setSubtitle(string $subtitle): self
+    final public function setSubtitle(string $subtitle = null): self
     {
-        $this->subtitle = $subtitle;
+        $this->subtitle = (string) $subtitle;
         return $this;
     }
-    final public function setDescription(string $description): self
+    final public function setDescription(string $description = null): self
     {
-        $this->description = $description;
+        $this->description = (string) $description;
         return $this;
     }
-    final public function setCreatedAt(string $createdAt): self
+    final public function setCreatedAt(string $createdAt = null): self
     {
-        $this->createdAt = $createdAt;
+        $this->createdAt = (string) $createdAt;
         return $this;
     }
-    final public function setUpdatedAt(string $updatedAt): self
+    final public function setUpdatedAt(string $updatedAt = null): self
     {
-        $this->updatedAt = $updatedAt;
+        $this->updatedAt = (string) $updatedAt;
         return $this;
     }
-    final public function setStatus(int $status): self
+    final public function setStatus(int $status = null): self
     {
-        $this->status = $status;
+        $this->status = (int) $status;
         return $this;
     }
     final public function setImage(Image $image): self
