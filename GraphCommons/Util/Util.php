@@ -89,10 +89,10 @@ abstract class Util
     final public static function getResponseException(Response $response): array
     {
         $responseData = $response->getBodyData();
-        if (isset($responseData['msg'])) {
+        if (isset($responseData->msg)) {
             return array(
                 $response->getStatusCode(),
-                $responseData['msg'],
+                $responseData->msg,
             );
         }
         return array(
