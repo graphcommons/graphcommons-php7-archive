@@ -7,6 +7,7 @@ final class Edge extends GraphEntity
 {
     protected $id;
     protected $name;
+    protected $type;
     protected $typeId;
     protected $user;
     protected $userId;
@@ -26,6 +27,11 @@ final class Edge extends GraphEntity
     final public function setName(string $name = null): self
     {
         $this->name = (string) $name;
+        return $this;
+    }
+    final public function setType(EdgeType $type = null): self
+    {
+        $this->type = $type;
         return $this;
     }
     final public function setTypeId(string $typeId = null): self
@@ -86,6 +92,10 @@ final class Edge extends GraphEntity
     final public function getName(): string
     {
         return $this->name;
+    }
+    final public function getType(): EdgeType
+    {
+        return $this->type;
     }
     final public function getTypeId(): string
     {
