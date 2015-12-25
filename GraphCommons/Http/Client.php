@@ -102,7 +102,7 @@ final class Client
         $this->response->setHeaders($headers);
         $this->response->setBody($body);
 
-        if ($bodyData = json_decode($body, true)) {
+        if ($bodyData = json_decode($body)) {
             $this->response->setBodyData($bodyData);
         }
 
