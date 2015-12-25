@@ -1,7 +1,7 @@
 <?php
 namespace GraphCommons\Graph;
 
-abstract class GraphEntityList
+abstract class GraphEntityList implements \Countable, \IteratorAggregate
 {
     protected $list = array();
 
@@ -18,5 +18,14 @@ abstract class GraphEntityList
     final public function getList(): array
     {
         return $this->list;
+    }
+
+    final public function count(): int
+    {
+        return count($this->list);
+    }
+    final public function getIterator(): \ArrayIterator
+    {
+        return new \ArrayIterator($this->list);
     }
 }
