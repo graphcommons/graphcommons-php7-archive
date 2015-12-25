@@ -1,7 +1,8 @@
 <?php
 namespace GraphCommons\Graph;
 
-abstract class GraphEntityList implements \Countable, \IteratorAggregate
+abstract class GraphEntityList
+    implements \Countable, \IteratorAggregate, \ArrayAccess
 {
     protected $list = array();
 
@@ -36,5 +37,22 @@ abstract class GraphEntityList implements \Countable, \IteratorAggregate
     final public function getIterator(): \ArrayIterator
     {
         return new \ArrayIterator($this->list);
+    }
+
+    final public function offsetSet($id, $entity)
+    {
+        return $this->set($entity);
+    }
+    final public function offsetGet($id)
+    {
+        return $this->get($id);
+    }
+    final public function offsetUnset($id)
+    {
+        return $this->__unset($id);
+    }
+    final public function offsetExists($id)
+    {
+        return $this->__isset($id);
     }
 }
