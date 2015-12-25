@@ -9,9 +9,10 @@ trait Property
     {
         return ($this->_readonly === true);
     }
-    final public function setReadonly(bool $_readonly)
+    final public function setReadonly(bool $_readonly): self
     {
         $this->_readonly = $_readonly;
+        return $this;
     }
     final public function getReadonly(): bool
     {
