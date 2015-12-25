@@ -5,9 +5,9 @@ use GraphCommons\Graph\GraphEntity;
 
 final class Image extends GraphEntity
 {
-    private $path;
-    private $refName;
-    private $refUrl;
+    protected $path;
+    protected $refName;
+    protected $refUrl;
 
     final public function setPath(string $path = null): self
     {

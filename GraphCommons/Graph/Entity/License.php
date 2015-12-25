@@ -5,11 +5,11 @@ use GraphCommons\Graph\GraphEntity;
 
 final class License extends GraphEntity
 {
-    private $type;
-    private $ccBy;
-    private $ccSa;
-    private $ccNd;
-    private $ccNc;
+    protected $type;
+    protected $ccBy;
+    protected $ccSa;
+    protected $ccNd;
+    protected $ccNc;
 
     final public function setType(string $type = null): self
     {

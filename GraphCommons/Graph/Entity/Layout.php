@@ -5,13 +5,13 @@ use GraphCommons\Graph\GraphEntity;
 
 final class Layout extends GraphEntity
 {
-    private $gravity;
-    private $dragCoeff;
-    private $springCoeff;
-    private $springLength;
-    private $theta;
-    private $algorithm;
-    private $transform;
+    protected $gravity;
+    protected $dragCoeff;
+    protected $springCoeff;
+    protected $springLength;
+    protected $theta;
+    protected $algorithm;
+    protected $transform;
 
     final public function setGravity(float $gravity = null): self
     {
