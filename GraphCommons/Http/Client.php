@@ -29,7 +29,7 @@ final class Client
         // set accept, user-agent header
         $this->request->setHeader('Accept', 'application/json');
         $this->request->setHeader('User-Agent', sprintf(
-            'GraphCommons/v%s (+https://github.com/qeremy/graphcommons-php)'
+            'GraphCommons-PHP/v%s (+https://github.com/qeremy/graphcommons-php)'
             , $this->graphCommons->getVersion()
         ));
     }
