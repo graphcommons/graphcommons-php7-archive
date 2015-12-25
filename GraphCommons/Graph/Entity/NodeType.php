@@ -5,17 +5,17 @@ use GraphCommons\Graph\GraphEntity;
 
 final class NodeType extends GraphEntity
 {
-    private $id;
-    private $name;
-    private $nameAlias;
-    private $description;
-    private $image;
-    private $imageAsIcon;
-    private $color;
-    private $properties;
-    private $hideName;
-    private $size;
-    private $sizeLimit;
+    protected $id;
+    protected $name;
+    protected $nameAlias;
+    protected $description;
+    protected $image;
+    protected $imageAsIcon;
+    protected $color;
+    protected $properties;
+    protected $hideName;
+    protected $size;
+    protected $sizeLimit;
 
     final public function setId(string $id): self
     {
