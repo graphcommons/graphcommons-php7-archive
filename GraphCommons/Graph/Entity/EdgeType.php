@@ -45,9 +45,9 @@ final class EdgeType extends GraphEntity
         $this->directed = (int) $directed;
         return $this;
     }
-    final public function setDurational(float $durational = null): self
+    final public function setDurational(bool $durational = null): self
     {
-        $this->durational = (float) $durational;
+        $this->durational = (bool) $durational;
         return $this;
     }
     final public function setColor(string $color = null): self
