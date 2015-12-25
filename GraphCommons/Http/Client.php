@@ -98,7 +98,7 @@ final class Client
 
     final public function get($uri, array $uriParams = null, array $headers = null): Response
     {
-        return $this->request(Request::METHOD_GET .' /'. $uri, $uriParams, null, $headers);
+        return $this->request(Request::METHOD_GET .' /'. $uri, $uriParams, '', $headers);
     }
     final public function post($uri, array $uriParams = null, $body = '', array $headers = null): Response
     {
