@@ -26,12 +26,14 @@ final class Client
         $this->config = array_merge($this->config, $config);
         $this->request = new Request($this);
         $this->response = new Response($this);
-        // set accept, user-agent header
+
+        // set initial headers
         $this->request->setHeader('Accept', 'application/json');
         $this->request->setHeader('User-Agent', sprintf(
             'GraphCommons-PHP/v%s (+https://github.com/qeremy/graphcommons-php)'
             , $this->graphCommons->getVersion()
         ));
+        $this->request->setHeader('Authentication', $this->graphCommons->getApiKey());
     }
 
     final public function getRequest(): Request
