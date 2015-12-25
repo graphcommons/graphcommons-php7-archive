@@ -77,7 +77,7 @@ final class Request extends Stream
         );
         if (is_resource($sock)) {
             $headers = array();
-            $headers['Host'] = sprintf('%s:%s', $url['host'], $sockPort);
+            $headers['Host'] = $url['host'];
             $headers['Connection'] = 'close';
             foreach ($this->headers as $key => $value) {
                 // actually remove header command
