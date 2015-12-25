@@ -20,9 +20,9 @@ final class Node extends GraphEntity
         $this->id = $id;
         return $this;
     }
-    final public function setType(string $type = null): self
+    final public function setType(NodeType $type = null): self
     {
-        $this->type = (string) $type;
+        $this->type = $type;
         return $this;
     }
     final public function setTypeId(string $typeId = null): self
@@ -76,7 +76,7 @@ final class Node extends GraphEntity
     {
         return $this->id;
     }
-    final public function getType(): string
+    final public function getType(): NodeType
     {
         return $this->type;
     }
