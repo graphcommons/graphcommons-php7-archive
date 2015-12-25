@@ -5,11 +5,11 @@ trait Property
 {
     private $_readonly = true;
 
-    public function setReadonly(bool $_readonly)
+    final public function setReadonly(bool $_readonly)
     {
         $this->_readonly = $_readonly;
     }
-    public function getReadonly(): bool
+    final public function getReadonly(): bool
     {
         return $this->_readonly;
     }
