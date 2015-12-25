@@ -55,7 +55,7 @@ final class Edge extends GraphEntity
         $this->directed = $directed;
         return $this;
     }
-    final public function setProperties(array $properties): self
+    final public function setProperties(\stdClass $properties): self
     {
         $this->properties = $properties;
         return $this;
