@@ -6,7 +6,7 @@ function pre($input, $exit = false){
     if ($input === null) {
         printf("NULL\n");
     } else {
-        printf("%s\n", print_r($input, true)));
+        printf("%s\n", print_r($input, true));
     }
     if ($exit) {
         exit;
