@@ -20,44 +20,44 @@ final class EdgeType extends GraphEntity
         $this->id = $id;
         return $this;
     }
-    final public function setName(string $name): self
+    final public function setName(string $name = null): self
     {
-        $this->name = $name;
+        $this->name = (string) $name;
         return $this;
     }
-    final public function setNameAlias(string $nameAlias): self
+    final public function setNameAlias(string $nameAlias = null): self
     {
-        $this->nameAlias = $nameAlias;
+        $this->nameAlias = (string) $nameAlias;
         return $this;
     }
-    final public function setDescription(string $description): self
+    final public function setDescription(string $description = null): self
     {
-        $this->description = $description;
+        $this->description = (string) $description;
         return $this;
     }
-    final public function setWeighted(int $weighted): self
+    final public function setWeighted(int $weighted = null): self
     {
-        $this->weighted = $weighted;
+        $this->weighted = (int) $weighted;
         return $this;
     }
-    final public function setDirected(int $directed): self
+    final public function setDirected(int $directed = null): self
     {
-        $this->directed = $directed;
+        $this->directed = (int) $directed;
         return $this;
     }
-    final public function setDurational(float $durational): self
+    final public function setDurational(float $durational = null): self
     {
-        $this->durational = $durational;
+        $this->durational = (float) $durational;
         return $this;
     }
-    final public function setColor(string $color): self
+    final public function setColor(string $color = null): self
     {
-        $this->color = $color;
+        $this->color = (string) $color;
         return $this;
     }
-    final public function setProperties(\stdClass $properties): self
+    final public function setProperties(\stdClass $properties = null): self
     {
-        $this->properties = $properties;
+        $this->properties = (object) $properties;
         return $this;
     }
 
