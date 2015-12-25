@@ -81,8 +81,8 @@ abstract class Util
             );
         }
         return array(
-            GraphCommonsApiException::UNKNOWN_ERROR_CODE,
-            GraphCommonsApiException::UNKNOWN_ERROR_MESSAGE,
+            'code' => GraphCommonsApiException::UNKNOWN_ERROR_CODE,
+            'message' => GraphCommonsApiException::UNKNOWN_ERROR_MESSAGE,
         );
     }
 
@@ -96,8 +96,8 @@ abstract class Util
             );
         }
         return array(
-            GraphCommonsApiException::UNKNOWN_ERROR_CODE,
-            GraphCommonsApiException::UNKNOWN_ERROR_MESSAGE,
+            'code' => GraphCommonsApiException::UNKNOWN_ERROR_CODE,
+            'message' => GraphCommonsApiException::UNKNOWN_ERROR_MESSAGE,
         );
     }
 }
