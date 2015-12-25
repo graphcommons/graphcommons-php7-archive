@@ -76,8 +76,8 @@ abstract class Util
     {
         if ($request->getFailCode()) {
             return array(
-                $response->getFailCode(),
-                $response->getFailText(),
+                'code' => $response->getFailCode(),
+                'message' => $response->getFailText(),
             );
         }
         return array(
@@ -91,8 +91,8 @@ abstract class Util
         $responseData = $response->getBodyData();
         if (isset($responseData->msg)) {
             return array(
-                $response->getStatusCode(),
-                $responseData->msg,
+                'code' => $response->getStatusCode(),
+                'message' => $responseData->msg,
             );
         }
         return array(
