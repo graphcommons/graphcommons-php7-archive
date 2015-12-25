@@ -5,15 +5,15 @@ use GraphCommons\Graph\GraphEntity;
 
 final class Node extends GraphEntity
 {
-    private $id;
-    private $type;
-    private $typeId;
-    private $name;
-    private $description;
-    private $image;
-    private $reference;
-    private $properties;
-    private $posX, $posY;
+    protected $id;
+    protected $type;
+    protected $typeId;
+    protected $name;
+    protected $description;
+    protected $image;
+    protected $reference;
+    protected $properties;
+    protected $posX, $posY;
 
     final public function setId(string $id): self
     {
