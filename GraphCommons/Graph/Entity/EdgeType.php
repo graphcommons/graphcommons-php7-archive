@@ -63,19 +63,19 @@ final class EdgeType extends GraphEntity
 
     final public function getId(): string
     {
-        return $this->id = $id;
+        return $this->id;
     }
     final public function getName(): string
     {
-        return $this->name = $name;
+        return $this->name;
     }
     final public function getNameAlias(): string
     {
-        return $this->nameAlias = $nameAlias;
+        return $this->nameAlias;
     }
     final public function getDescription(): string
     {
-        return $this->description = $description;
+        return $this->description;
     }
     final public function getWeighted(): int
     {
@@ -91,10 +91,10 @@ final class EdgeType extends GraphEntity
     }
     final public function getColor(): string
     {
-        return $this->color = $color;
+        return $this->color;
     }
     final public function getProperties(): \stdClass
     {
-        return $this->properties = $properties;
+        return $this->properties;
     }
 }
