@@ -10,7 +10,9 @@ final class Edge extends GraphEntity
     protected $typeId;
     protected $userId;
     protected $from;
+    protected $fromNode;
     protected $to;
+    protected $toNode;
     protected $weight;
     protected $directed;
     protected $properties;
@@ -40,9 +42,19 @@ final class Edge extends GraphEntity
         $this->from = (string) $from;
         return $this;
     }
+    final public function setFromNode(Node $fromNode): self
+    {
+        $this->fromNode = $fromNode;
+        return $this;
+    }
     final public function setTo(string $to = null): self
     {
         $this->to = (string) $to;
+        return $this;
+    }
+    final public function setToNode(Node $toNode): self
+    {
+        $this->toNode = $toNode;
         return $this;
     }
     final public function setWeight(int $weight = null): self
@@ -81,9 +93,17 @@ final class Edge extends GraphEntity
     {
         return $this->from;
     }
+    final public function getFromNode(): Node
+    {
+        return $this->fromNode;
+    }
     final public function getTo(): string
     {
         return $this->to;
+    }
+    final public function getToNode(): Node
+    {
+        return $this->toNode;
     }
     final public function getWeight(): int
     {
