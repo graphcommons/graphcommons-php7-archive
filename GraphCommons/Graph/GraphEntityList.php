@@ -27,6 +27,10 @@ abstract class GraphEntityList
     {
         return $this->list;
     }
+    final public function getListIds(): array
+    {
+        return array_keys($this->list);
+    }
 
     final public function count(): int
     {
@@ -49,7 +53,7 @@ abstract class GraphEntityList
     {
         return $this->__unset($id);
     }
-    final public function offsetExists($id)
+    final public function offsetExists($id): bool
     {
         return $this->__isset($id);
     }
