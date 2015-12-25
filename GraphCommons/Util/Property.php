@@ -5,6 +5,10 @@ trait Property
 {
     private $_readonly = true;
 
+    final public function isReadonly(): bool
+    {
+        return ($this->_readonly === true);
+    }
     final public function setReadonly(bool $_readonly)
     {
         $this->_readonly = $_readonly;
