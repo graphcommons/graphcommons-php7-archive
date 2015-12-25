@@ -51,7 +51,7 @@ final class Client
             $this->graphCommons->apiVersion,
             trim($match[2])
         );
-        $uri = preg_replace('~/+~', '/', $uri);
+        $uri = preg_replace('~(^|[^:])//+~', '\\1/', $uri);
 
         $this->request
             ->setMethod(strtoupper($match[1]))
