@@ -55,7 +55,7 @@ final class EdgeType extends GraphEntity
         $this->color = $color;
         return $this;
     }
-    final public function setProperties(array $properties): self
+    final public function setProperties(\stdClass $properties): self
     {
         $this->properties = $properties;
         return $this;
@@ -93,7 +93,7 @@ final class EdgeType extends GraphEntity
     {
         return $this->color = $color;
     }
-    final public function getProperties(): array
+    final public function getProperties(): \stdClass
     {
         return $this->properties = $properties;
     }
