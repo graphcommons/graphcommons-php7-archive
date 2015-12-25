@@ -50,7 +50,7 @@ final class Edge extends GraphEntity
         $this->weight = $weight;
         return $this;
     }
-    final public function setDirected(array $directed): self
+    final public function setDirected(int $directed): self
     {
         $this->directed = $directed;
         return $this;
