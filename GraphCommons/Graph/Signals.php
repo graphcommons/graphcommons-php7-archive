@@ -4,18 +4,23 @@ namespace GraphCommons\Graph;
 use GraphCommons\Util\Collection;
 use GraphCommons\Graph\Signal;
 
-final class Signals extends Collection
+class Signals extends Collection
 {
-    final public function set(int $index, Signal $entity): self
+    final public function set($key, $value): self
     {
-        if ($index === null) {
-            $index = $this->count();
+        if (!$entity instanceof Signal) {
+            throw new \Exception(
+                'Entity must be instance of GraphCommons\Graph\Signal'
+            );
         }
-        return parent::set($index, $entity);
+        if ($key === null) {
+            $key = $this->count();
+        }
+        return parent::set($key, $value);
     }
-    final public function get(int $index)
+    final public function get($key)
     {
 
-        return parent::get($index);
+        return parent::get($key);
     }
 }
