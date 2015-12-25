@@ -25,17 +25,17 @@ final class Layout extends GraphEntity
         $this->gravity = $gravity;
         return $this;
     }
-    final public function setGpringCoeff(float $springCoeff): self
+    final public function setSpringCoeff(float $springCoeff): self
     {
         $this->springCoeff = $springCoeff;
         return $this;
     }
-    final public function setGragCoeff(float $dragCoeff): self
+    final public function setDragCoeff(float $dragCoeff): self
     {
         $this->dragCoeff = $dragCoeff;
         return $this;
     }
-    final public function setGheta(float $theta): self
+    final public function setTheta(float $theta): self
     {
         $this->theta = $theta;
         return $this;
@@ -61,17 +61,17 @@ final class Layout extends GraphEntity
         $this->gravity = $gravity;
         return $this;
     }
-    final public function getGpringCoeff(): float
+    final public function getSpringCoeff(): float
     {
         $this->springCoeff = $springCoeff;
         return $this;
     }
-    final public function getGragCoeff(): float
+    final public function getDragCoeff(): float
     {
         $this->dragCoeff = $dragCoeff;
         return $this;
     }
-    final public function getGheta(): float
+    final public function getTheta(): float
     {
         $this->theta = $theta;
         return $this;
