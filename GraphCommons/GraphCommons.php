@@ -5,8 +5,11 @@ use GraphCommons\Http\Client;
 
 final class GraphCommons
 {
-    private $client;
+    private $apiUrl = 'https://graphcommons.com/api';
+    private $apiVersion = 'v1';
     private $apiKey;
+
+    private $client;
 
     final public function __construct(string $apiKey, array $config = []) {
         $this->client = new Client();
