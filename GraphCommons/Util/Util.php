@@ -25,7 +25,7 @@ abstract class Util
         foreach ($input as $key => $value) {
             $valueType = gettype($value);
             if ($deep && ($valueType == 'array' || $valueType == 'object')) {
-                $return[$key] = toArray($value);
+                $return[$key] = self::toArray($value);
             } else {
                 $return[$key] = $value;
             }
@@ -39,7 +39,7 @@ abstract class Util
         foreach ($input as $key => $value) {
             $valueType = gettype($value);
             if ($deep && ($valueType == 'array' || $valueType == 'object')) {
-                $return->{$key} = toObject($value);
+                $return->{$key} = self::toObject($value);
             } else {
                 $return->{$key} = $value;
             }
