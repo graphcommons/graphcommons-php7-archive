@@ -42,7 +42,7 @@ abstract class Stream
     }
     final public function setBody(string $body): self
     {
-        $this->body = $body;
+        $this->body = trim($body);
         return $this;
     }
     final public function setBodyData(array $bodyData): self
