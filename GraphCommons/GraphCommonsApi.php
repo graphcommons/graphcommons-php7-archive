@@ -177,8 +177,15 @@ final class GraphCommonsApi
             }
         }
 
-        // @todo
-        // convert each json object to graph entity object
+        // set each entity's from node & to node
+        if (isset($graph->edges)) foreach ($graph->edges as $id => $edge) {
+            if (isset($graph->nodes[$edge->from])) {
+                $edge->setFromNode($graph->nodes[$edge->from]);
+            }
+            if (isset($graph->nodes[$edge->to])) {
+                $edge->setToNode($graph->nodes[$edge->to]);
+            }
+        }
 
         return $graph;
     }
