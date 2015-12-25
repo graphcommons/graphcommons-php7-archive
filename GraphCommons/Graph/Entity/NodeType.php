@@ -57,7 +57,7 @@ final class NodeType extends GraphEntity
         $this->properties = $properties;
         return $this;
     }
-    final public function setHideName(string $hideName): self
+    final public function setHideName(bool $hideName): self
     {
         $this->hideName = $hideName;
         return $this;
@@ -105,7 +105,7 @@ final class NodeType extends GraphEntity
     {
         return $this->properties;
     }
-    final public function getHideName(): string
+    final public function getHideName(): bool
     {
         return $this->hideName;
     }
