@@ -5,15 +5,15 @@ use GraphCommons\Graph\GraphEntity;
 
 final class Edge extends GraphEntity
 {
-    private $id;
-    private $name;
-    private $typeId;
-    private $userId;
-    private $from;
-    private $to;
-    private $weight;
-    private $directed;
-    private $properties;
+    protected $id;
+    protected $name;
+    protected $typeId;
+    protected $userId;
+    protected $from;
+    protected $to;
+    protected $weight;
+    protected $directed;
+    protected $properties;
 
     final public function setId(string $id): self
     {
