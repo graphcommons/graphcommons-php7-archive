@@ -2,10 +2,13 @@
 namespace GraphCommons;
 
 use GraphCommons\Util\Util;
+use GraphCommons\Util\Property;
 use GraphCommons\Http\Client;
 
 final class GraphCommons
 {
+    use Property;
+
     private $apiUrl = 'https://graphcommons.com/api';
     private $apiVersion = 'v1';
     private $apiKey;
