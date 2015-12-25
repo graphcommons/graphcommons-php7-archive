@@ -6,13 +6,18 @@ use GraphCommons\Graph\GraphEntity;
 
 class GraphEntityList extends Collection
 {
-    final public function set(string $id, GraphEntity $entity): self
+    final public function set($key, $value): self
     {
-        return parent::set($id, $entity);
+        if (!$entity instanceof GraphEntity) {
+            throw new \Exception(
+                'Entity must be instance of GraphCommons\Graph\GraphEntity'
+            );
+        }
+        return parent::set($key, $value);
     }
-    final public function get(string $id)
+    final public function get(string $key)
     {
 
-        return parent::get($id);
+        return parent::get($key);
     }
 }
