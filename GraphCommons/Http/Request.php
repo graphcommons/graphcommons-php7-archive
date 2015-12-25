@@ -50,6 +50,6 @@ final class Request extends Stream
     final public function toString(): string
     {}
 
-    final public function send(): self
+    final public function send()
     {}
 }
