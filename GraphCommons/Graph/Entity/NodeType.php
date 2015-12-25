@@ -22,54 +22,54 @@ final class NodeType extends GraphEntity
         $this->id = $id;
         return $this;
     }
-    final public function setName(string $name): self
+    final public function setName(string $name = null): self
     {
-        $this->name = $name;
+        $this->name = (string) $name;
         return $this;
     }
-    final public function setNameAlias(string $nameAlias): self
+    final public function setNameAlias(string $nameAlias = null): self
     {
-        $this->nameAlias = $nameAlias;
+        $this->nameAlias = (string) $nameAlias;
         return $this;
     }
-    final public function setDescription(string $description): self
+    final public function setDescription(string $description = null): self
     {
-        $this->description = $description;
+        $this->description = (string) $description;
         return $this;
     }
-    final public function setImage(string $image): self
+    final public function setImage(string $image = null): self
     {
-        $this->image = $image;
+        $this->image = (string) $image;
         return $this;
     }
-    final public function setImageAsIcon(bool $imageAsIcon): self
+    final public function setImageAsIcon(bool $imageAsIcon = null): self
     {
-        $this->imageAsIcon = $imageAsIcon;
+        $this->imageAsIcon = (bool) $imageAsIcon;
         return $this;
     }
-    final public function setColor(string $color): self
+    final public function setColor(string $color = null): self
     {
-        $this->color = $color;
+        $this->color = (string) $color;
         return $this;
     }
-    final public function setProperties(\stdClass $properties): self
+    final public function setProperties(\stdClass $properties = null): self
     {
-        $this->properties = $properties;
+        $this->properties = (object) $properties;
         return $this;
     }
-    final public function setHideName(bool $hideName): self
+    final public function setHideName(bool $hideName = null): self
     {
-        $this->hideName = $hideName;
+        $this->hideName = (bool) $hideName;
         return $this;
     }
-    final public function setSize(string $size): self
+    final public function setSize(string $size = null): self
     {
-        $this->size = $size;
+        $this->size = (string) $size;
         return $this;
     }
-    final public function setSizeLimit(int $sizeLimit): self
+    final public function setSizeLimit(int $sizeLimit = null): self
     {
-        $this->sizeLimit = $sizeLimit;
+        $this->sizeLimit = (int) $sizeLimit;
         return $this;
     }
 
