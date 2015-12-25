@@ -35,4 +35,35 @@ final class Client
     {
         return $this->response;
     }
+
+    final public function request(
+        string $uri, array $uriParams = null,
+        string $body = '', array $headers = null)
+    {
+        // match for a valid request i.e: HEAD /foo
+        preg_match('~^([a-z]+)\s+(/.*)~i', $uri, $match);
+        if (!isset($match[1], $match[2])) {
+            throw new Exception('Usage: <REQUEST METHOD> <REQUEST URI>');
+        }
+
+        $uri = sprintf('%s/%s/%s',
+            $this->graphCommons->apiUrl,
+            $this->graphCommons->apiVersion,
+            trim($match[2])
+        );
+        $uri = preg_replace('~/+~', '/', $uri);
+
+        $this->request
+            ->setMethod(strtoupper($match[1]))
+            ->setUri($uri, (array) $uriParams);
+        if (!empty($headers)) {
+            foreach ($headers as $key => $value) {
+                $this->request->setHeader(trim($key), trim($value));
+            }
+        }
+
+        $this->request->setBody($body);
+
+        $this->request->send();
+    }
 }
