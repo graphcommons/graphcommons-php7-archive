@@ -20,55 +20,55 @@ final class Node extends GraphEntity
         $this->id = $id;
         return $this;
     }
-    final public function setType(string $type): self
+    final public function setType(string $type = null): self
     {
-        $this->type = $type;
+        $this->type = (string) $type;
         return $this;
     }
-    final public function setTypeId(string $typeId): self
+    final public function setTypeId(string $typeId = null): self
     {
-        $this->typeId = $typeId;
+        $this->typeId = (string) $typeId;
         return $this;
     }
-    final public function setName(string $name): self
+    final public function setName(string $name = null): self
     {
-        $this->name = $name;
+        $this->name = (string) $name;
         return $this;
     }
-    final public function setDescription(string $description): self
+    final public function setDescription(string $description = null): self
     {
-        $this->description = $description;
+        $this->description = (string) $description;
         return $this;
     }
-    final public function setImage(string $image): self
+    final public function setImage(string $image = null): self
     {
-        $this->image = $image;
+        $this->image = (string) $image;
         return $this;
     }
-    final public function setReference(string $reference): self
+    final public function setReference(string $reference = null): self
     {
-        $this->reference = $reference;
+        $this->reference = (string) $reference;
         return $this;
     }
-    final public function setProperties(\stdClass $properties): self
+    final public function setProperties(\stdClass $properties = null): self
     {
-        $this->properties = $properties;
+        $this->properties = (object) $properties;
         return $this;
     }
-    final public function setPosX(float $posX): self
+    final public function setPosX(float $posX = null): self
     {
-        $this->posX = $posX;
+        $this->posX = (float) $posX;
         return $this;
     }
-    final public function setPosY(float $posY): self
+    final public function setPosY(float $posY = null): self
     {
-        $this->posY = $posY;
+        $this->posY = (float) $posY;
         return $this;
     }
-    final public function setPosXY(float $posX, float $posY): self
+    final public function setPosXY(float $posX = null, float $posY = null): self
     {
-        $this->posX = $posX;
-        $this->posY = $posY;
+        $this->posX = (float) $posX;
+        $this->posY = (float) $posY;
         return $this;
     }
 
