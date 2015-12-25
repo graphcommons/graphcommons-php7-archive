@@ -9,8 +9,10 @@ abstract class Stream
     private $type;
     private $httpVersion;
     private $headers = array();
-    private $body = '',
-            $bodyData = array();
+    private $body = '';
+    private $bodyData = array();
+    private $failCode = 0;
+    private $failText = '';
 
     final public function __toString(): string
     {
@@ -47,6 +49,16 @@ abstract class Stream
         $this->bodyData = $bodyData;
         return $this;
     }
+    final public function setFailCode(int $failCode): self
+    {
+        $this->failCode = $failCode;
+        return $this;
+    }
+    final public function setFailText(string $failText): self
+    {
+        $this->failText = $failText;
+        return $this;
+    }
 
     final public function getType(): int
     {
@@ -74,6 +86,14 @@ abstract class Stream
             return $this->bodyData;
         }
         return $this->bodyData[$key] ?? null;
+    }
+    final public function getFailCode(): int
+    {
+        return $this->failCode;
+    }
+    final public function getFailText(): string
+    {
+        return $this->failText;
     }
 
     abstract public function toString(): string;
