@@ -95,4 +95,8 @@ final class Client
 
         return $this->response;
     }
+
+    final public function get($uri, array $uriParams = null, array $headers = null) {
+        return $this->request(Request::METHOD_GET .' /'. $uri, $uriParams, null, $headers);
+    }
 }
