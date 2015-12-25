@@ -55,6 +55,11 @@ final class Response extends Stream
         return $this->statusText;
     }
 
+    final public function ok(): bool
+    {
+        return ($this->statusCode === self::STATUS_OK);
+    }
+
     final function toString(): string
     {}
 }
