@@ -9,6 +9,8 @@ final class GraphCommons
 {
     use Property;
 
+    const VERSION = '1.0.0';
+
     private $apiUrl = 'https://graphcommons.com/api';
     private $apiVersion = 'v1';
     private $apiKey;
@@ -38,5 +40,9 @@ final class GraphCommons
     final public function getApiKey(): string
     {
         return $this->apiKey;
+    }
+    final public static function getVersion(): string
+    {
+        return self::VERSION;
     }
 }
