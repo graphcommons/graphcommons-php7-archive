@@ -1,6 +1,8 @@
 <?php
 namespace GraphCommons\Http;
 
+use GraphCommons\Http\Client;
+
 final class Response extends Stream
 {
     const STATUSES = array(
@@ -29,7 +31,8 @@ final class Response extends Stream
     private $statusCode;
     private $statusText;
 
-    final public function __construct() {
+    final public function __construct(Client $client) {
+        $this->client = $client;
         $this->setType(self::TYPE_RESPONSE);
         $this->setHttpVersion(self::HTTP_VERSION);
     }

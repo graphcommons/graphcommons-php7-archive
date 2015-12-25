@@ -1,6 +1,8 @@
 <?php
 namespace GraphCommons\Http;
 
+use GraphCommons\Http\Client;
+
 final class Request extends Stream
 {
     const METHOD_GET    = 'GET',
@@ -14,7 +16,8 @@ final class Request extends Stream
     private $uri;
     private $uriParams = array();
 
-    final public function __construct() {
+    final public function __construct(Client $client) {
+        $this->client = $client;
         $this->setType(self::TYPE_REQUEST);
         $this->setHttpVersion(self::HTTP_VERSION);
     }

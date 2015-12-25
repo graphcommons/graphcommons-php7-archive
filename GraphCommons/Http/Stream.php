@@ -6,6 +6,7 @@ abstract class Stream
     const HTTP_VERSION = '1.0';
     const TYPE_REQUEST = 1,
           TYPE_RESPONSE = 2;
+    protected $client;
     protected $type;
     protected $httpVersion;
     protected $headers = array();
