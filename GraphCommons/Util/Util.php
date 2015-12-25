@@ -19,6 +19,19 @@ abstract class Util
         return $value;
     }
 
+    final public static function toObject($input, $deep = true): \stdClass {
+        $object = new \stdClass();
+        foreach ((array) $input as $key => $value) {
+            $valueType = gettype($value);
+            if ($deep && ($valueType == 'array' || $valueType == 'object')) {
+                $object->{$key} = toObject($value);
+            } else {
+                $object->{$key} = $value;
+            }
+        }
+        return $object;
+    }
+
     final public static function parseResponseHeaders(string $headers): array
     {
         $return  = array();
