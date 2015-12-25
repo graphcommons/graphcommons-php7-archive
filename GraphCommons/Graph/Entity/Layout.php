@@ -5,22 +5,22 @@ use GraphCommons\Graph\GraphEntity;
 
 final class Layout extends GraphEntity
 {
-    private $springLength;
     private $gravity;
-    private $springCoeff;
     private $dragCoeff;
+    private $springCoeff;
+    private $springLength;
     private $theta;
     private $algorithm;
     private $transform;
 
-    final public function setSpringLength(int $springLength = null): self
-    {
-        $this->springLength = (int) $springLength;
-        return $this;
-    }
     final public function setGravity(float $gravity = null): self
     {
         $this->gravity = (float) $gravity;
+        return $this;
+    }
+    final public function setDragCoeff(float $dragCoeff = null): self
+    {
+        $this->dragCoeff = (float) $dragCoeff;
         return $this;
     }
     final public function setSpringCoeff(float $springCoeff = null): self
@@ -28,9 +28,9 @@ final class Layout extends GraphEntity
         $this->springCoeff = (float) $springCoeff;
         return $this;
     }
-    final public function setDragCoeff(float $dragCoeff = null): self
+    final public function setSpringLength(int $springLength = null): self
     {
-        $this->dragCoeff = (float) $dragCoeff;
+        $this->springLength = (int) $springLength;
         return $this;
     }
     final public function setTheta(float $theta = null): self
@@ -49,14 +49,14 @@ final class Layout extends GraphEntity
         return $this;
     }
 
-    final public function getSpringLength(): int
-    {
-        $this->springLength = $springLength;
-        return $this;
-    }
     final public function getGravity(): float
     {
         $this->gravity = $gravity;
+        return $this;
+    }
+    final public function getDragCoeff(): float
+    {
+        $this->dragCoeff = $dragCoeff;
         return $this;
     }
     final public function getSpringCoeff(): float
@@ -64,9 +64,9 @@ final class Layout extends GraphEntity
         $this->springCoeff = $springCoeff;
         return $this;
     }
-    final public function getDragCoeff(): float
+    final public function getSpringLength(): int
     {
-        $this->dragCoeff = $dragCoeff;
+        $this->springLength = $springLength;
         return $this;
     }
     final public function getTheta(): float
