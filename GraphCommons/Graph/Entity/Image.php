@@ -1,10 +1,12 @@
 <?php
 namespace GraphCommons\Graph\Entity;
 
+use GraphCommons\Util\Property;
 use GraphCommons\Graph\GraphEntity;
 
 final class Image extends GraphEntity
 {
+    use Property;
     private $path;
     private $refName;
     private $refUrl;
