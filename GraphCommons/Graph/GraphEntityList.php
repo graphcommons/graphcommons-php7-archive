@@ -8,11 +8,11 @@ abstract class GraphEntityList
 
     final public function __isset(string $id): bool
     {
-        return isset($list[$id]);
+        return isset($this->list[$id]);
     }
     final public function __unset(string $id)
     {
-        unset($list[$id]);
+        unset($this->list[$id]);
     }
 
     final public function set($id, GraphEntity $entity)
