@@ -1,6 +1,8 @@
 <?php
 namespace GraphCommons\Http;
 
+use GraphCommons\Util\Util;
+
 abstract class Stream
 {
     const HTTP_VERSION = '1.0';
@@ -11,7 +13,7 @@ abstract class Stream
     protected $httpVersion;
     protected $headers = array();
     protected $body = '';
-    protected $bodyData = array();
+    protected $bodyData;
     protected $failCode = 0;
     protected $failText = '';
 
@@ -45,9 +47,13 @@ abstract class Stream
         $this->body = trim($body);
         return $this;
     }
-    final public function setBodyData(array $bodyData): self
+    final public function setBodyData($bodyData = null): self
     {
-        $this->bodyData = $bodyData;
+        $bodyDataType = gettype($bodyData);
+        if ($bodyDataType != 'NULL'
+            && ($bodyDataType == 'array' || $bodyDataType == 'object')) {
+            $this->bodyData = Util::toObject($bodyData);
+        }
         return $this;
     }
     final public function setFailCode(int $failCode): self
@@ -86,7 +92,10 @@ abstract class Stream
         if ($key === null) {
             return $this->bodyData;
         }
-        return $this->bodyData[$key] ?? null;
+        if (property_exists($this->bodyData, $key)) {
+            return $this->bodyData->{$key};
+        }
+        return null;
     }
     final public function getFailCode(): int
     {
