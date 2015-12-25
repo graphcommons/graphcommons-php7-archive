@@ -50,7 +50,7 @@ final class Node extends GraphEntity
         $this->reference = $reference;
         return $this;
     }
-    final public function setProperties(array $properties): self
+    final public function setProperties(\stdClass $properties): self
     {
         $this->properties = $properties;
         return $this;
@@ -100,7 +100,7 @@ final class Node extends GraphEntity
     {
         return $this->reference;
     }
-    final public function getProperties(): array
+    final public function getProperties(): \stdClass
     {
         return $this->properties;
     }
