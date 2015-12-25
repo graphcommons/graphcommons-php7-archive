@@ -35,7 +35,9 @@ final class Autoload
 
             // check file is exists
             if (!is_file($file)) {
-                throw new \RuntimeException(sprintf('%s file not found!', $file));
+                throw new \RuntimeException(sprintf('Object file not found! object(%s) file(%s)',
+                    $name, $file
+                ));
             }
 
             require($file);
