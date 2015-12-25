@@ -43,7 +43,7 @@ final class Client
         // match for a valid request i.e: HEAD /foo
         preg_match('~^([a-z]+)\s+(/.*)~i', $uri, $match);
         if (!isset($match[1], $match[2])) {
-            throw new Exception('Usage: <REQUEST METHOD> <REQUEST URI>');
+            throw new \Exception('Usage: <REQUEST METHOD> <REQUEST URI>');
         }
 
         $uri = sprintf('%s/%s/%s',
