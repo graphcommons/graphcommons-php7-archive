@@ -1,7 +1,7 @@
 <?php
 namespace GraphCommons\Graph;
 
-use GraphCommons\Util\Property;
+use GraphCommons\Util\PropertyTrait as Property;
 
 abstract class GraphEntity
 {

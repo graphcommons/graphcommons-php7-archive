@@ -1,7 +1,7 @@
 <?php
 namespace GraphCommons\Util;
 
-trait Property
+trait PropertyTrait
 {
     private $_readonly = true;
 

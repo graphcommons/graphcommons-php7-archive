@@ -3,7 +3,7 @@ namespace GraphCommons\Http;
 
 use GraphCommons\GraphCommons;
 use GraphCommons\Util\Util;
-use GraphCommons\Util\Property;
+use GraphCommons\Util\PropertyTrait as Property;
 use GraphCommons\Http\{Request, Exception\Request as RequestException};
 use GraphCommons\Http\{Response, Exception\Response as ResponseException};
 

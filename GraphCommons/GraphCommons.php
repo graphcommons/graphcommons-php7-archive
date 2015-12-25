@@ -3,7 +3,7 @@ namespace GraphCommons;
 
 use GraphCommons\GraphCommonsApi;
 use GraphCommons\Util\Util;
-use GraphCommons\Util\Property;
+use GraphCommons\Util\PropertyTrait as Property;
 use GraphCommons\Http\Client;
 
 final class GraphCommons

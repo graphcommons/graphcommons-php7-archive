@@ -1,7 +1,7 @@
 <?php
 namespace GraphCommons\Graph;
 
-use GraphCommons\Util\Property;
+use GraphCommons\Util\PropertyTrait as Property;
 use GraphCommons\Graph\Entity\Image;
 use GraphCommons\Graph\Entity\License;
 use GraphCommons\Graph\Entity\Layout;
