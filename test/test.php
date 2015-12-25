@@ -7,7 +7,7 @@ $autoload->register();
 
 use GraphCommons\GraphCommons;
 use GraphCommons\Graph\Signal;
-use GraphCommons\Graph\Signals;
+use GraphCommons\Graph\SignalCollection;
 
 $gc = new GraphCommons(API_KEY);
 // pre($gc);
@@ -21,7 +21,7 @@ $gc = new GraphCommons(API_KEY);
 // dump data
 // pre($data);
 
-$ss = new Signals();
+$ss = new SignalCollection();
 $ss->add(new Signal(Signal::NODE_CREATE));
 $ss->add(new Signal(Signal::NODE_UPDATE));
 pre($ss);
