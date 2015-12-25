@@ -30,10 +30,10 @@ final class GraphCommonsApi
     final public function status()
     {
         $response = $this->graphCommons->client->get('/status');
-        if ($response->ok()) {
-            return $response->getBodyData();
+        if (!$response->ok()) {
+            return null;
         }
-        return null;
+        return $response->getBodyData();
     }
 
     final public function getGraph(string $id): Graph
