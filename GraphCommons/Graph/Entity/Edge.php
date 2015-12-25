@@ -20,44 +20,44 @@ final class Edge extends GraphEntity
         $this->id = $id;
         return $this;
     }
-    final public function setName(string $name): self
+    final public function setName(string $name = null): self
     {
-        $this->name = $name;
+        $this->name = (string) $name;
         return $this;
     }
-    final public function setTypeId(string $typeId): self
+    final public function setTypeId(string $typeId = null): self
     {
-        $this->typeId = $typeId;
+        $this->typeId = (string) $typeId;
         return $this;
     }
-    final public function setUserId(string $userId): self
+    final public function setUserId(string $userId = null): self
     {
-        $this->userId = $userId;
+        $this->userId = (string) $userId;
         return $this;
     }
-    final public function setFrom(string $from): self
+    final public function setFrom(string $from = null): self
     {
-        $this->from = $from;
+        $this->from = (string) $from;
         return $this;
     }
-    final public function setTo(string $to): self
+    final public function setTo(string $to = null): self
     {
-        $this->to = $to;
+        $this->to = (string) $to;
         return $this;
     }
-    final public function setWeight(int $weight): self
+    final public function setWeight(int $weight = null): self
     {
-        $this->weight = $weight;
+        $this->weight = (int) $weight;
         return $this;
     }
-    final public function setDirected(int $directed): self
+    final public function setDirected(int $directed = null): self
     {
-        $this->directed = $directed;
+        $this->directed = (int) $directed;
         return $this;
     }
-    final public function setProperties(\stdClass $properties): self
+    final public function setProperties(\stdClass $properties = null): self
     {
-        $this->properties = $properties;
+        $this->properties = (object) $properties;
         return $this;
     }
 
