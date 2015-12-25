@@ -6,8 +6,10 @@ use GraphCommons\Graph\Signal;
 
 class Signals extends Collection
 {
-    final public function add(Signal $signal)
+    final public function add(Signal $signal): self
     {
-        return parent::set($this->count(), $signal);
+        parent::set($this->count(), $signal);
+
+        return $this;
     }
 }
