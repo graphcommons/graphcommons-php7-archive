@@ -190,7 +190,6 @@ final class GraphCommonsApi
             if (!empty($edgeType)) {
                 $edge->setType($edgeType);
             }
-
             // set/update edge type
             $user = $graph->users->get($edge->userId);
             if (!empty($user)) {
