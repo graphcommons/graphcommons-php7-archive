@@ -5,14 +5,14 @@ use GraphCommons\Graph\GraphEntity;
 
 final class User extends GraphEntity
 {
-    private $id;
-    private $username;
-    private $fullname;
-    private $firstName;
-    private $lastName;
-    private $isOwner;
-    private $isAdmin;
-    private $imgPath;
+    protected $id;
+    protected $username;
+    protected $fullname;
+    protected $firstName;
+    protected $lastName;
+    protected $isOwner;
+    protected $isAdmin;
+    protected $imgPath;
 
     final public function setId(string $id): self
     {
