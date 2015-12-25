@@ -5,6 +5,15 @@ abstract class GraphEntityList implements \Countable, \IteratorAggregate
 {
     protected $list = array();
 
+    final public function __isset(string $id): bool
+    {
+        return isset($list[$id]);
+    }
+    final public function __unset(string $id)
+    {
+        unset($list[$id]);
+    }
+
     final public function set(GraphEntity $entity)
     {
         if ($id = $entity->getId()) {
