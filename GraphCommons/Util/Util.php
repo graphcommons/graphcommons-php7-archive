@@ -19,9 +19,9 @@ abstract class Util
         return $value;
     }
 
-    final public static function toObject($input, $deep = true): \stdClass {
+    final public static function toObject(array $input, $deep = true): \stdClass {
         $object = new \stdClass();
-        foreach ((array) $input as $key => $value) {
+        foreach ($input as $key => $value) {
             $valueType = gettype($value);
             if ($deep && ($valueType == 'array' || $valueType == 'object')) {
                 $object->{$key} = toObject($value);
