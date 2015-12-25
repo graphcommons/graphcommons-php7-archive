@@ -14,7 +14,7 @@ final class GraphCommons
     final public function __construct(string $apiKey, array $config = []) {
         $this->client = new Client();
         $this->apiKey = trim($apiKey);
-        // set authentication
+        // set authentication header
         $this->client->request->setHeader('Authentication', $apiKey);
     }
 
