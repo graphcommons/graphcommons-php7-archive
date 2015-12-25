@@ -9,4 +9,13 @@ final class GraphCommonsApi
     {
         $this->graphCommons = $graphCommons;
     }
+
+    final public function status()
+    {
+        $response = $this->graphCommons->client->get('/status');
+        if ($response->getBody()) {
+            return $response->getBodyData();
+        }
+        return null;
+    }
 }
