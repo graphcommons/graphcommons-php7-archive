@@ -1,12 +1,10 @@
 <?php
 namespace GraphCommons\Graph\Entity;
 
-use GraphCommons\Util\Property;
 use GraphCommons\Graph\GraphEntity;
 
 final class Layout extends GraphEntity
 {
-    use Property;
     private $springLength;
     private $gravity;
     private $springCoeff;

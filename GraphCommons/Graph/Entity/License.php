@@ -1,12 +1,10 @@
 <?php
 namespace GraphCommons\Graph\Entity;
 
-use GraphCommons\Util\Property;
 use GraphCommons\Graph\GraphEntity;
 
 final class License extends GraphEntity
 {
-    use Property;
     private $type;
     private $ccBy;
     private $ccSa;

@@ -1,8 +1,11 @@
 <?php
 namespace GraphCommons\Graph;
 
+use GraphCommons\Util\Property;
+
 abstract class GraphEntity
 {
+    use Property;
     protected $graph;
 
     final public function __construct(Graph $graph = null) {
