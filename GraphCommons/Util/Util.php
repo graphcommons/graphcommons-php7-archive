@@ -2,6 +2,7 @@
 namespace GraphCommons\Util;
 
 use GraphCommons\GraphCommonsApiException;
+use GraphCommons\Http\Request;
 use GraphCommons\Http\Response;
 
 abstract class Util
@@ -69,6 +70,20 @@ abstract class Util
             }
         }
         return $return;
+    }
+
+    final public static function getRequestException(Request $request): array
+    {
+        if ($request->getFailCode()) {
+            return array(
+                $response->getFailCode(),
+                $response->getFailText(),
+            );
+        }
+        return array(
+            GraphCommonsApiException::UNKNOWN_ERROR_CODE,
+            GraphCommonsApiException::UNKNOWN_ERROR_MESSAGE,
+        );
     }
 
     final public static function getResponseException(Response $response): array
