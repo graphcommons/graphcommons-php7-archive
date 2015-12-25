@@ -1,6 +1,7 @@
 <?php
 namespace GraphCommons;
 
+use GraphCommons\GraphCommonsApi;
 use GraphCommons\Util\Util;
 use GraphCommons\Util\Property;
 use GraphCommons\Http\Client;
@@ -11,6 +12,7 @@ final class GraphCommons
 
     const VERSION = '1.0.0';
 
+    private $api;
     private $apiUrl = 'https://graphcommons.com/api';
     private $apiVersion = 'v1';
     private $apiKey;
@@ -19,6 +21,8 @@ final class GraphCommons
 
     final public function __construct(string $apiKey, array $config = [])
     {
+        $this->api = GraphCommonsApi();
+
         if (isset($config['api_url'])) {
             $this->apiUrl = Util::arrayPop($config, 'api_url');
         }
