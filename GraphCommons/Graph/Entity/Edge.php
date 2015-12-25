@@ -13,7 +13,7 @@ final class Edge extends GraphEntity
     private $to;
     private $weight;
     private $directed;
-    private $properties = array();
+    private $properties;
 
     final public function setId(string $id): self
     {

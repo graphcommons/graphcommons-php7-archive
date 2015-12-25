@@ -12,7 +12,7 @@ final class Node extends GraphEntity
     private $description;
     private $image;
     private $reference;
-    private $properties = array();
+    private $properties;
 
     final public function setId(string $id): self
     {
