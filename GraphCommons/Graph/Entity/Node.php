@@ -65,6 +65,12 @@ final class Node extends GraphEntity
         $this->posY = $posY;
         return $this;
     }
+    final public function setPosXY(float $posX, float $posY): self
+    {
+        $this->posX = $posX;
+        $this->posY = $posY;
+        return $this;
+    }
 
     final public function getId(): string
     {
@@ -105,5 +111,9 @@ final class Node extends GraphEntity
     final public function getPosY(): float
     {
         return $this->posY;
+    }
+    final public function getPosXY(): array
+    {
+        return array($this->posX, $this->posY);
     }
 }
