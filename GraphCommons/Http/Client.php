@@ -1,11 +1,14 @@
 <?php
 namespace GraphCommons\Http;
 
+use GraphCommons\Util\Property;
 use GraphCommons\Http\Request;
 use GraphCommons\Http\Response;
 
 final class Client
 {
+    use Property;
+
     private $request;
     private $response;
 

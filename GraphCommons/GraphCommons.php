@@ -15,7 +15,7 @@ final class GraphCommons
         $this->client = new Client();
         $this->apiKey = trim($apiKey);
         // set authentication
-        $this->client->getRequest()->setHeader('Authentication', $apiKey);
+        $this->client->request->setHeader('Authentication', $apiKey);
     }
 
     final public function getClient(): Client
