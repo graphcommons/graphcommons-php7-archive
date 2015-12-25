@@ -94,6 +94,9 @@ final class Client
 
         $this->response->setHeaders($headers);
         $this->response->setBody($body);
+        if ($bodyData = json_decode($body, true)) {
+            $this->response->setBodyData($bodyData);
+        }
 
         return $this->response;
     }
