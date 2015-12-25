@@ -4,7 +4,7 @@ namespace GraphCommons\Graph;
 use GraphCommons\Util\Collection;
 use GraphCommons\Graph\GraphEntity;
 
-class GraphEntityList extends Collection
+class GraphEntityCollection extends Collection
 {
     final public function add(string $id, GraphEntity $graphEntity): self
     {

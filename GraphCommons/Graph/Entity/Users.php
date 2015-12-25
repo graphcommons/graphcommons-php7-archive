@@ -1,7 +1,7 @@
 <?php
 namespace GraphCommons\Graph\Entity;
 
-use GraphCommons\Graph\GraphEntityList;
+use GraphCommons\Graph\GraphEntityCollection;
 
-final class Users extends GraphEntityList
+final class Users extends GraphEntityCollection
 {}

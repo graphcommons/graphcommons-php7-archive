@@ -1,7 +1,7 @@
 <?php
 namespace GraphCommons\Graph\Entity;
 
-use GraphCommons\Graph\GraphEntityList;
+use GraphCommons\Graph\GraphEntityCollection;
 
-final class EdgeTypes extends GraphEntityList
+final class EdgeTypes extends GraphEntityCollection
 {}
