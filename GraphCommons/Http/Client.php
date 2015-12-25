@@ -4,8 +4,8 @@ namespace GraphCommons\Http;
 use GraphCommons\GraphCommons;
 use GraphCommons\Util\Util;
 use GraphCommons\Util\Property;
-use GraphCommons\Http\Request;
-use GraphCommons\Http\Response;
+use GraphCommons\Http\{Request, Exception\Request as RequestException};
+use GraphCommons\Http\{Response, Exception\Response as ResponseException};
 
 final class Client
 {
@@ -76,20 +76,20 @@ final class Client
 
         $result = $this->request->send();
         if ($result === null) {
-            throw new \Exception('HTTP error: code(%s) text(%s)',
-                $this->request->getFailCode(),
-                $this->request->getFailText()
-            );
+            $exception = Util::getRequestException($this->request);
+            throw new RequestException(sprintf('HTTP error: code(%d) message(%s)',
+                $exception['code'], $exception['message']
+            ),  $exception['code']);
         }
 
         unset($body, $headers);
 
         @list($headers, $body) = explode("\r\n\r\n", $result, 2);
         if (!isset($headers)) {
-            throw new \Exception('No headers received from server!');
+            throw new ResponseException('No headers received from server!');
         }
         if (!isset($body)) {
-            throw new \Exception('No body received from server!');
+            throw new ResponseException('No body received from server!');
         }
 
         $headers = Util::parseResponseHeaders($headers);
