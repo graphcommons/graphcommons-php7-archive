@@ -3,19 +3,19 @@ namespace GraphCommons\Util;
 
 trait Property
 {
-    private $readonly = true;
+    private $__readonly = true;
 
-    public function setReadonly(bool $readonly)
+    public function setReadonly(bool $__readonly)
     {
-        $this->readonly = $readonly;
+        $this->__readonly = $__readonly;
     }
     public function getReadonly(): bool
     {
-        return $this->readonly;
+        return $this->__readonly;
     }
 
     public function __set(string $name, $value) {
-        if ($this->readonly) {
+        if ($this->__readonly) {
             throw new \Exception(sprintf('%s object is readonly!',
                 get_class($this)));
         }
