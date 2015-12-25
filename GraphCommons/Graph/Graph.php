@@ -100,4 +100,65 @@ class Graph
         $this->edgeTypes = $edgeTypes;
         return $this;
     }
+
+    final public function getId(): string
+    {
+        return $this->id;
+    }
+    final public function getName(): string
+    {
+        return $this->name;
+    }
+    final public function getSubtitle(): string
+    {
+        return $this->subtitle;
+    }
+    final public function getDescription(): string
+    {
+        return $this->description;
+    }
+    final public function getCreatedAt(): string
+    {
+        return $this->createdAt;
+    }
+    final public function getUpdatedAt(): string
+    {
+        return $this->updatedAt;
+    }
+    final public function getStatus(): int
+    {
+        return $this->status;
+    }
+    final public function getImage(): Image
+    {
+        return $this->image;
+    }
+    final public function getLicense(): License
+    {
+        return $this->license;
+    }
+    final public function getLayout(): Layout
+    {
+        return $this->layout;
+    }
+    final public function getUsers(): Users
+    {
+        return $this->users;
+    }
+    final public function getNodes(): Nodes
+    {
+        return $this->nodes;
+    }
+    final public function getNodeTypes(): NodeTypes
+    {
+        return $this->nodeTypes;
+    }
+    final public function getEdges(): Edges
+    {
+        return $this->edges;
+    }
+    final public function getEdgeTypes(): EdgeTypes
+    {
+        return $this->edgeTypes;
+    }
 }
