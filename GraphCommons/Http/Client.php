@@ -82,6 +82,8 @@ final class Client
             );
         }
 
+        unset($body, $headers);
+
         @list($headers, $body) = explode("\r\n\r\n", $result, 2);
         if (!isset($headers)) {
             throw new \Exception('No headers received from server!');
