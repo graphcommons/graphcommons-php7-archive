@@ -179,11 +179,13 @@ final class GraphCommonsApi
 
         // set each entity's from node & to node
         if (isset($graph->edges)) foreach ($graph->edges as $id => $edge) {
-            if (isset($graph->nodes[$edge->from])) {
-                $edge->setFromNode($graph->nodes[$edge->from]);
+            $fromNode = $graph->nodes->get($edge->from);
+            if (!empty($fromNode)) {
+                $edge->setFromNode($fromNode);
             }
-            if (isset($graph->nodes[$edge->to])) {
-                $edge->setToNode($graph->nodes[$edge->to]);
+            $toNode = $graph->nodes->get($edge->to);
+            if (!empty($toNode)) {
+                $edge->setToNode($toNode);
             }
         }
 
