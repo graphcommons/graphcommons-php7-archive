@@ -1,10 +1,12 @@
 <?php
 namespace GraphCommons\Graph\Entity;
 
+use GraphCommons\Util\Property;
 use GraphCommons\Graph\GraphEntity;
 
 final class Node extends GraphEntity
 {
+    use Property;
     private $id;
     private $type;
     private $typeId;
