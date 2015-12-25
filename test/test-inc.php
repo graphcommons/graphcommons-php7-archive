@@ -6,7 +6,9 @@ function pre($input, $exit = false){
     if ($input === null) {
         printf("NULL\n");
     } else {
-        printf("%s\n", print_r($input, true));
+        $input = print_r($input, true);
+        $input = preg_replace('~\[(\w+):GraphCommons(\\\\?.*?):private\]~sm', '[\\1:private]', $input);
+        printf("%s\n", $input);
     }
     if ($exit) {
         exit;
