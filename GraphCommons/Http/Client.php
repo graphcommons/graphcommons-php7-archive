@@ -45,7 +45,7 @@ final class Client
 
     final public function request(
         string $uri, array $uriParams = null,
-        string $body = '', array $headers = null)
+        string $body = '', array $headers = null): Response
     {
         // match for a valid request i.e: GET /foo
         preg_match('~^([a-z]+)\s+(/.*)~i', $uri, $match);
@@ -92,5 +92,7 @@ final class Client
 
         $this->response->setHeaders($headers);
         $this->response->setBody($body);
+
+        return $this->response;
     }
 }
