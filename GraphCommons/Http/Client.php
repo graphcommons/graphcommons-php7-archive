@@ -91,9 +91,15 @@ final class Client
         }
 
         $headers = Util::parseResponseHeaders($headers);
+        if (isset($headers['status'])) {
+            $this->response->setStatus($headers['status']);
+            $this->response->setStatusCode($headers['status_code']);
+            $this->response->setStatusText($headers['status_text']);
+        }
 
         $this->response->setHeaders($headers);
         $this->response->setBody($body);
+
         if ($bodyData = json_decode($body, true)) {
             $this->response->setBodyData($bodyData);
         }
