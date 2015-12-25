@@ -8,7 +8,7 @@ final class Request extends Stream
     const METHOD_GET    = 'GET',
           METHOD_POST   = 'POST',
           METHOD_PUT    = 'PUT',
-          // these methods are not supported yet by GraphCommons
+          // these methods are not supported yet by GraphCommons API
           METHOD_HEAD   = 'HEAD',
           METHOD_DELETE = 'DELETE';
 
