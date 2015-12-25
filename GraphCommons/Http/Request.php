@@ -56,8 +56,6 @@ final class Request extends Stream
     final public function send()
     {
         $url = parse_url($this->uri);
-        pre($this->uri);
-        pre($url);
 
         $url['query'] = isset($url['query']) ? '?'. $url['query'] : '';
 
