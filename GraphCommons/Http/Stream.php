@@ -97,5 +97,10 @@ abstract class Stream
         return $this->failText;
     }
 
+    final public function getClient(): Client
+    {
+        return $this->client;
+    }
+
     abstract public function toString(): string;
 }
