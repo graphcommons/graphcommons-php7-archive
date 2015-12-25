@@ -33,6 +33,11 @@ final class Autoload
             $name = substr($name, 1 + strlen(__namespace__));
             $file = sprintf('%s/%s.php', __dir__, str_replace('\\', '/', $name));
 
+            // check file is exists
+            if (!is_file($file)) {
+                throw new \RuntimeException(sprintf('%s file not found!', $file));
+            }
+
             require($file);
         });
     }
