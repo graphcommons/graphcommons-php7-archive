@@ -9,19 +9,19 @@ final class Image extends GraphEntity
     private $refName;
     private $refUrl;
 
-    final public function setPath(string $path): self
+    final public function setPath(string $path = null): self
     {
-        $this->path = $path;
+        $this->path = (string) $path;
         return $this;
     }
-    final public function setRefName(string $refName): self
+    final public function setRefName(string $refName = null): self
     {
-        $this->refName = $refName;
+        $this->refName = (string) $refName;
         return $this;
     }
-    final public function setRefUrl(string $refUrl): self
+    final public function setRefUrl(string $refUrl = null): self
     {
-        $this->refUrl = $refUrl;
+        $this->refUrl = (string) $refUrl;
         return $this;
     }
 
