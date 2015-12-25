@@ -19,39 +19,39 @@ final class User extends GraphEntity
         $this->id = $id;
         return $this;
     }
-    final public function setUsername(string $username): self
+    final public function setUsername(string $username = null): self
     {
-        $this->username = $username;
+        $this->username = (string) $username;
         return $this;
     }
-    final public function setFullname(string $fullname): self
+    final public function setFullname(string $fullname = null): self
     {
-        $this->fullname = $fullname;
+        $this->fullname = (string) $fullname;
         return $this;
     }
-    final public function setFirstName(string $firstName): self
+    final public function setFirstName(string $firstName = null): self
     {
-        $this->firstName = $firstName;
+        $this->firstName = (string) $firstName;
         return $this;
     }
-    final public function setLastName(string $lastName): self
+    final public function setLastName(string $lastName = null): self
     {
-        $this->lastName = $lastName;
+        $this->lastName = (string) $lastName;
         return $this;
     }
-    final public function setIsOwner(bool $isOwner): self
+    final public function setIsOwner(bool $isOwner = null): self
     {
-        $this->isOwner = $isOwner;
+        $this->isOwner = (bool) $isOwner;
         return $this;
     }
-    final public function setIsAdmin(bool $isAdmin): self
+    final public function setIsAdmin(bool $isAdmin = null): self
     {
-        $this->isAdmin = $isAdmin;
+        $this->isAdmin = (bool) $isAdmin;
         return $this;
     }
-    final public function setImgPath(string $imgPath): self
+    final public function setImgPath(string $imgPath = null): self
     {
-        $this->imgPath = $imgPath;
+        $this->imgPath = (string) $imgPath;
         return $this;
     }
 
