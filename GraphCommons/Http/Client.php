@@ -102,4 +102,7 @@ final class Client
     final public function post($uri, array $uriParams = null, $body = null, array $headers = null) {
         return $this->request(Request::METHOD_POST .' /'. $uri, $uriParams, $body, $headers);
     }
+    final public function put($uri, array $uriParams = null, $body = null, array $headers = null) {
+        return $this->request(Request::METHOD_PUT .' /'. $uri, $uriParams, $body, $headers);
+    }
 }
