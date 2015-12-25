@@ -39,6 +39,7 @@ final class GraphCommonsApi
     final public function getGraph(string $id): Graph
     {
         $response = $this->graphCommons->client->get('/graphs/'. $id);
+        $responseData = $response->getBodyData();
         if (!$response->ok()) {
             $exception = Util::getResponseException($response);
             throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
@@ -49,7 +50,7 @@ final class GraphCommonsApi
         $graph = new Graph();
         $graph->setReadonly(false);
 
-        if (!empty($responseData = $response->getBodyData())) {
+        if (!empty($responseData)) {
             $g =& $responseData->graph;
             $graph->setId($g->id);
             $graph->setName($g->name);
