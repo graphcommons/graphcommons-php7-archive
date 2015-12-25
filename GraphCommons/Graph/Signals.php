@@ -8,7 +8,7 @@ class Signals extends Collection
 {
     final public function set($key, $value): self
     {
-        if (!$entity instanceof Signal) {
+        if (!$value instanceof Signal) {
             throw new \Exception(
                 'Entity must be instance of GraphCommons\Graph\Signal'
             );

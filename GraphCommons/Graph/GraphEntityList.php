@@ -8,7 +8,7 @@ class GraphEntityList extends Collection
 {
     final public function set($key, $value): self
     {
-        if (!$entity instanceof GraphEntity) {
+        if (!$value instanceof GraphEntity) {
             throw new \Exception(
                 'Entity must be instance of GraphCommons\Graph\GraphEntity'
             );
