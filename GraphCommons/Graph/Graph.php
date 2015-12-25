@@ -21,11 +21,9 @@ class Graph
     private $image;
     private $license;
     private $layout;
-    private $users = array();
-    private $nodes = array(),
-            $nodeTypes = array();
-    private $edges = array(),
-            $edgeTypes = array();
+    private $users;
+    private $nodes, $nodeTypes;
+    private $edges, $edgeTypes;
 
     final public function setId(string $id): self
     {
@@ -77,22 +75,22 @@ class Graph
         $this->layout = $layout;
         return $this;
     }
-    final public function setUsers(array $users): self
+    final public function setUsers(Users $users): self
     {
         $this->users = $users;
         return $this;
     }
-    final public function setNodes(array $nodes): self
+    final public function setNodes(Nodes $nodes): self
     {
         $this->nodes = $nodes;
         return $this;
     }
-    final public function setNodeTypes(array $nodeTypes): self
+    final public function setNodeTypes(NodeTypes $nodeTypes): self
     {
         $this->nodeTypes = $nodeTypes;
         return $this;
     }
-    final public function setEdges(array $edges): self
+    final public function setEdges(Edges $edges): self
     {
         $this->edges = $edges;
         return $this;
