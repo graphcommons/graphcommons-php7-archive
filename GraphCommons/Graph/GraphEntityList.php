@@ -41,7 +41,7 @@ abstract class GraphEntityList
 
     final public function offsetSet($id, $entity)
     {
-        return $this->set($entity);
+        return $this->set($id, $entity);
     }
     final public function offsetGet($id)
     {
