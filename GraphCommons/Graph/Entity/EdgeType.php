@@ -1,10 +1,12 @@
 <?php
 namespace GraphCommons\Graph\Entity;
 
+use GraphCommons\Util\Property;
 use GraphCommons\Graph\GraphEntity;
 
 final class EdgeType extends GraphEntity
 {
+    use Property;
     private $id;
     private $name;
     private $nameAlias;
