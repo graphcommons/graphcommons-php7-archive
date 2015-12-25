@@ -60,4 +60,41 @@ final class Edge extends GraphEntity
         $this->properties = $properties;
         return $this;
     }
+
+    final public function getId(): string
+    {
+        return $this->id;
+    }
+    final public function getName(): string
+    {
+        return $this->name;
+    }
+    final public function getTypeId(): string
+    {
+        return $this->typeId;
+    }
+    final public function getUserId(): string
+    {
+        return $this->userId;
+    }
+    final public function getFrom(): string
+    {
+        return $this->from;
+    }
+    final public function getTo(): string
+    {
+        return $this->to;
+    }
+    final public function getWeight(): int
+    {
+        return $this->weight;
+    }
+    final public function getDirected(): int
+    {
+        return $this->directed;
+    }
+    final public function getProperties(): \stdClass
+    {
+        return $this->properties;
+    }
 }
