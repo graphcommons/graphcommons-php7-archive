@@ -15,4 +15,28 @@ abstract class Util
         }
         return $value;
     }
+
+    final public static function parseResponseHeaders(string $headers): array
+    {
+        $return  = array();
+        $headers = array_map('trim', (array) explode("\r\n", $headers));
+        if (!empty($headers)) {
+            $firsLine = array_shift($headers);
+            // response: HTTP/1.1 200 OK
+            if (preg_match('~HTTP/\d+\.\d+\s+(\d+)\s+(.+)$~', $firsLine, $match)) {
+                $return['status'] = $firsLine;
+                $return['status_code'] = (int) $match[1];
+                $return['status_text'] = trim($match[2]);
+            }
+            foreach ($headers as $header) {
+                @list($key, $value) = explode(':', $header, 2);
+                if (isset($key, $value)) {
+                    $key = trim($key);
+                    $value = trim($value);
+                    $return[$key] = $value;
+                }
+            }
+        }
+        return $return;
+    }
 }
