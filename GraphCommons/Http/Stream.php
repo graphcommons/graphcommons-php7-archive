@@ -13,6 +13,7 @@ abstract class Stream
     protected $httpVersion;
     protected $headers = array();
     protected $body = '';
+    protected $bodyLength = 0;
     protected $bodyData;
     protected $failCode = 0;
     protected $failText = '';
@@ -44,7 +45,12 @@ abstract class Stream
     }
     final public function setBody(string $body): self
     {
-        $this->body = trim($body);
+        $this->body = $body;
+        return $this;
+    }
+    final public function setBodyLength(int $bodyLength): self
+    {
+        $this->bodyLength = $bodyLength;
         return $this;
     }
     final public function setBodyData($bodyData = null): self
@@ -85,6 +91,10 @@ abstract class Stream
     final public function getBody(): string
     {
         return $this->body;
+    }
+    final public function getBodyLength(): int
+    {
+        return $this->bodyLength;
     }
     final public function getBodyData(string $key = null)
     {

@@ -30,7 +30,6 @@ final class Client
 
         // set initial headers
         $this->request->setHeader('Accept', 'application/json');
-        $this->request->setHeader('Content-Type', 'application/json');
         $this->request->setHeader('User-Agent', sprintf(
             'GraphCommons-PHP/v%s (+https://github.com/qeremy/graphcommons-php)'
             , $this->graphCommons->getVersion()
@@ -74,7 +73,14 @@ final class Client
             }
         }
 
+        $body = trim($body);
+        $bodyLength = strlen($body);
         $this->request->setBody($body);
+        $this->request->setBodyLength($bodyLength);
+
+        // set content headers
+        $this->request->setHeader('Content-Type', 'application/json');
+        $this->request->setHeader('Content-Length', (string) $bodyLength);
 
         $result = $this->request->send();
         if ($result === null) {
