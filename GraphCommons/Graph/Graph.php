@@ -101,7 +101,7 @@ class Graph
         $this->edgeTypes = $edgeTypes;
         return $this;
     }
-    final public function setSignals(Signals $signals): self
+    final public function setSignals(SignalCollection $signals): self
     {
         $this->signals = $signals;
         return $this;
