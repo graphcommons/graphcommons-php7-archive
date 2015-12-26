@@ -94,6 +94,11 @@ abstract class Util
                 'code' => $response->getStatusCode(),
                 'message' => $responseData->msg,
             );
+        } elseif (isset($responseData->status, $responseData->error)) {
+            return array(
+                'code' => $responseData->status,
+                'message' => $responseData->error,
+            );
         }
         return array(
             'code' => Exception::UNKNOWN_ERROR_CODE,
