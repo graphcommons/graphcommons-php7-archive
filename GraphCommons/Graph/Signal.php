@@ -1,8 +1,12 @@
 <?php
 namespace GraphCommons\Graph;
 
+use GraphCommons\Util\SerialTrait as Serial;
+
 final class Signal
 {
+    use Serial;
+
     const NODE_CREATE     = 1,
           NODE_UPDATE     = 2,
           NODE_DELETE     = 3,
@@ -61,7 +65,7 @@ final class Signal
 
     final public function getAction(): string
     {
-        return $this->action;
+        return (string) $this->action;
     }
     final public function getParameter(string $key)
     {
@@ -70,6 +74,16 @@ final class Signal
     final public function getParameters(): array
     {
         return $this->parameters;
+    }
+
+    final public function unserialize(...$args): array
+    {
+        $array = array();
+        $array['action'] = $this->getAction();
+        foreach ($this->getParameters() as $key => $value) {
+            $array[$key] = $value;
+        }
+        return $array;
     }
 
     final public static function detectAction($action): int
