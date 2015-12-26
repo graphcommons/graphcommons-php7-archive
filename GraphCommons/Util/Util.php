@@ -1,7 +1,7 @@
 <?php
 namespace GraphCommons\Util;
 
-use GraphCommons\GraphCommonsApiException;
+use GraphCommons\GraphCommonsApiException as Exception;
 use GraphCommons\Http\Request;
 use GraphCommons\Http\Response;
 
@@ -81,8 +81,8 @@ abstract class Util
             );
         }
         return array(
-            'code' => GraphCommonsApiException::UNKNOWN_ERROR_CODE,
-            'message' => GraphCommonsApiException::UNKNOWN_ERROR_MESSAGE,
+            'code' => Exception::UNKNOWN_ERROR_CODE,
+            'message' => Exception::UNKNOWN_ERROR_MESSAGE,
         );
     }
 
@@ -96,8 +96,8 @@ abstract class Util
             );
         }
         return array(
-            'code' => GraphCommonsApiException::UNKNOWN_ERROR_CODE,
-            'message' => GraphCommonsApiException::UNKNOWN_ERROR_MESSAGE,
+            'code' => Exception::UNKNOWN_ERROR_CODE,
+            'message' => Exception::UNKNOWN_ERROR_MESSAGE,
         );
     }
 }
