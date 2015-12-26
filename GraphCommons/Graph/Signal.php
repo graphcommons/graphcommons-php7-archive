@@ -14,8 +14,8 @@ final class Signal
           EDGETYPE_UPDATE = 9,
           EDGETYPE_DELETE = 10;
 
-    protected $action;
-    protected $actions = array(
+    private $action;
+    private $actions = array(
         '',
         'node_create',
         'node_update',
@@ -28,7 +28,7 @@ final class Signal
         'edgetype_update',
         'edgetype_delete',
     );
-    protected $parameters = array();
+    private $parameters = array();
 
     final public function __construct(int $action = null)
     {
