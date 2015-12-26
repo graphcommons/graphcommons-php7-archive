@@ -13,18 +13,20 @@ final class Signal
           NODETYPE_DELETE = 8,
           EDGETYPE_UPDATE = 9,
           EDGETYPE_DELETE = 10;
+
     protected $action;
     protected $actions = array(
-        1 => 'node_create',
-             'node_update',
-             'node_delete',
-             'edge_create',
-             'edge_update',
-             'edge_delete',
-             'nodetype_update',
-             'nodetype_delete',
-             'edgetype_update',
-             'edgetype_delete',
+        '',
+        'node_create',
+        'node_update',
+        'node_delete',
+        'edge_create',
+        'edge_update',
+        'edge_delete',
+        'nodetype_update',
+        'nodetype_delete',
+        'edgetype_update',
+        'edgetype_delete',
     );
     protected $parameters = array();
 
