@@ -10,7 +10,7 @@ use GraphCommons\Graph\Graph;
 use GraphCommons\Graph\Signal;
 use GraphCommons\Graph\SignalCollection;
 
-$gc = new GraphCommons(API_KEY);
+$gc = new GraphCommons(API_KEY, ['debug' => true]);
 // pre($gc);
 
 // check status
@@ -22,23 +22,26 @@ $gc = new GraphCommons(API_KEY);
 // post graph
 $data = $gc->api->postGraph((function() {
     $graph = new Graph();
-    $graph->setName('Birds');
-    $graph->setDescription('The Worl of Birds!');
+    $graph->setName('Person Graph');
+    $graph->setDescription('The Person Graph!');
     $graph->setStatus(Graph::STATUS_DRAFT);
     $signals = SignalCollection::fromArray(array(
         array(
-            'action' => Signal::NODE_CREATE,
-            'parameters' => array(
-                'name' => 'The foo',
-                'type' => 'foo',
+            'action'        => Signal::NODE_CREATE,
+            'parameters'    => array(
+                'name'      => 'Ahmet',
+                'type'      => 'Person',
             ),
         ),
         array(
-            'action' => Signal::NODE_CREATE,
-            'parameters' => array(
-                'from_name' => 'The foo',
-                'from_type' => 'foo',
-                'weight' => 2,
+            'action'        => Signal::EDGE_CREATE,
+            'parameters'    => array(
+                'from_name' => 'Ahmet',
+                'from_type' => 'Person',
+                'to_name'   => 'Burak',
+                'to_type'   => 'Person',
+                'name'      => 'COLLABORATED',
+                'weight'    => 2,
             ),
         ),
     ));
