@@ -211,13 +211,12 @@ final class GraphCommonsApi
         return $graph;
     }
 
-    final public function postGraph($graph): Graph
+    final public function postGraph($body): Graph
     {
-        $body = '';
-        if ($graph instanceof Graph) {
-            $body = $graph->serialize();
+        if ($data instanceof Graph) {
+            $body = $data->serialize();
         } else {
-            $json = new Json($graph);
+            $json = new Json($data);
             if ($json->hasError()) {
                 $jsonError = $json->getError();
                 throw new JsonException(sprintf(
@@ -229,7 +228,6 @@ final class GraphCommonsApi
         }
 
         $response = $this->graphCommons->client->post('/graphs', null, $body);
-        $responseData = $response->getBodyData();
         if (!$response->ok()) {
             $exception = Util::getResponseException($response);
             throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
@@ -237,7 +235,7 @@ final class GraphCommonsApi
             ),  $exception['code']);
         }
 
-        $g =& $responseData->graph;
+        $g =& $response->getBodyData('graph');
 
         $graph = new Graph();
         $graph->setId($g->id)
