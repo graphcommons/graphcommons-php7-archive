@@ -17,5 +17,21 @@ trait SerialTrait
         return (string) $json->encode();
     }
 
-    abstract public function unserialize(...$args): array;
+    public function unserialize(...$args): array
+    {
+        $array = array();
+        foreach (get_object_vars($this) as $key => $value) {
+            if ($key[0] == '_') {
+                continue;
+            }
+            if ($value !== null) {
+                if (is_object($value)) {
+                    $array[$key] = $value->unserialize();
+                    continue;
+                }
+                $array[$key] = $value;
+            }
+        }
+        return $array;
+    }
 }
