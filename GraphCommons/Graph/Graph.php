@@ -24,6 +24,7 @@ class Graph
     private $users;
     private $nodes, $nodeTypes;
     private $edges, $edgeTypes;
+    private $signals;
 
     final public function setId(string $id): self
     {
@@ -100,6 +101,11 @@ class Graph
         $this->edgeTypes = $edgeTypes;
         return $this;
     }
+    final public function setSignals(Signals $signals): self
+    {
+        $this->signals = $signals;
+        return $this;
+    }
 
     final public function getId(): string
     {
@@ -160,5 +166,9 @@ class Graph
     final public function getEdgeTypes(): EdgeTypes
     {
         return $this->edgeTypes;
+    }
+    final public function getSignals(): Signals
+    {
+        return $this->signals;
     }
 }
