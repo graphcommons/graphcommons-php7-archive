@@ -3,6 +3,7 @@ namespace GraphCommons\Util;
 
 final class Json
 {
+    private $data;
     private $errorCode = 0;
     private $errorMessage = '';
     private static $errorMessages = array(
@@ -13,7 +14,6 @@ final class Json
         JSON_ERROR_SYNTAX         => 'Syntax error, malformed JSON',
         JSON_ERROR_UTF8           => 'Malformed UTF-8 characters, possibly incorrectly encoded'
     );
-    private $data;
 
     final public function __construct($data = null)
     {
