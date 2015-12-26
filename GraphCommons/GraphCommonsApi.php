@@ -259,4 +259,53 @@ final class GraphCommonsApi
 
         return $graph;
     }
+
+    final public function putGraph(string $id, $body): Graph
+    {
+        if ($data instanceof Graph) {
+            $body = $data->serialize();
+        } else {
+            $json = new Json($data);
+            if ($json->hasError()) {
+                $jsonError = $json->getError();
+                throw new JsonException(sprintf(
+                    'JSON error: code(%d) message(%s)',
+                    $jsonError['code'], $jsonError['message']
+                ),  $jsonError['code']);
+            }
+            $body = (string) $json->encode();
+        }
+
+        $response = $this->graphCommons->client->put('/graphs/'. $id .'/add', null, $body);
+        if (!$response->ok()) {
+            $exception = Util::getResponseException($response);
+            throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
+                $exception['code'], $exception['message']
+            ),  $exception['code']);
+        }
+
+        $g =& $response->getBodyData('graph');
+
+        $graph = new Graph();
+        $graph->setId($g->id)
+            ->setName($g->name)
+            ->setDescription($g->description)
+            ->setSubtitle($g->subtitle)
+            ->setStatus($g->status)
+            ->setCreatedAt($g->created_at)
+        ;
+
+        $array = array();
+        if (isset($g->signals)) {
+            foreach ($g->signals as $i => $signal) {
+                $action = $signal->action;
+                unset($signal->action);
+                $array[$i]['action'] = Signal::detectAction($action);
+                $array[$i]['parameters'] = Util::toArray($signal);
+            }
+            $graph->setSignals(SignalCollection::fromArray($array));
+        }
+
+        return $graph;
+    }
 }
