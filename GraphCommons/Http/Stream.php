@@ -110,5 +110,10 @@ abstract class Stream
         return $this->client;
     }
 
+    final public function isFail(): bool
+    {
+        return !($this->failCode === 0 && $this->failText === '');
+    }
+
     abstract public function toString(): string;
 }

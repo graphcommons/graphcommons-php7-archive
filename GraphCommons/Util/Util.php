@@ -74,7 +74,7 @@ abstract class Util
 
     final public static function getRequestException(Request $request): array
     {
-        if ($request->getFailCode()) {
+        if ($request->isFail()) {
             return array(
                 'code' => $response->getFailCode(),
                 'message' => $response->getFailText(),
