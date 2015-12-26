@@ -13,10 +13,12 @@ final class Signal
           EDGE_CREATE     = 4,
           EDGE_UPDATE     = 5,
           EDGE_DELETE     = 6,
-          NODETYPE_UPDATE = 7,
-          NODETYPE_DELETE = 8,
-          EDGETYPE_UPDATE = 9,
-          EDGETYPE_DELETE = 10;
+          NODETYPE_CREATE = 7,
+          NODETYPE_UPDATE = 8,
+          NODETYPE_DELETE = 9,
+          EDGETYPE_CREATE = 10,
+          EDGETYPE_UPDATE = 11,
+          EDGETYPE_DELETE = 12;
 
     private $action;
     private static $actions = array(
@@ -27,8 +29,10 @@ final class Signal
         'edge_create',
         'edge_update',
         'edge_delete',
+        'nodetype_create',
         'nodetype_update',
         'nodetype_delete',
+        'edgetype_create',
         'edgetype_update',
         'edgetype_delete',
     );
