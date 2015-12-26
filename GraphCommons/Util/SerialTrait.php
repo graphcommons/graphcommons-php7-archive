@@ -3,7 +3,7 @@ namespace GraphCommons\Util;
 
 trait SerialTrait
 {
-    final public function serialize(...$args): string
+    public function serialize(...$args): string
     {
         $json = new Json($this->unserialize());
         if ($json->hasError()) {
