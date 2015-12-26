@@ -96,6 +96,10 @@ final class Request extends Stream
             $send .= $this->body;
             fwrite($sock, $send);
 
+            if ($this->client->config['debug']) {
+                printf("%s\n", $send);
+            }
+
             stream_set_timeout($sock, $this->client->config['timeout_read']);
             stream_set_blocking($sock, $this->client->config['blocking']);
             $meta = stream_get_meta_data($sock);
@@ -112,6 +116,10 @@ final class Request extends Stream
             }
 
             fclose($sock);
+
+            if ($this->client->config['debug']) {
+                printf("%s\n", $recv);
+            }
 
             return $recv;
         }

@@ -16,6 +16,7 @@ final class Client
     private $response;
 
     private $config = array(
+        'debug' => false,
         'blocking' => true,
         'timeout_read' => 5,
         'timeout_connection' => 5,
