@@ -209,4 +209,13 @@ final class GraphCommonsApi
 
         return $graph;
     }
+
+    final public function postGraph($graph): Graph
+    {
+        $body = array();
+        if ($graph instanceof Graph) {
+            // @todo
+        }
+        return $graph;
+    }
 }
