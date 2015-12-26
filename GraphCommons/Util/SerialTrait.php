@@ -21,6 +21,7 @@ trait SerialTrait
     {
         $array = array();
         foreach (get_object_vars($this) as $key => $value) {
+            // pass private vars
             if ($key[0] == '_') {
                 continue;
             }
