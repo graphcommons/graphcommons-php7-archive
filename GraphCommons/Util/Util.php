@@ -11,7 +11,7 @@ abstract class Util
     {
         return $array[$key] ?? $value;
     }
-    final public static function arrayPop(array $array, $key, $value = null)
+    final public static function arrayPick(array $array, $key, $value = null)
     {
         if (isset($array[$key])) {
             $value = $array[$key];

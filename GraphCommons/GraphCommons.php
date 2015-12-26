@@ -24,10 +24,10 @@ final class GraphCommons
         $this->api = new GraphCommonsApi($this);
 
         if (isset($config['api_url'])) {
-            $this->apiUrl = Util::arrayPop($config, 'api_url');
+            $this->apiUrl = Util::arrayPick($config, 'api_url');
         }
         if (isset($config['api_version'])) {
-            $this->apiVersion = Util::arrayPop($config, 'api_version');
+            $this->apiVersion = Util::arrayPick($config, 'api_version');
         }
 
         $this->apiKey = trim($apiKey);
