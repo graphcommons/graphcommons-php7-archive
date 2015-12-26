@@ -82,7 +82,7 @@ final class Client
             ),  $exception['code']);
         }
 
-        unset($body, $headers);
+        unset($headers, $body);
 
         @list($headers, $body) = explode("\r\n\r\n", $result, 2);
         if (!isset($headers)) {
