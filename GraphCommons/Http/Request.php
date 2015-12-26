@@ -84,33 +84,36 @@ final class Request extends Stream
                 }
             }
 
-            fwrite($sock, sprintf("%s %s%s HTTP/%s\r\n",
-                $this->method, $url['path'], $url['query'], $this->httpVersion));
+            $send = '';
+            $recv = '';
+
+            $send .= sprintf("%s %s%s HTTP/%s\r\n",
+                $this->method, $url['path'], $url['query'], $this->httpVersion);
             foreach ($headers as $key => $value) {
-                fwrite($sock, sprintf("%s: %s\r\n", $key, $value));
+                $send .= sprintf("%s: %s\r\n", $key, $value);
             }
-            fwrite($sock, "\r\n");
-            fwrite($sock, $this->body);
+            $send .= "\r\n";
+            $send .= $this->body;
+            fwrite($sock, $send);
 
             stream_set_timeout($sock, $this->client->config['timeout_read']);
             stream_set_blocking($sock, $this->client->config['blocking']);
             $meta = stream_get_meta_data($sock);
 
-            $result = '';
             while (!feof($sock)) {
                 // check timeout
                 if ($meta['timed_out']) {
                     $this->failText = 'Timed out!';
                     break;
                 }
-                $result .= fread($sock, 1024);
+                $recv .= fread($sock, 1024);
                 // get meta again
                 $meta = stream_get_meta_data($sock);
             }
 
             fclose($sock);
 
-            return $result;
+            return $recv;
         }
 
         return null;
