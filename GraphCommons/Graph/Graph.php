@@ -1,6 +1,7 @@
 <?php
 namespace GraphCommons\Graph;
 
+use GraphCommons\Util\SerialTrait as Serial;
 use GraphCommons\Util\PropertyTrait as Property;
 use GraphCommons\Graph\Entity\Image;
 use GraphCommons\Graph\Entity\License;
@@ -11,6 +12,7 @@ use GraphCommons\Graph\Entity\{Edges, EdgeTypes};
 
 class Graph
 {
+    use Serial;
     use Property;
 
     const STATUS_DRAFT = 0,
