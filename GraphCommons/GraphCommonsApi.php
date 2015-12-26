@@ -4,7 +4,9 @@ namespace GraphCommons;
 use GraphCommons\GraphCommons;
 use GraphCommons\GraphCommonsApiException;
 use GraphCommons\Util\Util;
+use GraphCommons\Util\{Json, JsonException};
 use GraphCommons\Graph\Graph;
+use GraphCommons\Graph\{Signal, SignalCollection};
 use GraphCommons\Graph\Entity\Image as GraphImage;
 use GraphCommons\Graph\Entity\License as GraphLicense;
 use GraphCommons\Graph\Entity\Layout as GraphLayout;
@@ -48,7 +50,6 @@ final class GraphCommonsApi
         }
 
         $graph = new Graph();
-        $graph->setReadonly(false);
 
         if (!empty($responseData)) {
             $g =& $responseData->graph;
@@ -212,10 +213,52 @@ final class GraphCommonsApi
 
     final public function postGraph($graph): Graph
     {
-        $body = array();
+        $body = '';
         if ($graph instanceof Graph) {
-            // @todo
+            $body = $graph->serialize();
+        } else {
+            $json = new Json($graph);
+            if ($json->hasError()) {
+                $jsonError = $json->getError();
+                throw new JsonException(sprintf(
+                    'JSON error: code(%d) message(%s)',
+                    $jsonError['code'], $jsonError['message']
+                ),  $jsonError['code']);
+            }
+            $body = (string) $json->encode();
         }
+
+        $response = $this->graphCommons->client->post('/graphs', null, $body);
+        $responseData = $response->getBodyData();
+        if (!$response->ok()) {
+            $exception = Util::getResponseException($response);
+            throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
+                $exception['code'], $exception['message']
+            ),  $exception['code']);
+        }
+
+        $g =& $responseData->graph;
+
+        $graph = new Graph();
+        $graph->setId($g->id)
+            ->setName($g->name)
+            ->setDescription($g->description)
+            ->setSubtitle($g->subtitle)
+            ->setStatus($g->status)
+            ->setCreatedAt($g->created_at)
+        ;
+
+        $array = array();
+        if (isset($g->signals)) {
+            foreach ($g->signals as $i => $signal) {
+                $action = $signal->action;
+                unset($signal->action);
+                $array[$i]['action'] = Signal::detectAction($action);
+                $array[$i]['parameters'] = Util::toArray($signal);
+            }
+            $graph->setSignals(SignalCollection::fromArray($array));
+        }
+
         return $graph;
     }
 }
