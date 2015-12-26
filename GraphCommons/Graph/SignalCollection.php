@@ -4,10 +4,14 @@ namespace GraphCommons\Graph;
 use GraphCommons\Util\Collection;
 use GraphCommons\Util\Util;
 use GraphCommons\Util\{Json, JsonException};
+use GraphCommons\Util\SerialTrait as Serial;
 use GraphCommons\Graph\Signal;
+
 
 class SignalCollection extends Collection
 {
+    use Serial;
+
     final public function add(Signal $signal): self
     {
         parent::set($this->count(), $signal);
@@ -15,34 +19,13 @@ class SignalCollection extends Collection
         return $this;
     }
 
-    final public function toArray(): array
+    final public function unserialize(...$args): array
     {
-        return $this->getData();
-    }
-
-    final public function toJson(): string
-    {
-        $data = array(
-            'signals' => array(),
-        );
-
-        foreach ($this->data as $i => $signal) {
-            $data['signals'][$i]['action'] = $signal->getAction();
-            foreach ($signal->getParameters() as $key => $value) {
-                $data['signals'][$i][$key] = $value;
-            }
+        $array = array();
+        foreach ($this->data as $key => $value) {
+            $array[$key] = $value->unserialize();
         }
-
-        $json = new Json($data);
-        if ($json->hasError()) {
-            $jsonError = $json->getError();
-            throw new JsonException(sprintf(
-                'JSON error: code(%d) message(%s)',
-                $jsonError['code'], $jsonError['message']
-            ),  $jsonError['code']);
-        }
-
-        return $json->encode();
+        return $array;
     }
 
     final public static function fromArray(array $array): SignalCollection
