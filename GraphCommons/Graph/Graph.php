@@ -12,6 +12,11 @@ use GraphCommons\Graph\Entity\{Edges, EdgeTypes};
 class Graph
 {
     use Property;
+
+    const STATUS_DRAFT = 0,
+          STATUS_PUBLISHED = 1,
+          STATUS_PRIVATE = 2;
+
     private $id;
     private $name;
     private $subtitle;
