@@ -15,7 +15,7 @@ final class Signal
           EDGETYPE_DELETE = 10;
 
     private $action;
-    private $actions = array(
+    private static $actions = array(
         '',
         'node_create',
         'node_update',
@@ -39,13 +39,13 @@ final class Signal
 
     final public function setAction(int $action): self
     {
-        if (!isset($this->actions[$action])) {
+        if (!isset(self::$actions[$action])) {
             throw new \InvalidArgumentException(sprintf(
                 'Wrong action type given, accepted actions: %s'
-                    , join(',', $this->$actions)
+                    , join(',', self::$actions)
             ));
         }
-        $this->action = $this->actions[$action];
+        $this->action = self::$actions[$action];
         return $this;
     }
     final public function setParameter(string $key, $value): self
