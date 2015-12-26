@@ -42,7 +42,7 @@ final class Signal
         if (!isset(self::$actions[$action])) {
             throw new \InvalidArgumentException(sprintf(
                 'Wrong action type given, accepted actions: %s'
-                    , join(',', self::$actions)
+                    , join(',', array_slice(self::$actions, 1))
             ));
         }
         $this->action = self::$actions[$action];
@@ -70,5 +70,16 @@ final class Signal
     final public function getParameters(): array
     {
         return $this->parameters;
+    }
+
+    final public static function detectAction($action): int
+    {
+        if (is_string($action)) {
+            $actions = array_flip(self::$actions);
+            if (isset($actions[$action])) {
+                return $actions[$action];
+            }
+        }
+        return $action;
     }
 }
