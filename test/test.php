@@ -20,7 +20,7 @@ $gc = new GraphCommons(API_KEY, ['debug' => true]);
 // $data = $gc->api->getGraph('8f8c794a-a498-4c3e-a73b-95a460db6e3a');
 
 // post graph
-// $data = $gc->api->postGraph((function() {
+// $data = $gc->api->addGraph((function() {
 //     $graph = new Graph();
 //     $graph->setName('Person Graph');
 //     $graph->setDescription('The Person Graph!');

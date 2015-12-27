@@ -211,7 +211,7 @@ final class GraphCommonsApi
         return $graph;
     }
 
-    final public function postGraph($body): Graph
+    final public function addGraph($body): Graph
     {
         $body = $this->serializeBody($body);
 
