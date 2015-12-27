@@ -37,6 +37,10 @@ class Collection
     {
         return array_keys($this->data);
     }
+    public function getDataValues(): array
+    {
+        return array_values($this->data);
+    }
 
     public function count(): int
     {
