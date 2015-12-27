@@ -65,7 +65,7 @@ final class Client
         $uri = preg_replace('~(^|[^:])//+~', '\\1/', trim($uri, '/'));
 
         $this->request
-            ->setMethod(strtoupper($match[1]))
+            ->setMethod($match[1])
             ->setUri($uri, (array) $uriParams);
 
         if (!empty($headers)) {
@@ -74,14 +74,20 @@ final class Client
             }
         }
 
-        $body = trim($body);
-        $bodyLength = strlen($body);
-        $this->request->setBody($body);
-        $this->request->setBodyLength($bodyLength);
+        $requestMethod = $this->request->getMethod();
+        if ($requestMethod == Request::METHOD_POST ||
+            $requestMethod == Request::METHOD_PUT
+        ) {
+            // set body stuff
+            $body = trim($body);
+            $bodyLength = strlen($body);
+            $this->request->setBody($body);
+            $this->request->setBodyLength($bodyLength);
 
-        // set content headers
-        $this->request->setHeader('Content-Type', 'application/json');
-        $this->request->setHeader('Content-Length', (string) $bodyLength);
+            // set content headers stuff
+            $this->request->setHeader('Content-Type', 'application/json');
+            $this->request->setHeader('Content-Length', (string) $bodyLength);
+        }
 
         $result = $this->request->send();
         if ($result === null) {
