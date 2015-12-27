@@ -48,26 +48,26 @@ $gc = new GraphCommons(API_KEY, ['debug' => true]);
 //     return $graph;
 // })());
 
-$data = $gc->api->putGraph('29d02ccc-fcd5-4b9c-aa74-bd1033b6d3bd', (function() {
-    $graph = new Graph();
-    $graph->setName('Person Graph (update)');
-    $graph->setDescription('The Person Graph! (update)');
-    $graph->setStatus(Graph::STATUS_PUBLISHED);
-    $graph->setSignals(SignalCollection::fromArray(array(
-        array(
-            'action'        => Signal::EDGE_CREATE,
-            'parameters'    => array(
-                'from_name' => 'Ahmet',
-                'from_type' => 'Person',
-                'to_name'   => 'Fatih',
-                'to_type'   => 'Person',
-                'name'      => 'COLLABORATED',
-                'weight'    => 2,
-            ),
-        ),
-    )));
-    return $graph;
-})());
+// $data = $gc->api->putGraph('29d02ccc-fcd5-4b9c-aa74-bd1033b6d3bd', (function() {
+//     $graph = new Graph();
+//     $graph->setName('Person Graph (update)');
+//     $graph->setDescription('The Person Graph! (update)');
+//     $graph->setStatus(Graph::STATUS_PUBLISHED);
+//     $graph->setSignals(SignalCollection::fromArray(array(
+//         array(
+//             'action'        => Signal::EDGE_CREATE,
+//             'parameters'    => array(
+//                 'from_name' => 'Ahmet',
+//                 'from_type' => 'Person',
+//                 'to_name'   => 'Fatih',
+//                 'to_type'   => 'Person',
+//                 'name'      => 'COLLABORATED',
+//                 'weight'    => 2,
+//             ),
+//         ),
+//     )));
+//     return $graph;
+// })());
 
 // dump data
 pre($data);
