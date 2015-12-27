@@ -213,7 +213,7 @@ final class GraphCommonsApi
 
     final public function postGraph($body): Graph
     {
-        $body = $this->serializeBody();
+        $body = $this->serializeBody($body);
 
         $response = $this->graphCommons->client->post('/graphs', null, $body);
         if (!$response->ok()) {
@@ -250,7 +250,7 @@ final class GraphCommonsApi
 
     final public function putGraph(string $id, $body): Graph
     {
-        $body = $this->serializeBody();
+        $body = $this->serializeBody($body);
 
         $response = $this->graphCommons->client->put('/graphs/'. $id .'/add', null, $body);
         if (!$response->ok()) {
@@ -287,11 +287,10 @@ final class GraphCommonsApi
 
     final public function serializeBody($body): string
     {
-        $body = '';
-        if ($data instanceof Graph) {
-            $body = $data->serialize();
+        if ($body instanceof Graph) {
+            $body = $body->serialize();
         } else {
-            $json = new Json($data);
+            $json = new Json($body);
             if ($json->hasError()) {
                 $jsonError = $json->getError();
                 throw new JsonException(sprintf(
