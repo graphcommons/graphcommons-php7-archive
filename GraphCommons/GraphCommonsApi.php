@@ -41,7 +41,6 @@ final class GraphCommonsApi
     final public function getGraph(string $id): Graph
     {
         $response = $this->graphCommons->client->get('/graphs/'. $id);
-        $responseData = $response->getBodyData();
         if (!$response->ok()) {
             $exception = Util::getResponseException($response);
             throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
@@ -51,8 +50,8 @@ final class GraphCommonsApi
 
         $graph = new Graph();
 
-        if (!empty($responseData)) {
-            $g =& $responseData->graph;
+        $g = $response->getBodyData('graph');
+        if (!empty($g)) {
             $graph->setId($g->id)
                 ->setName($g->name)
                 ->setSubtitle($g->subtitle)

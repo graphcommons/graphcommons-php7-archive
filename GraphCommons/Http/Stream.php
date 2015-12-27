@@ -1,6 +1,7 @@
 <?php
 namespace GraphCommons\Http;
 
+use GraphCommons\GraphCommonsApiException as Exception;
 use GraphCommons\Util\Util;
 
 abstract class Stream
@@ -106,14 +107,6 @@ abstract class Stream
         }
         return null;
     }
-    final public function getFailCode(): int
-    {
-        return $this->failCode;
-    }
-    final public function getFailText(): string
-    {
-        return $this->failText;
-    }
 
     final public function getClient(): Client
     {
@@ -123,6 +116,47 @@ abstract class Stream
     final public function isFail(): bool
     {
         return !($this->failCode === 0 && $this->failText === '');
+    }
+
+    final public function getFail(): array
+    {
+        switch ($this->type) {
+            case self::TYPE_REQUEST:
+                if ($request->isFail()) {
+                    return array(
+                        'code' => $this->getFailCode(),
+                        'message' => $this->getFailText(),
+                    );
+                }
+            case self::TYPE_RESPONSE:
+                if (isset($this->bodyData->msg)) {
+                    return array(
+                        'code' => $this->getStatusCode(),
+                        'message' => $this->bodyData->msg,
+                    );
+                } elseif (isset($this->bodyData->status, $this->bodyData->error)) {
+                    return array(
+                        'code' => $this->bodyData->status,
+                        'message' => $this->bodyData->error,
+                    );
+                }
+                break;
+            default:
+                return array(
+                    'code' => Exception::UNKNOWN_ERROR_CODE,
+                    'message' => Exception::UNKNOWN_ERROR_MESSAGE,
+                );
+                break;
+        }
+    }
+
+    final public function getFailCode(): int
+    {
+        return $this->failCode;
+    }
+    final public function getFailText(): string
+    {
+        return $this->failText;
     }
 
     abstract public function toString(): string;
