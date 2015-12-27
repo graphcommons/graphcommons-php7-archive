@@ -254,6 +254,27 @@ final class GraphCommonsApi
         return $this->fillNode(new GraphNode(), $response->getBodyData('node'));
     }
 
+    final public function getNodes(array $query): GraphNodes
+    {
+        $response = $this->graphCommons->client->get('/nodes/search', $query);
+        if (!$response->ok()) {
+            $fail = $response->getFail();
+            throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
+                $fail['code'], $fail['message']
+            ),  $fail['code']);
+        }
+
+        $nodes = new GraphNodes();
+
+        $nn = $response->getBodyData('nodes');
+        prj($response->getBody());
+        // if (!empty($nn)) foreach ($nn as $n) {
+        //     $nodes->add($n['id'], $this->fillNode(new GraphNode(), $n));
+        // }
+
+        return $nodes;
+    }
+
     final private function serializeBody($body): string
     {
         if (is_object($body) && method_exists($body, 'serialize')) {
