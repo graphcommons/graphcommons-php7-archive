@@ -126,7 +126,7 @@ abstract class Stream
         );
 
         if ($this->type == self::TYPE_REQUEST) {
-            if ($request->isFail()) {
+            if ($this->isFail()) {
                 $fail['code'] = $this->getFailCode();
                 $fail['message'] = $this->getFailText();
             }
