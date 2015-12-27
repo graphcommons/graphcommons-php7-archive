@@ -83,38 +83,4 @@ abstract class Util
         }
         return $return;
     }
-
-    final public static function getRequestException(Request $request): array
-    {
-        if ($request->isFail()) {
-            return array(
-                'code' => $response->getFailCode(),
-                'message' => $response->getFailText(),
-            );
-        }
-        return array(
-            'code' => Exception::UNKNOWN_ERROR_CODE,
-            'message' => Exception::UNKNOWN_ERROR_MESSAGE,
-        );
-    }
-
-    final public static function getResponseException(Response $response): array
-    {
-        $responseData = $response->getBodyData();
-        if (isset($responseData->msg)) {
-            return array(
-                'code' => $response->getStatusCode(),
-                'message' => $responseData->msg,
-            );
-        } elseif (isset($responseData->status, $responseData->error)) {
-            return array(
-                'code' => $responseData->status,
-                'message' => $responseData->error,
-            );
-        }
-        return array(
-            'code' => Exception::UNKNOWN_ERROR_CODE,
-            'message' => Exception::UNKNOWN_ERROR_MESSAGE,
-        );
-    }
 }
