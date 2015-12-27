@@ -39,7 +39,7 @@ final class Json
         $args = array_filter($args);
 
         $return = call_user_func_array('json_encode', $args);
-        if (json_last_error()) {
+        if ($return === false) {
             $this->setError();
         }
 
