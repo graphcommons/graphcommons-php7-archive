@@ -226,7 +226,7 @@ final class GraphCommonsApi
         return $this->fillGraph(new Graph(), $response->getBodyData('graph'));
     }
 
-    final public function putGraph(string $id, $body): Graph
+    final public function addGraphSignal(string $id, SignalCollection $body): Graph
     {
         $body = $this->serializeBody($body);
 
@@ -243,7 +243,7 @@ final class GraphCommonsApi
 
     final public function serializeBody($body): string
     {
-        if ($body instanceof Graph) {
+        if (is_object($body) && method_exists($body, 'serialize')) {
             $body = $body->serialize();
         } else {
             $json = new Json($body);

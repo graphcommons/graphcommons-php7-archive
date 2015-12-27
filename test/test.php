@@ -48,9 +48,8 @@ $gc = new GraphCommons(API_KEY, ['debug' => true]);
 //     return $graph;
 // })());
 
-$data = $gc->api->putGraph('29d02ccc-fcd5-4b9c-aa74-bd1033b6d3bd', (function() {
-    $graph = new Graph();
-    $graph->setSignals(SignalCollection::fromArray(array(
+$data = $gc->api->addGraphSignal(
+    '29d02ccc-fcd5-4b9c-aa74-bd1033b6d3bd', SignalCollection::fromArray(array(
         array(
             'action'        => Signal::EDGE_CREATE,
             'parameters'    => array(
@@ -62,9 +61,7 @@ $data = $gc->api->putGraph('29d02ccc-fcd5-4b9c-aa74-bd1033b6d3bd', (function() {
                 'weight'    => 2,
             ),
         ),
-    )));
-    return $graph;
-})());
+)));
 
 // dump data
 pre($data);
