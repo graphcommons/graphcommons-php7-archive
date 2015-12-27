@@ -24,7 +24,7 @@ final class Request extends Stream
 
     final public function setMethod(string $method): self
     {
-        $this->method = $method;
+        $this->method = strtoupper($method);
         return $this;
     }
     final public function setUri(string $uri, array $uriParams = []): self
