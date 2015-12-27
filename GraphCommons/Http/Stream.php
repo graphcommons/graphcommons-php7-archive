@@ -56,10 +56,7 @@ abstract class Stream
     }
     final public function setBodyData($bodyData = null): self
     {
-        $bodyDataType = gettype($bodyData);
-        if ($bodyDataType == 'array' || $bodyDataType == 'object') {
-            $this->bodyData = Util::toObject((array) $bodyData);
-        }
+        $this->bodyData = $bodyData;
         return $this;
     }
     final public function setFailCode(int $failCode): self
@@ -97,15 +94,12 @@ abstract class Stream
     {
         return $this->bodyLength;
     }
-    final public function getBodyData(string $key = null)
+    final public function getBodyData(string $key = null, $value = null)
     {
         if ($key === null) {
             return $this->bodyData;
         }
-        if (property_exists($this->bodyData, $key)) {
-            return $this->bodyData->{$key};
-        }
-        return null;
+        return Util::arrayDig($this->bodyData, $key, $value);
     }
 
     final public function getClient(): Client
