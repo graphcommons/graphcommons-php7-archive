@@ -2,7 +2,6 @@
 namespace GraphCommons\Graph;
 
 use GraphCommons\Util\Collection;
-use GraphCommons\Graph\GraphEntity;
 
 class GraphEntityCollection extends Collection
 {
