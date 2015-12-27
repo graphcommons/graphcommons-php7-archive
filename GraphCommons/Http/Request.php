@@ -31,7 +31,7 @@ final class Request extends Stream
     {
         $this->uri = $uri;
         if (!empty($uriParams)) {
-            $this->uri .= trim($this->uri, '?') .'?'. http_build_url($uriParams);
+            $this->uri = trim($this->uri, '?') .'?'. http_build_query($uriParams);
             $this->uriParams = $uriParams;
         }
         return $this;
