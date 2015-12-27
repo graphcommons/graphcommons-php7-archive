@@ -240,6 +240,41 @@ final class GraphCommonsApi
         return $this->fillGraph(new Graph(), $response->getBodyData('graph'));
     }
 
+    final public function getNode(string $id): GraphNode
+    {
+        $response = $this->graphCommons->client->get('/nodes/'. $id);
+        if (!$response->ok()) {
+            $fail = $response->getFail();
+            throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
+                $fail['code'], $fail['message']
+            ),  $fail['code']);
+        }
+
+        $node = new GraphNode();
+        prj($response->getBody());
+        $n = $response->getBodyData('node');
+        if (isset($n['id'])) {
+            $n = (object) $n;
+            $node->setId($n->id)
+                ->setType((new GraphNodeType())
+                    ->setId($n->type_id)
+                    ->setName($n->type)
+                )
+                ->setTypeId($n->type_id)
+                ->setName($n->name)
+                ->setDescription($n->description)
+                ->setImage($n->image)
+                ->setCreatedAt($n->created_at)
+                ->setUpdatedAt($n->updated_at)
+                ->setHubs($n->hubs)
+                ->setUsers($n->users)
+                ->setGraphs($n->graphs)
+                ->setGraphsCount($n->graphs_count);
+        }
+
+        return $node;
+    }
+
     final private function serializeBody($body): string
     {
         if (is_object($body) && method_exists($body, 'serialize')) {
