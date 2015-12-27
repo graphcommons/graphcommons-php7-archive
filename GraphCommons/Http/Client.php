@@ -4,6 +4,7 @@ namespace GraphCommons\Http;
 use GraphCommons\GraphCommons;
 use GraphCommons\Util\Util;
 use GraphCommons\Util\PropertyTrait as Property;
+use GraphCommons\Util\{Json, JsonException};
 use GraphCommons\Http\{Request, Exception\Request as RequestException};
 use GraphCommons\Http\{Response, Exception\Response as ResponseException};
 
@@ -110,9 +111,17 @@ final class Client
         $this->response->setHeaders($headers);
         $this->response->setBody($body);
 
-        if ($bodyData = json_decode($body)) {
-            $this->response->setBodyData($bodyData);
+        $json = new Json($body);
+        $bodyData = $json->decode(true);
+        if ($json->hasError()) {
+            $jsonError = $json->getError();
+            throw new JsonException(sprintf(
+                'JSON error: code(%d) message(%s)',
+                $jsonError['code'], $jsonError['message']
+            ),  $jsonError['code']);
         }
+
+        $this->response->setBodyData($bodyData);
 
         return $this->response;
     }
