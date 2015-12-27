@@ -14,10 +14,10 @@ trait SerialTrait
             ),  $jsonError['code']);
         }
 
-        return (string) $json->encode();
+        return (string) $json->encode($args);
     }
 
-    public function unserialize(...$args): array
+    public function unserialize(): array
     {
         $array = array();
         foreach (get_object_vars($this) as $key => $value) {

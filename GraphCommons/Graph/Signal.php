@@ -80,7 +80,7 @@ final class Signal
         return $this->parameters;
     }
 
-    final public function unserialize(...$args): array
+    final public function unserialize(): array
     {
         $array = array();
         $array['action'] = $this->getAction();

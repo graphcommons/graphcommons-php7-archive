@@ -35,7 +35,7 @@ final class Json
         // add data as first arg
         array_unshift($args, $this->data);
 
-        $return = call_user_func_array('json_encode', $args);
+        $return = call_user_func('json_encode', $args);
         if (json_last_error()) {
             $this->setError();
         }
@@ -47,7 +47,7 @@ final class Json
         // add data as first arg
         array_unshift($args, $this->data);
 
-        $return = call_user_func_array('json_decode', $args);
+        $return = call_user_func('json_decode', $args);
         if (json_last_error()) {
             $this->setError();
         }

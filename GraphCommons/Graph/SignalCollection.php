@@ -19,7 +19,7 @@ class SignalCollection extends Collection
         return $this;
     }
 
-    final public function unserialize(...$args): array
+    final public function unserialize(): array
     {
         $array = array();
         foreach ($this->data as $key => $value) {
