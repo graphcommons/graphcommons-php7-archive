@@ -268,9 +268,9 @@ final class GraphCommonsApi
 
         $nn = $response->getBodyData('nodes');
         prj($response->getBody());
-        // if (!empty($nn)) foreach ($nn as $n) {
-        //     $nodes->add($n['id'], $this->fillNode(new GraphNode(), $n));
-        // }
+        if (!empty($nn)) foreach ($nn as $n) {
+            $nodes->add($n['id'], $this->fillNode(new GraphNode(), $n));
+        }
 
         return $nodes;
     }
@@ -319,23 +319,38 @@ final class GraphCommonsApi
 
     final public function fillNode(GraphNode $node, $n): GraphNode
     {
-        $n = Util::toObject($n, false);
-        if (!isset($n->id)) {
+        $n = Util::toObject($n);
+        if (isset($n->id)) {
             $node->setId($n->id)
-                ->setType((new GraphNodeType())
-                    ->setId($n->type_id)
-                    ->setName($n->type)
-                )
-                ->setTypeId($n->type_id)
                 ->setName($n->name)
-                ->setDescription($n->description)
-                ->setImage($n->image)
-                ->setCreatedAt($n->created_at)
-                ->setUpdatedAt($n->updated_at)
-                ->setHubs($n->hubs)
-                ->setUsers($n->users)
-                ->setGraphs($n->graphs)
-                ->setGraphsCount($n->graphs_count);
+                ->setDescription($n->description);
+            if (isset($n->image)) {
+                $node->setImage($n->image);
+            }
+            if (isset($n->created_at)) {
+                $node->setCreatedAt($n->created_at);
+            }
+            if (isset($n->updated_at)) {
+                $node->setUpdatedAt($n->updated_at);
+            }
+            if (isset($n->hubs, $n->users, $n->graphs, $n->graphs_count)) {
+                $node->setHubs($n->hubs)
+                    ->setUsers($n->users)
+                    ->setGraphs($n->graphs)
+                    ->setGraphsCount($n->graphs_count);
+            }
+            $nodeType = new GraphNodeType();
+            if (isset($n->nodetype)) {
+                $nodeType->setId($n->nodetype->id)
+                    ->setName($n->nodetype->type)
+                    ->setColor($n->nodetype->color);
+                $node->setTypeId($n->nodetype->id);
+            } elseif (isset($n->type, $n->type_id)) {
+                $nodeType->setId($n->type_id)
+                    ->setName($n->type);
+                $node->setTypeId($n->type_id);
+            }
+            $node->setType($nodeType);
         }
         return $node;
     }
