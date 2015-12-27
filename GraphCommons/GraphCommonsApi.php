@@ -293,8 +293,9 @@ final class GraphCommonsApi
         return $body;
     }
 
-    final private function fillGraph(Graph $graph, \stdClass $g = null): Graph
+    final private function fillGraph(Graph $graph, $g): Graph
     {
+        $g = Util::toObject($g);
         if (isset($g->id)) {
             $graph->setId($g->id)
                 ->setName($g->name)
