@@ -20,3 +20,10 @@ function prd($input, $exit = false){
         exit;
     }
 }
+function prj($input, $exit = false) {
+    if (is_string($input)) {
+        $input = json_decode($input);
+    }
+    $input = json_encode($input, JSON_PRETTY_PRINT);
+    pre($input, $exit);
+}
