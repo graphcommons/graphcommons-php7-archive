@@ -48,20 +48,22 @@ $gc = new GraphCommons(API_KEY, ['debug' => true]);
 //     return $graph;
 // })());
 
-$data = $gc->api->addGraphSignal(
-    '29d02ccc-fcd5-4b9c-aa74-bd1033b6d3bd', SignalCollection::fromArray(array(
-        array(
-            'action'        => Signal::EDGE_CREATE,
-            'parameters'    => array(
-                'from_name' => 'Ahmet',
-                'from_type' => 'Person',
-                'to_name'   => 'Fatih',
-                'to_type'   => 'Person',
-                'name'      => 'COLLABORATED',
-                'weight'    => 2,
-            ),
-        ),
-)));
+// $data = $gc->api->addGraphSignal(
+//     '29d02ccc-fcd5-4b9c-aa74-bd1033b6d3bd', SignalCollection::fromArray(array(
+//         array(
+//             'action'        => Signal::EDGE_CREATE,
+//             'parameters'    => array(
+//                 'from_name' => 'Ahmet',
+//                 'from_type' => 'Person',
+//                 'to_name'   => 'Fatih',
+//                 'to_type'   => 'Person',
+//                 'name'      => 'COLLABORATED',
+//                 'weight'    => 2,
+//             ),
+//         ),
+// )));
+
+// $data = $gc->api->getNode('255905e9-c82f-4468-a659-7139dd66d810');
 
 // dump data
 pre($data);
