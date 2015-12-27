@@ -23,7 +23,7 @@ class SignalCollection extends Collection
     {
         $array = array();
         foreach ($this->data as $key => $value) {
-            $array[$key] = $value->unserialize();
+            $array['signals'][$key] = $value->unserialize();
         }
         return $array;
     }
