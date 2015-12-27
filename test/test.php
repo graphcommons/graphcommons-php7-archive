@@ -20,32 +20,53 @@ $gc = new GraphCommons(API_KEY, ['debug' => true]);
 // $data = $gc->api->getGraph('8f8c794a-a498-4c3e-a73b-95a460db6e3a');
 
 // post graph
-$data = $gc->api->postGraph((function() {
+// $data = $gc->api->postGraph((function() {
+//     $graph = new Graph();
+//     $graph->setName('Person Graph');
+//     $graph->setDescription('The Person Graph!');
+//     $graph->setStatus(Graph::STATUS_DRAFT);
+//     $graph->setSignals(SignalCollection::fromArray(array(
+//         array(
+//             'action'        => Signal::NODE_CREATE,
+//             'parameters'    => array(
+//                 'name'      => 'Ahmet',
+//                 'type'      => 'Person',
+//             ),
+//         ),
+//         array(
+//             'action'        => Signal::EDGE_CREATE,
+//             'parameters'    => array(
+//                 'from_name' => 'Ahmet',
+//                 'from_type' => 'Person',
+//                 'to_name'   => 'Burak',
+//                 'to_type'   => 'Person',
+//                 'name'      => 'COLLABORATED',
+//                 'weight'    => 2,
+//             ),
+//         ),
+//     )));
+//     return $graph;
+// })());
+
+$data = $gc->api->putGraph('29d02ccc-fcd5-4b9c-aa74-bd1033b6d3bd', (function() {
     $graph = new Graph();
-    $graph->setName('Person Graph');
-    $graph->setDescription('The Person Graph!');
-    $graph->setStatus(Graph::STATUS_DRAFT);
-    $signals = SignalCollection::fromArray(array(
-        array(
-            'action'        => Signal::NODE_CREATE,
-            'parameters'    => array(
-                'name'      => 'Ahmet',
-                'type'      => 'Person',
-            ),
-        ),
+    $graph->setName('Person Graph (update)');
+    $graph->setDescription('The Person Graph! (update)');
+    $graph->setStatus(Graph::STATUS_PUBLISHED);
+    $graph->setSignals(SignalCollection::fromArray(array(
         array(
             'action'        => Signal::EDGE_CREATE,
             'parameters'    => array(
                 'from_name' => 'Ahmet',
                 'from_type' => 'Person',
-                'to_name'   => 'Burak',
+                'to_name'   => 'Fatih',
                 'to_type'   => 'Person',
                 'name'      => 'COLLABORATED',
                 'weight'    => 2,
             ),
         ),
-    ));
-    return $graph->setSignals($signals);
+    )));
+    return $graph;
 })());
 
 // dump data
