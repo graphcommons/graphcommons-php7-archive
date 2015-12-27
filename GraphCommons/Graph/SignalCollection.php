@@ -22,8 +22,8 @@ class SignalCollection extends Collection
     final public function unserialize(): array
     {
         $array = array();
-        foreach ($this->data as $key => $value) {
-            $array['signals'][$key] = $value->unserialize();
+        foreach ($this->data as $data) {
+            $array['signals'][] = $data->unserialize();
         }
         return $array;
     }
