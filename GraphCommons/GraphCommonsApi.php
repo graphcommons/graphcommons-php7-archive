@@ -42,10 +42,10 @@ final class GraphCommonsApi
     {
         $response = $this->graphCommons->client->get('/graphs/'. $id);
         if (!$response->ok()) {
-            $exception = Util::getResponseException($response);
+            $fail = $response->getFail();
             throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
-                $exception['code'], $exception['message']
-            ),  $exception['code']);
+                $fail['code'], $fail['message']
+            ),  $fail['code']);
         }
 
         $graph = new Graph();
@@ -216,10 +216,10 @@ final class GraphCommonsApi
 
         $response = $this->graphCommons->client->post('/graphs', null, $body);
         if (!$response->ok()) {
-            $exception = Util::getResponseException($response);
+            $fail = $response->getFail();
             throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
-                $exception['code'], $exception['message']
-            ),  $exception['code']);
+                $fail['code'], $fail['message']
+            ),  $fail['code']);
         }
 
         return $this->fillGraph(new Graph(), $response->getBodyData('graph'));
@@ -231,10 +231,10 @@ final class GraphCommonsApi
 
         $response = $this->graphCommons->client->put('/graphs/'. $id .'/add', null, $body);
         if (!$response->ok()) {
-            $exception = Util::getResponseException($response);
+            $fail = $response->getFail();
             throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
-                $exception['code'], $exception['message']
-            ),  $exception['code']);
+                $fail['code'], $fail['message']
+            ),  $fail['code']);
         }
 
         return $this->fillGraph(new Graph(), $response->getBodyData('graph'));
