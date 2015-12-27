@@ -85,10 +85,10 @@ final class Client
 
         $result = $this->request->send();
         if ($result === null) {
-            $exception = Util::getRequestException($this->request);
+            $fail = $this->request->getFail();
             throw new RequestException(sprintf('HTTP error: code(%d) message(%s)',
-                $exception['code'], $exception['message']
-            ),  $exception['code']);
+                $fail['code'], $fail['message']
+            ),  $fail['code']);
         }
 
         unset($headers, $body);
