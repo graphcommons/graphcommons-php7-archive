@@ -251,29 +251,7 @@ final class GraphCommonsApi
             ),  $fail['code']);
         }
 
-        $node = new GraphNode();
-
-        $n = $response->getBodyData('node');
-        if (!empty($n)) {
-            $n = Util::toObject($n, false);
-            $node->setId($n->id)
-                ->setType((new GraphNodeType())
-                    ->setId($n->type_id)
-                    ->setName($n->type)
-                )
-                ->setTypeId($n->type_id)
-                ->setName($n->name)
-                ->setDescription($n->description)
-                ->setImage($n->image)
-                ->setCreatedAt($n->created_at)
-                ->setUpdatedAt($n->updated_at)
-                ->setHubs($n->hubs)
-                ->setUsers($n->users)
-                ->setGraphs($n->graphs)
-                ->setGraphsCount($n->graphs_count);
-        }
-
-        return $node;
+        return $this->fillNode(new GraphNode(), $response->getBodyData('node'));
     }
 
     final private function serializeBody($body): string
@@ -316,5 +294,28 @@ final class GraphCommonsApi
             }
         }
         return $graph;
+    }
+
+    final public function fillNode(GraphNode $node, $n): GraphNode
+    {
+        $n = Util::toObject($n, false);
+        if (!isset($n->id)) {
+            $node->setId($n->id)
+                ->setType((new GraphNodeType())
+                    ->setId($n->type_id)
+                    ->setName($n->type)
+                )
+                ->setTypeId($n->type_id)
+                ->setName($n->name)
+                ->setDescription($n->description)
+                ->setImage($n->image)
+                ->setCreatedAt($n->created_at)
+                ->setUpdatedAt($n->updated_at)
+                ->setHubs($n->hubs)
+                ->setUsers($n->users)
+                ->setGraphs($n->graphs)
+                ->setGraphsCount($n->graphs_count);
+        }
+        return $node;
     }
 }
