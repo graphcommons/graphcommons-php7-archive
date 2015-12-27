@@ -120,34 +120,27 @@ abstract class Stream
 
     final public function getFail(): array
     {
-        switch ($this->type) {
-            case self::TYPE_REQUEST:
-                if ($request->isFail()) {
-                    return array(
-                        'code' => $this->getFailCode(),
-                        'message' => $this->getFailText(),
-                    );
-                }
-            case self::TYPE_RESPONSE:
-                if (isset($this->bodyData->msg)) {
-                    return array(
-                        'code' => $this->getStatusCode(),
-                        'message' => $this->bodyData->msg,
-                    );
-                } elseif (isset($this->bodyData->status, $this->bodyData->error)) {
-                    return array(
-                        'code' => $this->bodyData->status,
-                        'message' => $this->bodyData->error,
-                    );
-                }
-                break;
-            default:
-                return array(
-                    'code' => Exception::UNKNOWN_ERROR_CODE,
-                    'message' => Exception::UNKNOWN_ERROR_MESSAGE,
-                );
-                break;
+        $fail = array(
+            'code' => Exception::UNKNOWN_ERROR_CODE,
+            'message' => Exception::UNKNOWN_ERROR_MESSAGE,
+        );
+
+        if ($this->type == self::TYPE_REQUEST) {
+            if ($request->isFail()) {
+                $fail['code'] = $this->getFailCode();
+                $fail['message'] = $this->getFailText();
+            }
+        } elseif ($this->type == self::TYPE_RESPONSE) {
+            if (isset($this->bodyData->msg)) {
+                $fail['code'] = $this->getStatusCode();
+                $fail['message'] = $this->bodyData->msg;
+            } elseif (isset($this->bodyData->status, $this->bodyData->error)) {
+                $fail['code'] = $this->bodyData->status;
+                $fail['message'] = $this->bodyData->error;
+            }
         }
+
+        return $fail;
     }
 
     final public function getFailCode(): int
