@@ -9,7 +9,19 @@ abstract class Util
 {
     final public static function arrayDig(array $array, $key, $value = null)
     {
-        return $array[$key] ?? $value;
+        // direct access
+        if (isset($array[$key])) {
+            $value =& $array[$key];
+        }
+        // trace element path
+        else {
+            $value =& $array;
+            foreach (explode('.', $key) as $key) {
+                $value =& $value[$key];
+            }
+        }
+
+        return ($value !== null) ? $value : $valueDefault;
     }
     final public static function arrayPick(array &$array, $key, $value = null)
     {
