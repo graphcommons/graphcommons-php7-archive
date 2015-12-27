@@ -189,7 +189,7 @@ final class Node extends GraphEntity
     {
         return $this->graphsCount;
     }
-    final public function setStatus(): int
+    final public function getStatus(): int
     {
         return $this->status;
     }
