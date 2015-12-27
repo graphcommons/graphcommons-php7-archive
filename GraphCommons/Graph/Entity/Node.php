@@ -19,6 +19,7 @@ final class Node extends GraphEntity
     protected $users = array();
     protected $graphs = array();
     protected $graphsCount = 0;
+    protected $status;
 
     final public function setId(string $id): self
     {
@@ -114,6 +115,11 @@ final class Node extends GraphEntity
         }
         return $this;
     }
+    final public function setStatus(int $status = null): self
+    {
+        $this->status = (int) $status;
+        return $this;
+    }
 
     final public function getId(): string
     {
@@ -182,5 +188,9 @@ final class Node extends GraphEntity
     final public function getGraphsCount(): int
     {
         return $this->graphsCount;
+    }
+    final public function setStatus(): int
+    {
+        return $this->status;
     }
 }
