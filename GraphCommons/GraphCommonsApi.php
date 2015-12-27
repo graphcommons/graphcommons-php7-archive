@@ -241,7 +241,7 @@ final class GraphCommonsApi
         return $this->fillGraph(new Graph(), $response->getBodyData('graph'));
     }
 
-    final public function serializeBody($body): string
+    final private function serializeBody($body): string
     {
         if (is_object($body) && method_exists($body, 'serialize')) {
             $body = $body->serialize();
