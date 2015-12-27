@@ -33,7 +33,7 @@ class SignalCollection extends Collection
         if (empty($array)) {
             throw new \Exception('Empty signals array given!');
         }
-        $signals = new self();
+        $signals = new SignalCollection();
         foreach ($array as $array) {
             if (!isset($array['action'], $array['parameters'])) {
                 throw new \Exception("Signal 'action' and 'parameters' fields are required!");
