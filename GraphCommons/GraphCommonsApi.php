@@ -223,7 +223,7 @@ final class GraphCommonsApi
             ),  $exception['code']);
         }
 
-        $g =& $response->getBodyData('graph');
+        $g = $response->getBodyData('graph');
 
         $graph = new Graph();
         $graph->setId($g->id)
@@ -260,7 +260,7 @@ final class GraphCommonsApi
             ),  $exception['code']);
         }
 
-        $g =& $response->getBodyData('graph');
+        $g = $response->getBodyData('graph');
 
         $graph = new Graph();
         $graph->setId($g->id)
