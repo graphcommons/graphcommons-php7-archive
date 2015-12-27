@@ -152,5 +152,7 @@ abstract class Stream
         return $this->failText;
     }
 
+    abstract public function ok(): bool;
+
     abstract public function toString(): string;
 }

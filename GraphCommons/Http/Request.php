@@ -50,6 +50,10 @@ final class Request extends Stream
         return $this->uriParams;
     }
 
+    final public function ok(): bool
+    {
+        return $this->isFail();
+    }
     final public function toString(): string
     {}
 
