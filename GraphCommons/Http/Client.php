@@ -70,7 +70,7 @@ final class Client
 
         if (!empty($headers)) {
             foreach ($headers as $key => $value) {
-                $this->request->setHeader(trim($key), trim($value));
+                $this->request->setHeader(trim($key), $value);
             }
         }
 

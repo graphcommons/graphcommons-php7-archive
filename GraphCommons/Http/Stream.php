@@ -34,7 +34,7 @@ abstract class Stream
         $this->httpVersion = $httpVersion;
         return $this;
     }
-    final public function setHeader(string $key, string $value): self
+    final public function setHeader(string $key, $value): self
     {
         $this->headers[$key] = $value;
         return $this;
