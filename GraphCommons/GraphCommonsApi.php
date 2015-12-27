@@ -52,6 +52,7 @@ final class GraphCommonsApi
 
         $g = $response->getBodyData('graph');
         if (!empty($g)) {
+            $g = Util::toObject($g);
             $graph->setId($g->id)
                 ->setName($g->name)
                 ->setSubtitle($g->subtitle)
@@ -251,10 +252,10 @@ final class GraphCommonsApi
         }
 
         $node = new GraphNode();
-        prj($response->getBody());
+
         $n = $response->getBodyData('node');
-        if (isset($n['id'])) {
-            $n = (object) $n;
+        if (!empty($n)) {
+            $n = Util::toObject($n);
             $node->setId($n->id)
                 ->setType((new GraphNodeType())
                     ->setId($n->type_id)
