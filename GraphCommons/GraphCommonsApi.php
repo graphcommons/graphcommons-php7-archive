@@ -223,29 +223,7 @@ final class GraphCommonsApi
             ),  $exception['code']);
         }
 
-        $g = $response->getBodyData('graph');
-
-        $graph = new Graph();
-        $graph->setId($g->id)
-            ->setName($g->name)
-            ->setDescription($g->description)
-            ->setSubtitle($g->subtitle)
-            ->setStatus($g->status)
-            ->setCreatedAt($g->created_at)
-        ;
-
-        $array = array();
-        if (isset($g->signals)) {
-            foreach ($g->signals as $i => $signal) {
-                $action = $signal->action;
-                unset($signal->action);
-                $array[$i]['action'] = Signal::detectAction($action);
-                $array[$i]['parameters'] = Util::toArray($signal);
-            }
-            $graph->setSignals(SignalCollection::fromArray($array));
-        }
-
-        return $graph;
+        return $this->fillGraph(new Graph(), $response->getBodyData('graph'));
     }
 
     final public function putGraph(string $id, $body): Graph
@@ -260,29 +238,7 @@ final class GraphCommonsApi
             ),  $exception['code']);
         }
 
-        $g = $response->getBodyData('graph');
-
-        $graph = new Graph();
-        $graph->setId($g->id)
-            ->setName($g->name)
-            ->setDescription($g->description)
-            ->setSubtitle($g->subtitle)
-            ->setStatus($g->status)
-            ->setCreatedAt($g->created_at)
-        ;
-
-        $array = array();
-        if (isset($g->signals)) {
-            foreach ($g->signals as $i => $signal) {
-                $action = $signal->action;
-                unset($signal->action);
-                $array[$i]['action'] = Signal::detectAction($action);
-                $array[$i]['parameters'] = Util::toArray($signal);
-            }
-            $graph->setSignals(SignalCollection::fromArray($array));
-        }
-
-        return $graph;
+        return $this->fillGraph(new Graph(), $response->getBodyData('graph'));
     }
 
     final public function serializeBody($body): string
@@ -301,5 +257,28 @@ final class GraphCommonsApi
             $body = (string) $json->encode();
         }
         return $body;
+    }
+
+    final private function fillGraph(Graph $graph, \stdClass $g = null): Graph
+    {
+        if (isset($g->id)) {
+            $graph->setId($g->id)
+                ->setName($g->name)
+                ->setDescription($g->description)
+                ->setSubtitle($g->subtitle)
+                ->setStatus($g->status)
+                ->setCreatedAt($g->created_at);
+            if (isset($g->signals)) {
+                $array = array();
+                foreach ($g->signals as $i => $signal) {
+                    $action = $signal->action;
+                    unset($signal->action);
+                    $array[$i]['action'] = Signal::detectAction($action);
+                    $array[$i]['parameters'] = Util::toArray($signal);
+                }
+                $graph->setSignals(SignalCollection::fromArray($array));
+            }
+        }
+        return $graph;
     }
 }
