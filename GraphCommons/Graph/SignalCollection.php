@@ -38,9 +38,9 @@ class SignalCollection extends Collection
             if (!isset($array['action'], $array['parameters'])) {
                 throw new \Exception("Signal 'action' and 'parameters' fields are required!");
             }
-            $signal = new Signal();
-            $signal->setAction($array['action']);
-            $signal->setParameters($array['parameters']);
+            $signal = (new Signal())
+                ->setAction($array['action'])
+                ->setParameters($array['parameters']);
             $signals->add($signal);
         }
         return $signals;
