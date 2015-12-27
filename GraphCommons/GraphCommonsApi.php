@@ -255,7 +255,7 @@ final class GraphCommonsApi
 
         $n = $response->getBodyData('node');
         if (!empty($n)) {
-            $n = Util::toObject($n);
+            $n = Util::toObject($n, false);
             $node->setId($n->id)
                 ->setType((new GraphNodeType())
                     ->setId($n->type_id)
