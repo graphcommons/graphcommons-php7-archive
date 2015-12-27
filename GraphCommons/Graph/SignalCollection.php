@@ -30,6 +30,9 @@ class SignalCollection extends Collection
 
     final public static function fromArray(array $array): SignalCollection
     {
+        if (empty($array)) {
+            throw new \Exception('Empty signals array given!');
+        }
         $signals = new self();
         foreach ($array as $array) {
             if (!isset($array['action'], $array['parameters'])) {
