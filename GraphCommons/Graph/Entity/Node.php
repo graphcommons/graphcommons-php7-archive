@@ -14,6 +14,11 @@ final class Node extends GraphEntity
     protected $reference;
     protected $properties;
     protected $posX, $posY;
+    protected $createdAt, $updatedAt;
+    protected $hubs = array();
+    protected $users = array();
+    protected $graphs = array();
+    protected $graphsCount = 0;
 
     final public function setId(string $id): self
     {
@@ -71,6 +76,44 @@ final class Node extends GraphEntity
         $this->posY = (float) $posY;
         return $this;
     }
+    final public function setCreatedAt(string $createdAt = null): self
+    {
+        $this->createdAt = (string) $createdAt;
+        return $this;
+    }
+    final public function setUpdatedAt(string $updatedAt = null): self
+    {
+        $this->updatedAt = (string) $updatedAt;
+        return $this;
+    }
+    final public function setHubs(array $hubs = null): self
+    {
+        if (!is_null($hubs)) {
+            $this->hubs = $hubs;
+        }
+        return $this;
+    }
+    final public function setUsers(array $users = null): self
+    {
+        if (!is_null($users)) {
+            $this->users = $users;
+        }
+        return $this;
+    }
+    final public function setGraphs(array $graphs = null): self
+    {
+        if (!is_null($graphs)) {
+            $this->graphs = $graphs;
+        }
+        return $this;
+    }
+    final public function setGraphsCount(int $graphsCount = null): self
+    {
+        if (!is_null($graphsCount)) {
+            $this->graphsCount = $graphsCount;
+        }
+        return $this;
+    }
 
     final public function getId(): string
     {
@@ -115,5 +158,29 @@ final class Node extends GraphEntity
     final public function getPosXY(): array
     {
         return array($this->posX, $this->posY);
+    }
+    final public function getCreatedAt(): string
+    {
+        return $this->createdAt;
+    }
+    final public function getUpdatedAt(): string
+    {
+        return $this->updatedAt;
+    }
+    final public function getHubs(): array
+    {
+        return $this->hubs;
+    }
+    final public function getUsers(): array
+    {
+        return $this->users;
+    }
+    final public function getGraphs(): array
+    {
+        return $this->graphs;
+    }
+    final public function getGraphsCount(): int
+    {
+        return $this->graphsCount;
     }
 }
