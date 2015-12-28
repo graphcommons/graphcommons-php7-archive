@@ -10,7 +10,7 @@ final class GraphCommons
 {
     use Property;
 
-    const VERSION = '1.0.0-beta';
+    const VERSION = '1.0.0';
 
     private $api;
     private $apiUrl = 'https://graphcommons.com/api';
