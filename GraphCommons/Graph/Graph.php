@@ -25,8 +25,7 @@
  */
 namespace GraphCommons\Graph;
 
-use GraphCommons\Util\SerialTrait as Serial;
-use GraphCommons\Util\PropertyTrait as Property;
+use GraphCommons\Util\{PropertyTrait as Property, SerialTrait as Serial};
 use GraphCommons\Graph\SignalCollection as Signals;
 use GraphCommons\Graph\Entity\Image;
 use GraphCommons\Graph\Entity\License;
@@ -39,7 +38,7 @@ use GraphCommons\Graph\Entity\{Edges, EdgeTypes};
  * @package    GraphCommons
  * @subpackage GraphCommons\Graph
  * @object     GraphCommons\Graph\Graph
- * @uses       GraphCommons\Util\SerialTrait, GraphCommons\Util\PropertyTrait,
+ * @uses       GraphCommons\Util\PropertyTrait, GraphCommons\Util\SerialTrait,
  *             GraphCommons\Graph\Entity\Image, GraphCommons\Graph\Entity\License,
  *             GraphCommons\Graph\Entity\Layout, GraphCommons\Graph\Entity\Users,
  *             GraphCommons\Graph\Entity\Nodes, GraphCommons\Graph\Entity\NodeTypes,
@@ -49,16 +48,16 @@ use GraphCommons\Graph\Entity\{Edges, EdgeTypes};
 class Graph
 {
     /**
-     * Serial thing.
-     * @trait GraphCommons\Util\SerialTrait
-     */
-    use Serial;
-
-    /**
      * Property thing.
      * @trait GraphCommons\Util\PropertyTrait
      */
     use Property;
+
+    /**
+     * Serial thing.
+     * @trait GraphCommons\Util\SerialTrait
+     */
+    use Serial;
 
     /**
      * Graph statuses.
