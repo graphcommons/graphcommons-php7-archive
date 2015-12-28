@@ -37,79 +37,79 @@ use GraphCommons\Graph\GraphEntity;
 final class Edge extends GraphEntity
 {
     /**
-     * Edge ID.
+     * ID.
      * @var string
      */
     protected $id;
 
     /**
-     * Edge name.
+     * Name.
      * @var string
      */
     protected $name;
 
     /**
-     * Edge type.
+     * Type.
      * @var GraphCommons\Graph\Entity\EdgeType
      */
     protected $type;
 
     /**
-     * Edge type ID.
+     * Type ID.
      * @var string
      */
     protected $typeId;
 
     /**
-     * Edge user.
+     * User.
      * @var GraphCommons\Graph\Entity\User
      */
     protected $user;
 
     /**
-     * Edge user ID.
+     * User ID.
      * @var string
      */
     protected $userId;
 
     /**
-     * Edge from ID.
+     * From ID.
      * @var string
      */
     protected $from;
 
     /**
-     * Edge from node.
+     * From node.
      * @var GraphCommons\Graph\Entity\Node
      */
     protected $fromNode;
 
     /**
-     * Edge to ID.
+     * To ID.
      * @var string
      */
     protected $to;
 
     /**
-     * Edge to node.
+     * To node.
      * @var GraphCommons\Graph\Entity\Node
      */
     protected $toNode;
 
     /**
-     * Edge weight.
+     * Weight.
      * @var int
      */
     protected $weight;
 
     /**
-     * Edge directed.
+     * Directed.
      * @var int
      */
     protected $directed;
 
     /**
-     * Edge properties.
+     * Properties.
      * @var \stdClass
      */
     protected $properties;
