@@ -6,9 +6,9 @@ See more about [here](//graphcommons.com/about).
 
 Before beginning;
 
-- Set your autoloader properly or use composer
+- Set your autoloader properly or use [composer](//getcomposer.org)
 - Use PHP >= 7.0.0
-- Handle each action in try/catch blocks
+- Handle each action in `try/catch` blocks
 - On README, `dump` means `var_dump`
 
 Notice: See Graph Commons's official documents [here](//graphcommons.github.io/api-v1/) before using this library.
@@ -133,3 +133,14 @@ $data = $gc->api->getNodes(array(
 )): array
 ```
 
+## Error Handling
+```php
+try {
+    $data = $gc->api->getGraph('nö!');
+} catch (\Exception $e) {
+    // 404
+    print $e->getCode();
+    // API error: code(404) message(Graph not found)
+    print $e->getMessage();
+}
+```
