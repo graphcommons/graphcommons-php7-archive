@@ -113,3 +113,10 @@ $data = $gc->api->addGraphSignal(
 dump $gc->api->getNode('<NODE ID>'): array
 ```
 
+##### Get a Node
+```php
+$data = $gc->api->getNodes(array(
+    'query' => 'kerem',
+    'limit' => 1,
+)): array
+```
