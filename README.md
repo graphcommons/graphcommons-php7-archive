@@ -127,7 +127,7 @@ $graph = $gc->api->addGraphSignal(
 `GET https://graphcommons.com/api/v1/nodes/:id`
 
 ```php
-$graphNode $gc->api->getNode('<NODE ID>'): GraphNode
+$graphNode = $gc->api->getNode('<NODE ID>'): GraphNode
 ```
 
 ##### Get a Node
@@ -143,7 +143,7 @@ $graphNodes = $gc->api->getNodes(array(
 ## Error Handling
 ```php
 try {
-    $data = $gc->api->getGraph('nö!');
+    $gc->api->getGraph('nö!');
 } catch (\Throwable $e) {
     // 404
     print $e->getCode();
