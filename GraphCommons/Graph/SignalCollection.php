@@ -81,18 +81,19 @@ class SignalCollection extends Collection
      *
      * @param  array $array
      * @return GraphCommons\Graph\SignalCollection
-     * @throws \Exception
+     * @throws \InvalidArgumentException
      */
     final public static function fromArray(array $array): SignalCollection
     {
         if (empty($array)) {
-            throw new \Exception('Empty signals array given!');
+            throw new \InvalidArgumentException('Empty signals array given!');
         }
 
         $signals = new SignalCollection();
         foreach ($array as $array) {
             if (!isset($array['action'], $array['parameters'])) {
-                throw new \Exception("Signal 'action' and 'parameters' fields are required!");
+                throw new \InvalidArgumentException(
+                    "Signal 'action' and 'parameters' fields are required!");
             }
 
             $signal = (new Signal())
@@ -109,7 +110,7 @@ class SignalCollection extends Collection
      *
      * @param  string $json
      * @return GraphCommons\Graph\SignalCollection
-     * @throws GraphCommons\Util\JsonException, \Exception
+     * @throws GraphCommons\Util\JsonException, \InvalidArgumentException
      */
     final public static function fromJson(string $json): SignalCollection
     {
@@ -124,13 +125,13 @@ class SignalCollection extends Collection
 
         $data = $json->decode(true);
         if (!isset($data['signals'])) {
-            throw new \Exception("'signals' field is required!");
+            throw new \InvalidArgumentException("'signals' field is required!");
         }
 
         $array = array();
         foreach ($data['signals'] as $i => $signal) {
             if (!isset($signal['action'])) {
-                throw new \Exception("Signal 'action' and 'parameters' fields are required!");
+                throw new \InvalidArgumentException("Signal 'action' and 'parameters' fields are required!");
             }
             $array[$i]['action'] = Signal::detectAction(Util::arrayPick($signal, 'action'));
             foreach ($signal as $key => $value) {
