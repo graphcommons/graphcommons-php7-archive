@@ -472,9 +472,9 @@ final class GraphCommonsApi
                 $node->setProperties($_->properties);
             }
             if (isset($n->hubs, $n->users, $n->graphs, $n->graphs_count)) {
-                $node->setHubs($n->hubs)
-                    ->setUsers($n->users)
-                    ->setGraphs($n->graphs)
+                $node->setHubs((array) $n->hubs)
+                    ->setUsers((array) $n->users)
+                    ->setGraphs((array) $n->graphs)
                     ->setGraphsCount($n->graphs_count);
             }
 
