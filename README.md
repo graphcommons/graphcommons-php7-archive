@@ -16,9 +16,12 @@ Notice: See Graph Commons's official documents [here](//graphcommons.github.io/a
 ## Installation
 ```php
 // composer
+~$ composer require qeremy/graphcommons-php
+
+// composer.json
 {"require": {"qeremy/graphcommons-php": "dev-master"}}
 
-// manual after cloning to /path/to/GraphCommons
+// manual, after cloning to /path/to/GraphCommons
 $autoload = require('/path/to/GraphCommons/Autoload.php');
 $autoload->register();
 ```
