@@ -80,13 +80,17 @@ final class GraphCommonsApi
     /**
      * Ping API.
      *
-     * @return mixed
+     * @return array
+     * @throws GraphCommons\GraphCommonsApiException
      */
-    final public function status()
+    final public function status(): array
     {
         $response = $this->graphCommons->client->get('/status');
         if (!$response->ok()) {
-            return null;
+            $fail = $response->getFail();
+            throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
+                $fail['code'], $fail['message']
+            ),  $fail['code']);
         }
 
         return $response->getBodyData();
