@@ -62,7 +62,7 @@ class SignalCollection extends Collection
     }
 
     /**
-     * Create signal overriding self.unserialize().
+     * Create signals overriding self.unserialize().
      *
      * @return array
      */
