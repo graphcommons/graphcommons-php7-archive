@@ -26,7 +26,7 @@
 namespace GraphCommons;
 
 // add simply php version check
-if (PHP_VERSION[0] != '7') {
+if ('7' != PHP_VERSION[0]) {
     throw new \RuntimeException('GraphCommons-PHP requires minimum PHP 7 version!');
 }
 
