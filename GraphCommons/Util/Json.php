@@ -47,6 +47,10 @@ final class Json
     }
     final public function decode(...$args)
     {
+        if ($this->data === '') {
+            return null;
+        }
+
         // add data as first arg
         array_unshift($args, $this->data);
 
