@@ -37,7 +37,7 @@ $config['timeout_connection'] = 5;
 ```
 
 ## Usage
-```
+```php
 define('API_KEY', '<YOUR_API_KEY>');
 
 use GraphCommons\GraphCommons;
@@ -49,7 +49,7 @@ use GraphCommons\Graph\SignalCollection;
 $gc = new GraphCommons(API_KEY, $config);
 ```
 
-### Check API Status
+##### Check API Status
 ```php
 $gc->api->status(): array
 ```
