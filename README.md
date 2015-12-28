@@ -38,7 +38,7 @@ $config['timeout_connection'] = 5;
 
 ## Usage
 ```php
-define('API_KEY', '<YOUR_API_KEY>');
+define('API_KEY', '<YOUR API KEY>');
 
 use GraphCommons\GraphCommons;
 use GraphCommons\Graph\Graph;
@@ -51,5 +51,41 @@ $gc = new GraphCommons(API_KEY, $config);
 
 ##### Check API Status
 ```php
-$gc->api->status(): array
+dump $gc->api->status(): array
+```
+
+##### Get a Graph
+```php
+dump $gc->api->getGraph('<GRAPH ID>'): array
+```
+
+##### Get a New Graph
+```php
+$data = $gc->api->addGraph((function() {
+    $graph = new Graph();
+    $graph->setName('Person Graph');
+    $graph->setDescription('The Person Graph!');
+    $graph->setStatus(Graph::STATUS_DRAFT);
+    $graph->setSignals(SignalCollection::fromArray(array(
+        array(
+            'action'        => Signal::NODE_CREATE,
+            'parameters'    => array(
+                'name'      => 'Ahmet',
+                'type'      => 'Person',
+            ),
+        ),
+        array(
+            'action'        => Signal::EDGE_CREATE,
+            'parameters'    => array(
+                'from_name' => 'Ahmet',
+                'from_type' => 'Person',
+                'to_name'   => 'Burak',
+                'to_type'   => 'Person',
+                'name'      => 'COLLABORATED',
+                'weight'    => 2,
+            ),
+        ),
+    )));
+    return $graph;
+})());
 ```
