@@ -482,7 +482,7 @@ final class GraphCommonsApi
             $nodeType = new GraphNodeType();
             if (isset($n->nodetype)) {
                 $nodeType->setId($n->nodetype->id)
-                    ->setName($n->nodetype->type)
+                    ->setName($n->nodetype->name)
                     ->setColor($n->nodetype->color);
                 $node->setTypeId($n->nodetype->id);
             } elseif (isset($n->type, $n->type_id)) {
