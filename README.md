@@ -50,16 +50,22 @@ $gc = new GraphCommons(API_KEY, $config);
 ```
 
 ##### Check API Status
+Endpoint: `GET https://graphcommons.com/api/v1/status`
+
 ```php
 dump $gc->api->status(): array
 ```
 
 ##### Get a Graph
+Endpoint: `GET https://graphscommons.com/api/v1/graphs/:id`
+
 ```php
 dump $gc->api->getGraph('<GRAPH ID>'): array
 ```
 
 ##### Get a New Graph
+Endpoint: `POST https://graphcommons.com/api/v1/graphs`
+
 ```php
 $data = $gc->api->addGraph((function() {
     $graph = new Graph();
@@ -91,6 +97,8 @@ $data = $gc->api->addGraph((function() {
 ```
 
 ##### Add a New Graph Signal
+Endpoint: `PUT https://graphcommons.com/api/v1/graphs/:id/add`
+
 ```php
 $data = $gc->api->addGraphSignal(
     '<GRAPH ID>', SignalCollection::fromArray(array(
@@ -109,14 +117,19 @@ $data = $gc->api->addGraphSignal(
 ```
 
 ##### Get a Node
+Endpoint: `GET https://graphcommons.com/api/v1/nodes/:id`
+
 ```php
 dump $gc->api->getNode('<NODE ID>'): array
 ```
 
 ##### Get a Node
+Endpoint: `GET https://graphcommons.com/api/v1/nodes/search`
+
 ```php
 $data = $gc->api->getNodes(array(
     'query' => 'kerem',
     'limit' => 1,
 )): array
 ```
+
