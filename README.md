@@ -13,7 +13,7 @@ Before beginning;
 
 Notice: See Graph Commons's official documents [here](//graphcommons.github.io/api-v1/) before using this library.
 
-## Install
+## Installation
 ```php
 // composer
 {"require": {"qeremy/graphcommons-php": "dev-master"}}
