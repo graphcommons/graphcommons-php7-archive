@@ -19,7 +19,7 @@ $gc = new GraphCommons(API_KEY, ['debug' => true]);
 // get graph
 // $data = $gc->api->getGraph('8f8c794a-a498-4c3e-a73b-95a460db6e3a');
 
-// post graph
+// add graph
 // $data = $gc->api->addGraph((function() {
 //     $graph = new Graph();
 //     $graph->setName('Person Graph');
@@ -48,6 +48,7 @@ $gc = new GraphCommons(API_KEY, ['debug' => true]);
 //     return $graph;
 // })());
 
+// add graph signal
 // $data = $gc->api->addGraphSignal(
 //     '29d02ccc-fcd5-4b9c-aa74-bd1033b6d3bd', SignalCollection::fromArray(array(
 //         array(
@@ -65,13 +66,13 @@ $gc = new GraphCommons(API_KEY, ['debug' => true]);
 
 // $data = $gc->api->getNode('255905e9-c82f-4468-a659-7139dd66d810');
 
-$data = $gc->api->getNodes(array(
-    'query' => 'kerem',
-    'limit' => 1,
-));
+// $data = $gc->api->getNodes(array(
+//     'query' => 'kerem',
+//     'limit' => 1,
+// ));
 
 // dump data
-pre($data);
+// pre($data);
 
 // pre(SignalCollection::fromArray(array(
 //     array(
