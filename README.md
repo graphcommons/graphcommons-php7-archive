@@ -1,6 +1,6 @@
 Graph Commons is a collaborative 'network mapping' platform and a knowledge base of relationships. You can map relationships at scale and unfold the mystery about complex issues that impact you and your community.
 
-See more about [here](//graphcommons.com/about)
+See more about [here](//graphcommons.com/about).
 
 ## GraphCommons
 
@@ -18,8 +18,8 @@ Notice: See Graph Commons's official documents [here](//graphcommons.github.io/a
 // composer
 {"require": {"qeremy/graphcommons-php": "dev-master"}}
 
-// manual
-$autoload = require('path/to/GraphCommons/Autoload.php');
+// manual after cloning to /path/to/GraphCommons
+$autoload = require('/path/to/GraphCommons/Autoload.php');
 $autoload->register();
 ```
 
