@@ -31,7 +31,7 @@ use GraphCommons\Graph\GraphEntity;
  * @package    GraphCommons
  * @subpackage GraphCommons\Graph\Entity
  * @object     GraphCommons\Graph\Entity\EdgeType
- * @uses       GraphCommons\Graph\GraphEntity
+ * @extends    GraphCommons\Graph\GraphEntity
  * @author     Kerem Güneş <qeremy@gmail.com>
  */
 final class EdgeType extends GraphEntity
