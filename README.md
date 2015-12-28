@@ -91,8 +91,7 @@ $data = $gc->api->addGraph((function() {
             'action'        => Signal::NODE_CREATE,
             'parameters'    => array(
                 'name'      => 'Ahmet',
-                'type'      => 'Person'),
-        ),
+                'type'      => 'Person')),
         array(
             'action'        => Signal::EDGE_CREATE,
             'parameters'    => array(
@@ -101,8 +100,7 @@ $data = $gc->api->addGraph((function() {
                 'to_name'   => 'Burak',
                 'to_type'   => 'Person',
                 'name'      => 'COLLABORATED',
-                'weight'    => 2),
-        ),
+                'weight'    => 2)),
     )));
     return $graph;
 })()): Graph
