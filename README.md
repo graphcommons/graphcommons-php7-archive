@@ -15,7 +15,7 @@ Notice: See Graph Commons's official documents [here](//graphcommons.github.io/a
 
 ## Installation
 ```bash
-// composer
+# composer
 ~$ composer require qeremy/graphcommons-php
 ```
 
