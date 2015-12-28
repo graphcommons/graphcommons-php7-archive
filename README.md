@@ -87,5 +87,24 @@ $data = $gc->api->addGraph((function() {
         ),
     )));
     return $graph;
-})());
+})()): array
 ```
+
+##### Add a New Graph Signal
+```php
+$data = $gc->api->addGraphSignal(
+    '<GRAPH ID>', SignalCollection::fromArray(array(
+        array(
+            'action'        => Signal::EDGE_CREATE,
+            'parameters'    => array(
+                'from_name' => 'Ahmet',
+                'from_type' => 'Person',
+                'to_name'   => 'Fatih',
+                'to_type'   => 'Person',
+                'name'      => 'COLLABORATED',
+                'weight'    => 2,
+            ),
+        ),
+))): array
+```
+
