@@ -85,9 +85,14 @@ try {
     $data = $gc->api->getGraph('nö!');
 } catch (\Throwable $e) {
     // 404
-    print $e->getCode();
+    print $e->getCode() ."\n";
     // API error: code(404) message(Graph not found)
-    print $e->getMessage();
+    print $e->getMessage() ."\n";
+
+    // print original response status
+    print $gc->client->response->getStatus() ."\n";
+    // print original response body
+    print $gc->client->response->getBody() ."\n";
 }
 
 
