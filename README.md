@@ -35,3 +35,21 @@ $config['timeout_read'] = 5;
 // timeout for connection
 $config['timeout_connection'] = 5;
 ```
+
+## Usage
+```
+define('API_KEY', '<YOUR_API_KEY>');
+
+use GraphCommons\GraphCommons;
+use GraphCommons\Graph\Graph;
+use GraphCommons\Graph\Signal;
+use GraphCommons\Graph\SignalCollection;
+
+// init gc object
+$gc = new GraphCommons(API_KEY, $config);
+```
+
+### Check API Status
+```php
+$gc->api->status(): array
+```
