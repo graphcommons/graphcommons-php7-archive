@@ -99,7 +99,7 @@ final class Client
 
         unset($headers, $body);
 
-        @list($headers, $body) = explode("\r\n\r\n", $result, 2);
+        @ list($headers, $body) = explode("\r\n\r\n", $result, 2);
         if (!isset($headers)) {
             throw new ResponseException('No headers received from server!');
         }
