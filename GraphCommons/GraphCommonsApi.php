@@ -165,7 +165,7 @@ final class GraphCommonsApi
                     $user = (new GraphUser($graph))
                         ->setId($id)
                         ->setUsername($_->username)
-                        ->setFullname($_->fullname)
+                        ->setFullName($_->fullname)
                         ->setFirstName($_->first_name)
                         ->setLastName($_->last_name)
                         ->setIsOwner($_->is_owner)

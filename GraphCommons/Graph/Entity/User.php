@@ -52,7 +52,7 @@ final class User extends GraphEntity
      * Full name.
      * @var string
      */
-    protected $fullname;
+    protected $fullName;
 
     /**
      * First name.
@@ -111,12 +111,12 @@ final class User extends GraphEntity
     /**
      * Set full name.
      *
-     * @param  string $fullname
+     * @param  string $fullName
      * @return self
      */
-    final public function setFullname(string $fullname = null): self
+    final public function setFullName(string $fullName = null): self
     {
-        $this->fullname = (string) $fullname;
+        $this->fullName = (string) $fullName;
         return $this;
     }
 
@@ -205,9 +205,9 @@ final class User extends GraphEntity
      *
      * @return string
      */
-    final public function getFullname(): string
+    final public function getFullName(): string
     {
-        return $this->fullname;
+        return $this->fullName;
     }
 
     /**
