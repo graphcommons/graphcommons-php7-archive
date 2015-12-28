@@ -14,13 +14,17 @@ Before beginning;
 Notice: See Graph Commons's official documents [here](//graphcommons.github.io/api-v1/) before using this library.
 
 ## Installation
-```php
+```bash
 // composer
 ~$ composer require qeremy/graphcommons-php
+```
 
+```json
 // composer.json
 {"require": {"qeremy/graphcommons-php": "dev-master"}}
+```
 
+```php
 // manual, after cloning to /path/to/GraphCommons
 $autoload = require('/path/to/GraphCommons/Autoload.php');
 $autoload->register();
