@@ -1,4 +1,28 @@
 <?php
+/**
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2015 Graph Commons & contributors.
+ *     <http://graphcommons.com>
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 namespace GraphCommons\Http;
 
 use GraphCommons\GraphCommons;
@@ -8,14 +32,42 @@ use GraphCommons\Util\{Json, JsonException};
 use GraphCommons\Http\{Request, Exception\Request as RequestException};
 use GraphCommons\Http\{Response, Exception\Response as ResponseException};
 
+/**
+ * @package    GraphCommons
+ * @subpackage GraphCommons\Http
+ * @object     GraphCommons\Http\Client
+ * @uses       GraphCommons\GraphCommons,
+ *             GraphCommons\Util\Util,
+ *             GraphCommons\Util\PropertyTrait,
+ *             GraphCommons\Util\Json, GraphCommons\Util\JsonException,
+ *             GraphCommons\Http\Request, GraphCommons\Http\Exception\Request,
+ *             GraphCommons\Http\Response, GraphCommons\Http\Exception\Response
+ * @author     Kerem Güneş <qeremy@gmail.com>
+ */
 final class Client
 {
+    /**
+     * Property thing.
+     * @trait GraphCommons\Util\PropertyTrait
+     */
     use Property;
 
+    /**
+     * GraphCommons object.
+     * @var GraphCommons\GraphCommons
+     */
     private $graphCommons;
-    private $request;
-    private $response;
 
+    /**
+     * Request/response objects.
+     * @var GraphCommons\Http\Request, GraphCommons\Http\Response
+     */
+    private $request, $response;
+
+    /**
+     * Default config options.
+     * @var array
+     */
     private $config = array(
         'debug' => false,
         'blocking' => true,
@@ -23,9 +75,18 @@ final class Client
         'timeout_connection' => 5,
     );
 
+    /**
+     * Constructor.
+     *
+     * @param GraphCommons\GraphCommons $graphCommons
+     * @param array                     $config
+     */
     final public function __construct(GraphCommons $graphCommons, array $config = []) {
         $this->graphCommons = $graphCommons;
+
+        // overwrite user config options on defaults
         $this->config = array_merge($this->config, $config);
+
         $this->request = new Request($this);
         $this->response = new Response($this);
 
@@ -35,18 +96,41 @@ final class Client
             'GraphCommons-PHP/v%s (+https://github.com/qeremy/graphcommons-php)'
             , $this->graphCommons->getVersion()
         ));
+        // set auth header
         $this->request->setHeader('Authentication', $this->graphCommons->getApiKey());
     }
 
+    /**
+     * Get request object.
+     *
+     * @return GraphCommons\Http\Request
+     */
     final public function getRequest(): Request
     {
         return $this->request;
     }
+
+    /**
+     * Get response object.
+     *
+     * @return GraphCommons\Http\Response
+     */
     final public function getResponse(): Response
     {
         return $this->response;
     }
 
+    /**
+     * Perform a request.
+     *
+     * @param  string $uri
+     * @param  array  $uriParams
+     * @param  string $body
+     * @param  array  $headers
+     * @return GraphCommons\Http\Response
+     * @throws \InvalidArgumentException,
+     *         GraphCommons\Http\Exception\Request, GraphCommons\Util\JsonException
+     */
     final public function request(
         string $uri, array $uriParams = null,
         string $body = '', array $headers = null): Response
@@ -54,7 +138,7 @@ final class Client
         // match for a valid request i.e: GET /foo
         preg_match('~^([a-z]+)\s+(/.*)~i', $uri, $match);
         if (!isset($match[1], $match[2])) {
-            throw new \Exception('Usage: <REQUEST METHOD> <REQUEST URI>');
+            throw new \InvalidArgumentException('Usage: <REQUEST METHOD> <REQUEST URI>');
         }
 
         $uri = sprintf('%s/%s/%s',
@@ -99,6 +183,7 @@ final class Client
 
         unset($headers, $body);
 
+        // split headers/body pairs
         @ list($headers, $body) = explode("\r\n\r\n", $result, 2);
         if (!isset($headers)) {
             throw new ResponseException('No headers received from server!');
@@ -107,6 +192,7 @@ final class Client
             throw new ResponseException('No body received from server!');
         }
 
+        // parse response headers
         $headers = Util::parseResponseHeaders($headers);
         if (isset($headers['status'])) {
             $this->response->setStatus($headers['status']);
@@ -118,7 +204,10 @@ final class Client
         $this->response->setBody($body);
 
         $json = new Json($body);
+
+        // render response body
         $bodyData = $json->decode(true);
+
         if ($json->hasError()) {
             $jsonError = $json->getError();
             throw new JsonException(sprintf(
@@ -132,24 +221,60 @@ final class Client
         return $this->response;
     }
 
+    /**
+     * Perform ad GET request.
+     *
+     * @param  string $uri
+     * @param  array  $uriParams
+     * @param  array  headers
+     * @return self.request()
+     */
     final public function get($uri, array $uriParams = null, array $headers = null): Response
     {
         return $this->request(Request::METHOD_GET .' /'. $uri, $uriParams, '', $headers);
     }
+
+    /**
+     * Perform ad POST request.
+     *
+     * @param  string $uri
+     * @param  array  $uriParams
+     * @param  string $body
+     * @param  array  $headers
+     * @return self.request()
+     */
     final public function post($uri, array $uriParams = null, $body = '', array $headers = null): Response
     {
         return $this->request(Request::METHOD_POST .' /'. $uri, $uriParams, $body, $headers);
     }
+
+    /**
+     * Perform ad PUT request.
+     *
+     * @param  string $uri
+     * @param  array  $uriParams
+     * @param  string $body
+     * @param  array  $headers
+     * @return self.request()
+     */
     final public function put($uri, array $uriParams = null, $body = '', array $headers = null): Response
     {
         return $this->request(Request::METHOD_PUT .' /'. $uri, $uriParams, $body, $headers);
     }
+
+    /**
+     * @notimplemented
+     */
     final public function head($uri, array $uriParams = null, array $headers = null): Response
     {
-        throw new \Exception('HEAD method not implemented yet on API side!');
+        throw new \RuntimeException('HEAD method not implemented yet on API side!');
     }
+
+    /**
+     * @notimplemented
+     */
     final public function delete($uri, array $uriParams = null, array $headers = null): Response
     {
-        throw new \Exception('DELETE method not implemented yet on API side!');
+        throw new \RuntimeException('DELETE method not implemented yet on API side!');
     }
 }
