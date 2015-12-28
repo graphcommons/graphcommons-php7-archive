@@ -30,7 +30,7 @@ use GraphCommons\Util\SerialTrait as Serial;
 /**
  * @package    GraphCommons
  * @subpackage GraphCommons\Graph
- * @object     GraphCommons\Graph\Graph
+ * @object     GraphCommons\Graph\Signal
  * @uses       GraphCommons\Util\SerialTrait
  * @author     Kerem Güneş <qeremy@gmail.com>
  */
