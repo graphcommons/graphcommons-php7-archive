@@ -14,7 +14,7 @@ $gc = new GraphCommons(API_KEY, ['debug' => true]);
 // pre($gc);
 
 // check status
-$data = $gc->api->status();
+// $data = $gc->api->status();
 
 // get graph
 // $data = $gc->api->getGraph('8f8c794a-a498-4c3e-a73b-95a460db6e3a');
@@ -72,6 +72,16 @@ $data = $gc->api->status();
 //     'query' => 'kerem',
 //     'limit' => 1,
 // ));
+
+// error!
+// try {
+//     $data = $gc->api->getGraph('nö!');
+// } catch (\Exception $e) {
+//     // 404
+//     print $e->getCode();
+//     // API error: code(404) message(Graph not found)
+//     print $e->getMessage();
+// }
 
 // dump data
 // pre($data);
