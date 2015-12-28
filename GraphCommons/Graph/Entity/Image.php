@@ -92,7 +92,7 @@ final class Image extends GraphEntity
      *
      * @return string
      */
-    final public function getPath()
+    final public function getPath(): string
     {
         return $this->path;
     }
@@ -102,7 +102,7 @@ final class Image extends GraphEntity
      *
      * @return string
      */
-    final public function getRefName()
+    final public function getRefName(): string
     {
         return $this->refName;
     }
@@ -112,7 +112,7 @@ final class Image extends GraphEntity
      *
      * @return string
      */
-    final public function getRefUrl()
+    final public function getRefUrl(): string
     {
         return $this->refUrl;
     }
