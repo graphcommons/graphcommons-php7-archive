@@ -108,3 +108,8 @@ $data = $gc->api->addGraphSignal(
 ))): array
 ```
 
+##### Get a Node
+```php
+dump $gc->api->getNode('<NODE ID>'): array
+```
+
