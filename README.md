@@ -50,7 +50,7 @@ $gc = new GraphCommons(API_KEY, $config);
 ```
 
 ##### Check API Status
-Endpoint: `GET https://graphcommons.com/api/v1/status`
+`GET https://graphcommons.com/api/v1/status`
 
 ```php
 dump $gc->api->status(): array
