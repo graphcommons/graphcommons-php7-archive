@@ -30,7 +30,7 @@ use GraphCommons\Http\Client;
 /**
  * @package    GraphCommons
  * @subpackage GraphCommons\Http
- * @object     GraphCommons\Http\Client
+ * @object     GraphCommons\Http\Request
  * @uses       GraphCommons\Htt\Client
  * @extends    GraphCommons\Htt\Stream
  * @author     Kerem Güneş <qeremy@gmail.com>
