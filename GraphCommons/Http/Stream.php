@@ -125,13 +125,19 @@ abstract class Stream
                 $fail['message'] = $this->getFailText();
             }
         } elseif ($this->type == self::TYPE_RESPONSE) {
-            $bodyData = Util::toObject($this->bodyData, false);
+            $bodyData = Util::toObject((array) $this->bodyData, false);
+            // check first body for errors (differs by requests)
             if (isset($bodyData->msg)) {
                 $fail['code'] = $this->getStatusCode();
                 $fail['message'] = $bodyData->msg;
             } elseif (isset($bodyData->status, $bodyData->error)) {
                 $fail['code'] = $bodyData->status;
                 $fail['message'] = $bodyData->error;
+            }
+            // http error?
+            elseif ($this->getStatusCode() >= 400) {
+                $fail['code'] = $this->getStatusCode();
+                $fail['message'] = $this->getStatusText();
             }
         }
 
