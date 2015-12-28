@@ -57,14 +57,28 @@ dump $gc->api->status(): array
 ```
 
 ##### Get a Graph
-Endpoint: `GET https://graphscommons.com/api/v1/graphs/:id`
+
+Notice: You can see each graph data as JSON requesting `https://graphcommons.com/graphs/GRAPH ID.json`.
+
+`GET https://graphscommons.com/api/v1/graphs/:id`
 
 ```php
-dump $gc->api->getGraph('<GRAPH ID>'): array
+$graph = $gc->api->getGraph('<GRAPH ID>'): Graph
+print $graph->id;
+
+dump $graph->id: string
+dump $graph->image->path: string
+dump $graph->license->type: string
+dump $graph->layout->springLength: int
+
+// iteration over users, nodes, edges, nodeTypes, edgeTypes
+foreach ($graph->users as $user) {
+    print $user->id ."\n";
+}
 ```
 
 ##### Get a New Graph
-Endpoint: `POST https://graphcommons.com/api/v1/graphs`
+`POST https://graphcommons.com/api/v1/graphs`
 
 ```php
 $data = $gc->api->addGraph((function() {
@@ -93,11 +107,11 @@ $data = $gc->api->addGraph((function() {
         ),
     )));
     return $graph;
-})()): array
+})()): Graph
 ```
 
 ##### Add a New Graph Signal
-Endpoint: `PUT https://graphcommons.com/api/v1/graphs/:id/add`
+`PUT https://graphcommons.com/api/v1/graphs/:id/add`
 
 ```php
 $data = $gc->api->addGraphSignal(
@@ -113,24 +127,24 @@ $data = $gc->api->addGraphSignal(
                 'weight'    => 2,
             ),
         ),
-))): array
+))): Graph
 ```
 
 ##### Get a Node
-Endpoint: `GET https://graphcommons.com/api/v1/nodes/:id`
+`GET https://graphcommons.com/api/v1/nodes/:id`
 
 ```php
-dump $gc->api->getNode('<NODE ID>'): array
+dump $gc->api->getNode('<NODE ID>'): GraphNode
 ```
 
 ##### Get a Node
-Endpoint: `GET https://graphcommons.com/api/v1/nodes/search`
+`GET https://graphcommons.com/api/v1/nodes/search`
 
 ```php
 $data = $gc->api->getNodes(array(
     'query' => 'kerem',
     'limit' => 1,
-)): array
+)): GraphNodes
 ```
 
 ## Error Handling
