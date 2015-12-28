@@ -12,3 +12,26 @@ Before beginning;
 - On README, `dump` means `var_dump`
 
 Notice: See Graph Commons's official documents [here](//graphcommons.github.io/api-v1/) before using this library.
+
+## Install
+```php
+// composer
+{"require": {"qeremy/graphcommons-php": "dev-master"}}
+
+// manual
+$autoload = require('path/to/GraphCommons/Autoload.php');
+$autoload->register();
+```
+
+## Configuration
+Configuration is optional but you can provide all these options;
+```php
+// dump whole stream while requests
+$config['debug'] = false;
+// stream blocking
+$config['blocking'] = true;
+// timeout for read
+$config['timeout_read'] = 5;
+// timeout for connection
+$config['timeout_connection'] = 5;
+```
