@@ -222,7 +222,7 @@ final class Client
     }
 
     /**
-     * Perform ad GET request.
+     * Perform a GET request.
      *
      * @param  string $uri
      * @param  array  $uriParams
@@ -235,7 +235,7 @@ final class Client
     }
 
     /**
-     * Perform ad POST request.
+     * Perform a POST request.
      *
      * @param  string $uri
      * @param  array  $uriParams
@@ -249,7 +249,7 @@ final class Client
     }
 
     /**
-     * Perform ad PUT request.
+     * Perform a PUT request.
      *
      * @param  string $uri
      * @param  array  $uriParams
