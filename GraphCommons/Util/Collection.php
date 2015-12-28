@@ -27,7 +27,8 @@ namespace GraphCommons\Util;
 
 /**
  * @package    GraphCommons
- * @object     GraphCommons\GraphCommons
+ * @subpackage GraphCommons\Util
+ * @object     GraphCommons\Util\Collection
  * @implements \Countable, \IteratorAggregate, \ArrayAccess
  * @author     Kerem Güneş <qeremy@gmail.com>
  */
