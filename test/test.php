@@ -81,14 +81,14 @@ $gc = new GraphCommons(API_KEY, ['debug' => true]);
 // ));
 
 // error!
-// try {
-//     $data = $gc->api->getGraph('nö!');
-// } catch (\Exception $e) {
-//     // 404
-//     print $e->getCode();
-//     // API error: code(404) message(Graph not found)
-//     print $e->getMessage();
-// }
+try {
+    $data = $gc->api->getGraph('nö!');
+} catch (\Throwable $e) {
+    // 404
+    print $e->getCode();
+    // API error: code(404) message(Graph not found)
+    print $e->getMessage();
+}
 
 
 
