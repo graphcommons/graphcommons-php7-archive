@@ -19,7 +19,7 @@ Notice: See Graph Commons's official documents [here](//graphcommons.github.io/a
 ~$ composer require qeremy/graphcommons-php
 ```
 
-```json
+```js
 // composer.json
 {"require": {"qeremy/graphcommons-php": "dev-master"}}
 ```
