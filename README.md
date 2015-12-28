@@ -144,7 +144,7 @@ $graphNodes = $gc->api->getNodes(array(
 ```php
 try {
     $data = $gc->api->getGraph('nö!');
-} catch (\Exception $e) {
+} catch (\Throwable $e) {
     // 404
     print $e->getCode();
     // API error: code(404) message(Graph not found)
