@@ -17,10 +17,17 @@ $gc = new GraphCommons(API_KEY, ['debug' => true]);
 // $data = $gc->api->status();
 
 // get graph
-// $data = $gc->api->getGraph('8f8c794a-a498-4c3e-a73b-95a460db6e3a');
+// $graph = $gc->api->getGraph('8f8c794a-a498-4c3e-a73b-95a460db6e3a');
+// pre($graph->id);
+// pre($graph->image->path);
+// pre($graph->license->type);
+// pre($graph->layout->springLength);
+// foreach ($graph->users as $user) {
+//     print $user->id ."\n";
+// }
 
 // add graph
-// $data = $gc->api->addGraph((function() {
+// $graph = $gc->api->addGraph((function() {
 //     $graph = new Graph();
 //     $graph->setName('Person Graph');
 //     $graph->setDescription('The Person Graph!');
@@ -83,8 +90,11 @@ $gc = new GraphCommons(API_KEY, ['debug' => true]);
 //     print $e->getMessage();
 // }
 
-// dump data
-// pre($data);
+
+
+
+
+
 
 // pre(SignalCollection::fromArray(array(
 //     array(
