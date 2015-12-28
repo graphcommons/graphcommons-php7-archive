@@ -30,7 +30,7 @@ use GraphCommons\Graph\GraphEntity;
 /**
  * @package    GraphCommons
  * @subpackage GraphCommons\Graph\Entity
- * @object     GraphCommons\Graph\Entity\GraphEntity
+ * @object     GraphCommons\Graph\Entity\Edge
  * @uses       GraphCommons\Graph\GraphEntity
  * @author     Kerem Güneş <qeremy@gmail.com>
  */
