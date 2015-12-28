@@ -67,7 +67,7 @@ $gc = new GraphCommons(API_KEY, ['debug' => true]);
 
 $data = $gc->api->getNodes(array(
     'query' => 'kerem',
-    'limit' => 10,
+    'limit' => 1,
 ));
 
 // dump data

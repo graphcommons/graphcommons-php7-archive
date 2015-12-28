@@ -263,15 +263,11 @@ final class GraphCommonsApi
                 $fail['code'], $fail['message']
             ),  $fail['code']);
         }
-
         $nodes = new GraphNodes();
-
         $nn = $response->getBodyData('nodes');
-        prj($response->getBody());
         if (!empty($nn)) foreach ($nn as $n) {
             $nodes->add($n['id'], $this->fillNode(new GraphNode(), $n));
         }
-
         return $nodes;
     }
 
@@ -332,6 +328,9 @@ final class GraphCommonsApi
             }
             if (isset($n->updated_at)) {
                 $node->setUpdatedAt($n->updated_at);
+            }
+            if (isset($n->properties)) {
+                $node->setProperties($_->properties);
             }
             if (isset($n->hubs, $n->users, $n->graphs, $n->graphs_count)) {
                 $node->setHubs($n->hubs)
