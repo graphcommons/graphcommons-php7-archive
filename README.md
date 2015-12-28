@@ -64,8 +64,6 @@ Notice: You can see each graph data as JSON requesting `https://graphcommons.com
 
 ```php
 $graph = $gc->api->getGraph('<GRAPH ID>'): Graph
-print $graph->id;
-
 dump $graph->id: string
 dump $graph->image->path: string
 dump $graph->license->type: string
