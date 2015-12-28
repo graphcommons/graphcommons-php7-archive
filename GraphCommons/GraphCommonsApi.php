@@ -469,7 +469,7 @@ final class GraphCommonsApi
                 $node->setUpdatedAt($n->updated_at);
             }
             if (isset($n->properties)) {
-                $node->setProperties($_->properties);
+                $node->setProperties($n->properties);
             }
             if (isset($n->hubs, $n->users, $n->graphs, $n->graphs_count)) {
                 $node->setHubs((array) $n->hubs)
