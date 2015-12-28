@@ -64,6 +64,7 @@ Notice: You can see each graph data as JSON requesting `https://graphcommons.com
 
 ```php
 $graph = $gc->api->getGraph('<GRAPH ID>'): Graph
+
 dump $graph->id: string
 dump $graph->image->path: string
 dump $graph->license->type: string
@@ -79,7 +80,7 @@ foreach ($graph->users as $user) {
 `POST https://graphcommons.com/api/v1/graphs`
 
 ```php
-$data = $gc->api->addGraph((function() {
+$graph = $gc->api->addGraph((function() {
     $graph = new Graph();
     $graph->setName('Person Graph');
     $graph->setDescription('The Person Graph!');
@@ -108,7 +109,7 @@ $data = $gc->api->addGraph((function() {
 `PUT https://graphcommons.com/api/v1/graphs/:id/add`
 
 ```php
-$data = $gc->api->addGraphSignal(
+$graph = $gc->api->addGraphSignal(
     '<GRAPH ID>', SignalCollection::fromArray(array(
         array(
             'action'        => Signal::EDGE_CREATE,
@@ -128,14 +129,14 @@ $data = $gc->api->addGraphSignal(
 `GET https://graphcommons.com/api/v1/nodes/:id`
 
 ```php
-dump $gc->api->getNode('<NODE ID>'): GraphNode
+$graphNode $gc->api->getNode('<NODE ID>'): GraphNode
 ```
 
 ##### Get a Node
 `GET https://graphcommons.com/api/v1/nodes/search`
 
 ```php
-$data = $gc->api->getNodes(array(
+$graphNodes = $gc->api->getNodes(array(
     'query' => 'kerem',
     'limit' => 1,
 )): GraphNodes
