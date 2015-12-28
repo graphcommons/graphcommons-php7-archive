@@ -1,6 +1,10 @@
 <?php
 namespace GraphCommons;
 
+if (PHP_VERSION[0] != '7') {
+    throw new \RuntimeException('GraphCommons-PHP requires minimum PHP 7 version!');
+}
+
 final class Autoload
 {
     private static $instance;
