@@ -58,7 +58,7 @@ dump $gc->api->status(): array
 
 ##### Get a Graph
 
-Notice: You can see each graph data as JSON requesting `https://graphcommons.com/graphs/GRAPH ID.json`.
+Notice: You can see each graph data as JSON requesting `https://graphcommons.com/graphs/<GRAPH ID>.json`.
 
 `GET https://graphscommons.com/api/v1/graphs/:id`
 
