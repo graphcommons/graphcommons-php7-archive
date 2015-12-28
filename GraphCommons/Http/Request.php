@@ -169,7 +169,7 @@ final class Request extends Stream
      */
     final public function ok(): bool
     {
-        return $this->isFail();
+        return !$this->isFail();
     }
 
     // @wait
