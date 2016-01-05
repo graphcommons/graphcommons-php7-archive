@@ -81,7 +81,7 @@ foreach ($graph->users as $user) {
 }
 ```
 
-##### Get a New Graph
+##### Add a New Graph
 `POST https://graphcommons.com/api/v1/graphs`
 
 ```php
