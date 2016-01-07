@@ -137,7 +137,7 @@ $graph = $gc->api->addGraphSignal(
 $graphNode = $gc->api->getNode('<NODE ID>'): GraphNode
 ```
 
-##### Get (search) all Nodes
+##### Get (search) Nodes
 `GET https://graphcommons.com/api/v1/nodes/search`
 
 ```php
