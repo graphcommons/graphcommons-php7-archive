@@ -14,11 +14,12 @@ $gc = new GraphCommons(API_KEY, ['debug' => true]);
 // pre($gc);
 
 // check status
-// $data = $gc->api->status();
+$data = $gc->api->status();
+// pre($data,1);
 
 // get graph
 // $graph = $gc->api->getGraph('8f8c794a-a498-4c3e-a73b-95a460db6e3a');
-// pre($graph->id);
+
 // pre($graph->image->path);
 // pre($graph->license->type);
 // pre($graph->layout->springLength);
@@ -81,19 +82,19 @@ $gc = new GraphCommons(API_KEY, ['debug' => true]);
 // ));
 
 // error!
-try {
-    $data = $gc->api->getGraph('nö!');
-} catch (\Throwable $e) {
-    // 404
-    print $e->getCode() ."\n";
-    // API error: code(404) message(Graph not found)
-    print $e->getMessage() ."\n";
+// try {
+//     $gc->api->getGraph('nö!');
+// } catch (\Throwable $e) {
+//     // 404
+//     print $e->getCode() ."\n";
+//     // API error: code(404) message(Graph not found)
+//     print $e->getMessage() ."\n";
 
-    // print original response status
-    print $gc->client->response->getStatus() ."\n";
-    // print original response body
-    print $gc->client->response->getBody() ."\n";
-}
+//     // print original response status
+//     print $gc->client->response->getStatus() ."\n";
+//     // print original response body
+//     print $gc->client->response->getBody() ."\n";
+// }
 
 
 
