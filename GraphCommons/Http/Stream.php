@@ -25,8 +25,10 @@
  */
 namespace GraphCommons\Http;
 
-use GraphCommons\GraphCommonsApiException as Exception;
-use GraphCommons\Util\Util;
+use GraphCommons\{
+    GraphCommonsApiException as Exception,
+    Util\Util
+};
 
 /**
  * @package    GraphCommons

@@ -25,8 +25,6 @@
  */
 namespace GraphCommons\Http;
 
-use GraphCommons\Http\Client;
-
 /**
  * @package    GraphCommons
  * @subpackage GraphCommons\Http

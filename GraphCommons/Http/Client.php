@@ -25,12 +25,14 @@
  */
 namespace GraphCommons\Http;
 
-use GraphCommons\GraphCommons;
-use GraphCommons\Util\Util;
-use GraphCommons\Util\PropertyTrait as Property;
-use GraphCommons\Util\{Json, JsonException};
-use GraphCommons\Http\{Request, Exception\Request as RequestException};
-use GraphCommons\Http\{Response, Exception\Response as ResponseException};
+use GraphCommons\{
+    GraphCommons,
+    Util\Util,
+    Util\PropertyTrait as Property,
+    Util\Json, Util\JsonException,
+    Http\Request, Http\Exception\Request as RequestException,
+    Http\Response, Http\Exception\Response as ResponseException
+};
 
 /**
  * @package    GraphCommons
