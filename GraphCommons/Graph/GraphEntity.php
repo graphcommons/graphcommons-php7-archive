@@ -25,7 +25,7 @@
  */
 namespace GraphCommons\Graph;
 
-use GraphCommons\Util\PropertyTrait as Property;
+use GraphCommons\Util\PropertyTrait;
 
 /**
  * @package    GraphCommons
@@ -40,7 +40,7 @@ abstract class GraphEntity
      * Property thing.
      * @trait GraphCommons\Util\PropertyTrait
      */
-    use Property;
+    use PropertyTrait;
 
     /**
      * Graph object.

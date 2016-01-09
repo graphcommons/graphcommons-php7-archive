@@ -25,7 +25,7 @@
  */
 namespace GraphCommons\Graph;
 
-use GraphCommons\Util\SerialTrait as Serial;
+use GraphCommons\Util\SerialTrait;
 
 /**
  * @package    GraphCommons
@@ -40,7 +40,7 @@ final class Signal
      * Serial thing.
      * @trait GraphCommons\Util\SerialTrait
      */
-    use Serial;
+    use SerialTrait;
 
     /**
      * Signal actions.

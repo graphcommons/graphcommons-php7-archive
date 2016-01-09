@@ -28,7 +28,7 @@ namespace GraphCommons\Http;
 use GraphCommons\{
     GraphCommons,
     Util\Util,
-    Util\PropertyTrait as Property,
+    Util\PropertyTrait,
     Util\Json, Util\JsonException,
     Http\Request, Http\Exception\Request as RequestException,
     Http\Response, Http\Exception\Response as ResponseException
@@ -52,7 +52,7 @@ final class Client
      * Property thing.
      * @trait GraphCommons\Util\PropertyTrait
      */
-    use Property;
+    use PropertyTrait;
 
     /**
      * GraphCommons object.

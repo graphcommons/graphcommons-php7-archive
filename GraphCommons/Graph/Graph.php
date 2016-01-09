@@ -28,7 +28,7 @@ namespace GraphCommons\Graph;
 use GraphCommons\{
     Util\PropertyTrait,
     Util\SerialTrait,
-    Graph\SignalCollection as Signals,
+    Graph\SignalCollection,
     Graph\Entity\Image,
     Graph\Entity\License,
     Graph\Entity\Layout,
@@ -334,7 +334,7 @@ class Graph
      * @param  GraphCommons\Graph\SignalCollection $signals
      * @return self
      */
-    final public function setSignals(Signals $signals): self
+    final public function setSignals(SignalCollection $signals): self
     {
         $this->signals = $signals;
         return $this;
@@ -495,7 +495,7 @@ class Graph
      *
      * @return GraphCommons\Graph\SignalCollection
      */
-    final public function getSignals(): Signals
+    final public function getSignals(): SignalCollection
     {
         return $this->signals;
     }
