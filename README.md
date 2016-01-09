@@ -16,12 +16,12 @@ Notice: See Graph Commons's official documents [here](//graphcommons.github.io/a
 ## Installation
 ```bash
 # composer
-~$ composer require qeremy/graphcommons-php
+~$ composer require qeremy/graphcommons-php7
 ```
 
 ```js
 // composer.json
-{"require": {"qeremy/graphcommons-php": "dev-master"}}
+{"require": {"qeremy/graphcommons-php7": "dev-master"}}
 ```
 
 ```php
