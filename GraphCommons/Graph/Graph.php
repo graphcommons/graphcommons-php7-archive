@@ -25,14 +25,17 @@
  */
 namespace GraphCommons\Graph;
 
-use GraphCommons\Util\{PropertyTrait as Property, SerialTrait as Serial};
-use GraphCommons\Graph\SignalCollection as Signals;
-use GraphCommons\Graph\Entity\Image;
-use GraphCommons\Graph\Entity\License;
-use GraphCommons\Graph\Entity\Layout;
-use GraphCommons\Graph\Entity\Users;
-use GraphCommons\Graph\Entity\{Nodes, NodeTypes};
-use GraphCommons\Graph\Entity\{Edges, EdgeTypes};
+use GraphCommons\{
+    Util\PropertyTrait as Property,
+    Util\SerialTrait as Serial,
+    Graph\SignalCollection as Signals,
+    Graph\Entity\Image,
+    Graph\Entity\License,
+    Graph\Entity\Layout,
+    Graph\Entity\Users,
+    Graph\Entity\Nodes, Graph\Entity\NodeTypes,
+    Graph\Entity\Edges, Graph\Entity\EdgeTypes
+};
 
 /**
  * @package    GraphCommons

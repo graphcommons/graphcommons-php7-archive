@@ -25,10 +25,13 @@
  */
 namespace GraphCommons\Graph;
 
-use GraphCommons\Util\Util;
-use GraphCommons\Util\Collection;
-use GraphCommons\Util\SerialTrait as Serial;
-use GraphCommons\Util\{Json, JsonException};
+use GraphCommons\{
+    Util\Util,
+    Util\Collection,
+    Util\SerialTrait,
+    Util\Json,
+    Util\JsonException
+};
 
 /**
  * @package    GraphCommons
@@ -46,7 +49,7 @@ class SignalCollection extends Collection
      * Serial thing.
      * @trait GraphCommons\Util\SerialTrait
      */
-    use Serial;
+    use SerialTrait;
 
     /**
      * Add an element.
