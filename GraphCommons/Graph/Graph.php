@@ -26,8 +26,8 @@
 namespace GraphCommons\Graph;
 
 use GraphCommons\{
-    Util\PropertyTrait as Property,
-    Util\SerialTrait as Serial,
+    Util\PropertyTrait,
+    Util\SerialTrait,
     Graph\SignalCollection as Signals,
     Graph\Entity\Image,
     Graph\Entity\License,
@@ -54,13 +54,13 @@ class Graph
      * Property thing.
      * @trait GraphCommons\Util\PropertyTrait
      */
-    use Property;
+    use PropertyTrait;
 
     /**
      * Serial thing.
      * @trait GraphCommons\Util\SerialTrait
      */
-    use Serial;
+    use SerialTrait;
 
     /**
      * Graph statuses.
