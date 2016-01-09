@@ -25,10 +25,12 @@
  */
 namespace GraphCommons;
 
-use GraphCommons\GraphCommonsApi;
-use GraphCommons\Util\PropertyTrait as Property;
-use GraphCommons\Util\Util;
-use GraphCommons\Http\Client;
+use GraphCommons\{
+    GraphCommonsApi,
+    Http\Client,
+    Util\Util,
+    Util\PropertyTrait as Property
+};
 
 /**
  * @package GraphCommons

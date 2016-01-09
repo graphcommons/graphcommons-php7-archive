@@ -25,25 +25,20 @@
  */
 namespace GraphCommons;
 
-use GraphCommons\GraphCommons;
-use GraphCommons\GraphCommonsApiException;
-use GraphCommons\Util\Util;
-use GraphCommons\Util\{Json, JsonException};
-use GraphCommons\Graph\Graph;
-use GraphCommons\Graph\{Signal, SignalCollection};
-use GraphCommons\Graph\Entity\Image as GraphImage;
-use GraphCommons\Graph\Entity\License as GraphLicense;
-use GraphCommons\Graph\Entity\Layout as GraphLayout;
-use GraphCommons\Graph\Entity\{
-    User as GraphUser, Users as GraphUsers
-};
-use GraphCommons\Graph\Entity\{
-    Node as GraphNode, Nodes as GraphNodes,
-    NodeType as GraphNodeType, NodeTypes as GraphNodeTypes
-};
-use GraphCommons\Graph\Entity\{
-    Edge as GraphEdge, Edges as GraphEdges,
-    EdgeType as GraphEdgeType, EdgeTypes as GraphEdgeTypes
+use GraphCommons\{
+    Util\Util,
+    Util\Json,
+    Util\JsonException,
+    Graph\Graph,
+    Graph\Signal, Graph\SignalCollection,
+    Graph\Entity\Image as GraphImage,
+    Graph\Entity\License as GraphLicense,
+    Graph\Entity\Layout as GraphLayout,
+    Graph\Entity\User as GraphUser, Graph\Entity\Users as GraphUsers,
+    Graph\Entity\Node as GraphNode, Graph\Entity\Nodes as GraphNodes,
+    Graph\Entity\NodeType as GraphNodeType, Graph\Entity\NodeTypes as GraphNodeTypes,
+    Graph\Entity\Edge as GraphEdge, Graph\Entity\Edges as GraphEdges,
+    Graph\Entity\EdgeType as GraphEdgeType, Graph\Entity\EdgeTypes as GraphEdgeTypes
 };
 
 /**
