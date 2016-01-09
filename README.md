@@ -45,13 +45,15 @@ $config['timeout_connection'] = 5;
 
 ## Usage
 ```php
-use GraphCommons\GraphCommons;
-use GraphCommons\Graph\Graph;
-use GraphCommons\Graph\Signal;
-use GraphCommons\Graph\SignalCollection;
+use GraphCommons\{
+    GraphCommons,
+    Graph\Graph,
+    Graph\Signal,
+    Graph\SignalCollection
+};
 
 // init gc object
-$gc = new GraphCommons('<YOUR API KEY>', $config=[]);
+$gc = new GraphCommons('<YOUR API KEY>', $config=[]): GraphCommons
 ```
 
 ##### Check API Status
