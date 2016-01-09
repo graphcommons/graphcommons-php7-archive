@@ -2,7 +2,7 @@ Graph Commons is a collaborative 'network mapping' platform and a knowledge base
 
 See more about [here](//graphcommons.com/about).
 
-## GraphCommons
+## GraphCommons (for PHP7)
 
 Before beginning;
 
