@@ -29,7 +29,7 @@ use GraphCommons\{
     GraphCommonsApi,
     Http\Client,
     Util\Util,
-    Util\PropertyTrait as Property
+    Util\PropertyTrait
 };
 
 /**
@@ -47,7 +47,7 @@ final class GraphCommons
      * Property thing.
      * @trait GraphCommons\Util\PropertyTrait
      */
-    use Property;
+    use PropertyTrait;
 
     /**
      * Version holder.
