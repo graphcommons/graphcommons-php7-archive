@@ -53,7 +53,7 @@ final class GraphCommons
      * Version holder.
      * @const string
      */
-    const VERSION = '1.0.1';
+    const VERSION = '1.0.2';
 
     /**
      * API object.
