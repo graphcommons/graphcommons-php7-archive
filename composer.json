@@ -1,10 +1,10 @@
 {
-    "name": "qeremy/graphcommons-php",
+    "name": "qeremy/graphcommons-php7",
     "type": "library",
     "version": "1.0.0",
     "homepage": "http://github.com/qeremy/graphcommons-php",
     "description": "PHP Wrapper for Graph Commons API/v1",
-    "keywords": ["graphcommons", "graphcommons rest", "graphcommons rest php"],
+    "keywords": ["graphcommons", "graph commons", "rest", "php7"],
     "license": "The MIT License (MIT)",
     "authors": [{
         "name": "Kerem Güneş",
