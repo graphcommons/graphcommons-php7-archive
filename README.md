@@ -7,7 +7,7 @@ See more about [here](//graphcommons.com/about).
 Before beginning;
 
 - Set your autoloader properly or use [composer](//getcomposer.org)
-- Use PHP >= 7.0.0 (see for other PHP < 7 support [here](//github.com/qeremy/graphcommons-php))
+- Use PHP >= 7.0.0 (see for other PHP < 7 support [here](//github.com/graphcommons/graphcommons-php))
 - Handle each action in `try/catch` blocks
 - On README, `dump` means `var_dump`
 
@@ -16,12 +16,12 @@ Notice: See Graph Commons's official documents [here](//graphcommons.github.io/a
 ## Installation
 ```bash
 # composer
-~$ composer require qeremy/graphcommons-php7
+~$ composer require graphcommons/graphcommons-php7
 ```
 
 ```js
 // composer.json
-{"require": {"qeremy/graphcommons-php7": "dev-master"}}
+{"require": {"graphcommons/graphcommons-php7": "dev-master"}}
 ```
 
 ```php
