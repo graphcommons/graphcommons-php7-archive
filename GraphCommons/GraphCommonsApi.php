@@ -63,13 +63,19 @@ use GraphCommons\{
 final class GraphCommonsApi
 {
     /**
+     * Graph Commons object.
+     * @var GraphCommons\GraphCommons
+     */
+    private $gc;
+
+    /**
      * Constructor.
      *
-     * @param GraphCommons\GraphCommons $graphCommons
+     * @param GraphCommons\GraphCommons $gc
      */
-    final public function __construct(GraphCommons $graphCommons)
+    final public function __construct(GraphCommons $gc)
     {
-        $this->graphCommons = $graphCommons;
+        $this->gc = $gc;
     }
 
     /**
@@ -80,7 +86,7 @@ final class GraphCommonsApi
      */
     final public function status(): array
     {
-        $response = $this->graphCommons->client->get('/status');
+        $response = $this->gc->client->get('/status');
         if (!$response->ok()) {
             $fail = $response->getFail();
             throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
@@ -100,7 +106,7 @@ final class GraphCommonsApi
      */
     final public function getGraph(string $id): Graph
     {
-        $response = $this->graphCommons->client->get('/graphs/'. $id);
+        $response = $this->gc->client->get('/graphs/'. $id);
         if (!$response->ok()) {
             $fail = $response->getFail();
             throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
@@ -293,7 +299,7 @@ final class GraphCommonsApi
     {
         $body = $this->serializeBody($body);
 
-        $response = $this->graphCommons->client->post('/graphs', null, $body);
+        $response = $this->gc->client->post('/graphs', null, $body);
         if (!$response->ok()) {
             $fail = $response->getFail();
             throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
@@ -316,7 +322,7 @@ final class GraphCommonsApi
     {
         $body = $this->serializeBody($body);
 
-        $response = $this->graphCommons->client->put('/graphs/'. $id .'/add', null, $body);
+        $response = $this->gc->client->put('/graphs/'. $id .'/add', null, $body);
         if (!$response->ok()) {
             $fail = $response->getFail();
             throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
@@ -336,7 +342,7 @@ final class GraphCommonsApi
      */
     final public function getNode(string $id): GraphNode
     {
-        $response = $this->graphCommons->client->get('/nodes/'. $id);
+        $response = $this->gc->client->get('/nodes/'. $id);
         if (!$response->ok()) {
             $fail = $response->getFail();
             throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
@@ -356,7 +362,7 @@ final class GraphCommonsApi
      */
     final public function getNodes(array $query): GraphNodes
     {
-        $response = $this->graphCommons->client->get('/nodes/search', $query);
+        $response = $this->gc->client->get('/nodes/search', $query);
         if (!$response->ok()) {
             $fail = $response->getFail();
             throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
