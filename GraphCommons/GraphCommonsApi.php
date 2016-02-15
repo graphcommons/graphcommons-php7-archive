@@ -106,7 +106,7 @@ final class GraphCommonsApi
      */
     final public function getGraph(string $id): Graph
     {
-        $response = $this->gc->client->get('/graphs/'. $id);
+        $response = $this->gc->client->get("/graphs/{$id}");
         if (!$response->ok()) {
             $fail = $response->getFail();
             throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
@@ -322,7 +322,7 @@ final class GraphCommonsApi
     {
         $body = $this->serializeBody($body);
 
-        $response = $this->gc->client->put('/graphs/'. $id .'/add', null, $body);
+        $response = $this->gc->client->put("/graphs/{$id}/add", null, $body);
         if (!$response->ok()) {
             $fail = $response->getFail();
             throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
@@ -331,6 +331,25 @@ final class GraphCommonsApi
         }
 
         return $this->fillGraph(new Graph(), $response->getBodyData('graph'));
+    }
+
+    /**
+     * Get node types and edge types.
+     *
+     * @param  string $id
+     * @return array
+     */
+    final public function getGraphTypes(string $id): array
+    {
+        $response = $this->gc->client->get("/graphs/{$id}/types");
+        if (!$response->ok()) {
+            $fail = $response->getFail();
+            throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
+                $fail['code'], $fail['message']
+            ),  $fail['code']);
+        }
+
+        return $response->getBodyData();
     }
 
     /**
@@ -428,7 +447,7 @@ final class GraphCommonsApi
 
             // add signals if exists
             if (isset($g->signals)) {
-                $array = array();
+                $array = [];
                 foreach ($g->signals as $i => $signal) {
                     $action = $signal->action;
                     unset($signal->action);
