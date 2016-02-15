@@ -353,6 +353,34 @@ final class GraphCommonsApi
     }
 
     /**
+     * Check edge exists.
+     *
+     * @param  string $id
+     * @param  string $from
+     * @param  string $to
+     * @param  bool   $directed
+     * @return bool
+     */
+    final public function isGraphEdgeExists(string $id, string $from, string $to,
+        $directed = true): bool
+    {
+        $response = $this->gc->client->get("/graphs/{$id}/edges", [
+            'from' => $from, 'to' => $to, 'directed' => $directed,
+        ]);
+        $responseStatusCode = $response->getStatusCode();
+        if (!$response->ok() &&
+            ($responseStatusCode != 404) // this is normal
+        ) {
+            $fail = $response->getFail();
+            throw new GraphCommonsApiException(sprintf('API error: code(%d) message(%s)',
+                $fail['code'], $fail['message']
+            ),  $fail['code']);
+        }
+
+        return ($responseStatusCode == 200);
+    }
+
+    /**
      * Get a graph node.
      *
      * @param  string $id
