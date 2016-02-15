@@ -97,6 +97,13 @@ final class Request extends Stream
     {
         $this->uri = $uri;
         if (!empty($uriParams)) {
+            // bool values
+            foreach ($uriParams as $key => &$value) {
+                if (is_bool($value)) {
+                    $value = ($value) ? 'true' : 'false';
+                }
+            }
+
             $this->uri = trim($this->uri, '?') .'?'. http_build_query($uriParams);
             $this->setUriParams($uriParams);
         }
