@@ -95,7 +95,7 @@ final class Client
         // set initial headers
         $this->request->setHeader('Accept', 'application/json');
         $this->request->setHeader('User-Agent', sprintf(
-            'GraphCommons-PHP/v%s (+https://github.com/qeremy/graphcommons-php)'
+            'GraphCommons-PHP/v%s (+https://github.com/qeremy/graphcommons-php7)'
             , $this->graphCommons->getVersion()
         ));
         // set auth header
