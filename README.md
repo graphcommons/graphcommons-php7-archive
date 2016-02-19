@@ -144,7 +144,7 @@ $graphTypes = $gc->api->getGraphTypes('<NODE ID>'): array
 
 ```php
  $data = $gc->api->isGraphEdgeExists('<NODE ID>',
-   '<FROM ID>', 'TO ID', $directed=true): bool
+   '<FROM ID>', '<TO ID>', $directed=true): bool
 ```
 
 ##### Get a Node
