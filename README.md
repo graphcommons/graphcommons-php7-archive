@@ -132,6 +132,13 @@ $graph = $gc->api->addGraphSignal(
 ))): Graph
 ```
 
+##### Get Graph Types
+`GET /api/v1/graphs/:id/types`
+
+```php
+$graphTypes = $gc->api->getGraphTypes('<NODE ID>'): array
+```
+
 ##### Get a Node
 `GET /api/v1/nodes/:id`
 
