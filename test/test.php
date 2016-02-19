@@ -14,7 +14,7 @@ $gc = new GraphCommons(API_KEY, ['debug' => true]);
 // pre($gc);
 
 // check status
-$data = $gc->api->status();
+// $data = $gc->api->status();
 // pre($data,1);
 
 // get graph
@@ -71,6 +71,11 @@ $data = $gc->api->status();
 //             ),
 //         ),
 // )));
+
+// $data = $gc->api->getGraphTypes('8f8c794a-a498-4c3e-a73b-95a460db6e3a');
+// $data = $gc->api->isGraphEdgeExists('8f8c794a-a498-4c3e-a73b-95a460db6e3a',
+//    'eedbc3f6-b96a-dd75-5948-49dd4386bbe6', '73b3b331-84e2-1668-353f-213cbe6ef061');
+// prd($data);
 
 // get node
 // $data = $gc->api->getNode('255905e9-c82f-4468-a659-7139dd66d810');
