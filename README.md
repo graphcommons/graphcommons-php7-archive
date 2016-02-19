@@ -57,7 +57,7 @@ $gc = new GraphCommons('<YOUR API KEY>', $config=[]): GraphCommons
 ```
 
 ##### Check API Status
-`GET https://graphcommons.com/api/v1/status`
+`GET /api/v1/status`
 
 ```php
 dump $gc->api->status(): array
@@ -67,7 +67,7 @@ dump $gc->api->status(): array
 
 Notice: You can see each graph data as JSON requesting `https://graphcommons.com/graphs/<GRAPH ID>.json`.
 
-`GET https://graphscommons.com/api/v1/graphs/:id`
+`GET /api/v1/graphs/:id`
 
 ```php
 $graph = $gc->api->getGraph('<GRAPH ID>'): Graph
@@ -84,7 +84,7 @@ foreach ($graph->users as $user) {
 ```
 
 ##### Add a New Graph
-`POST https://graphcommons.com/api/v1/graphs`
+`POST /api/v1/graphs`
 
 ```php
 $graph = $gc->api->addGraph((function() {
@@ -113,7 +113,7 @@ $graph = $gc->api->addGraph((function() {
 ```
 
 ##### Add a New Graph Signal
-`PUT https://graphcommons.com/api/v1/graphs/:id/add`
+`PUT /api/v1/graphs/:id/add`
 
 ```php
 $graph = $gc->api->addGraphSignal(
@@ -133,14 +133,14 @@ $graph = $gc->api->addGraphSignal(
 ```
 
 ##### Get a Node
-`GET https://graphcommons.com/api/v1/nodes/:id`
+`GET /api/v1/nodes/:id`
 
 ```php
 $graphNode = $gc->api->getNode('<NODE ID>'): GraphNode
 ```
 
 ##### Get (search) Nodes
-`GET https://graphcommons.com/api/v1/nodes/search`
+`GET /api/v1/nodes/search`
 
 ```php
 $graphNodes = $gc->api->getNodes(array(
