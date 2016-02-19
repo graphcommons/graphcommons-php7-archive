@@ -139,6 +139,14 @@ $graph = $gc->api->addGraphSignal(
 $graphTypes = $gc->api->getGraphTypes('<NODE ID>'): array
 ```
 
+##### Check a Graph Edge
+`GET /api/v1/graphs/:id/edges`
+
+```php
+ $data = $gc->api->isGraphEdgeExists('<NODE ID>',
+   '<FROM ID>', 'TO ID', $directed=true): bool
+```
+
 ##### Get a Node
 `GET /api/v1/nodes/:id`
 
