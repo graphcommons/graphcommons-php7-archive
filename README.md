@@ -92,22 +92,22 @@ $graph = $gc->api->addGraph((function() {
     $graph->setName('Person Graph');
     $graph->setDescription('The Person Graph!');
     $graph->setStatus(Graph::STATUS_DRAFT);
-    $graph->setSignals(SignalCollection::fromArray(array(
-        array(
+    $graph->setSignals(SignalCollection::fromArray([
+        [
             'action'        => Signal::NODE_CREATE,
-            'parameters'    => array(
+            'parameters'    => [
                 'name'      => 'Ahmet',
-                'type'      => 'Person')),
-        array(
+                'type'      => 'Person']],
+        [
             'action'        => Signal::EDGE_CREATE,
-            'parameters'    => array(
+            'parameters'    => [
                 'from_name' => 'Ahmet',
                 'from_type' => 'Person',
                 'to_name'   => 'Burak',
                 'to_type'   => 'Person',
                 'name'      => 'COLLABORATED',
-                'weight'    => 2)),
-    )));
+                'weight'    => 2]],
+    ]));
     return $graph;
 })()): Graph
 ```
