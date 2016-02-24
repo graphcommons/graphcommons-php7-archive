@@ -157,10 +157,10 @@ $graphNode = $gc->api->getNode('<NODE ID>'): GraphNode
 `GET /api/v1/nodes/search`
 
 ```php
-$graphNodes = $gc->api->getNodes(array(
+$graphNodes = $gc->api->getNodes([
     'query' => 'kerem',
     'limit' => 1,
-)): GraphNodes
+]): GraphNodes
 ```
 
 ## Error Handling
