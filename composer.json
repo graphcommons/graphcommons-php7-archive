@@ -1,7 +1,6 @@
 {
     "name": "graphcommons/graphcommons-php7",
     "type": "library",
-    "version": "1.0.3",
     "homepage": "http://github.com/graphcommons/graphcommons-php7",
     "description": "PHP7 Wrapper for Graph Commons API/v1",
     "keywords": ["graphcommons", "graph commons", "rest", "php7"],
